@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ペトコレ|チャット</title>
 </head>
 <body>
-
+<h1>ここはチャットページです。</h1>
 </body>
 </html>

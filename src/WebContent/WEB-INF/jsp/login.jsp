@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ペトコレ|ログインページ</title>
+<title>ペトコレ|ログイン</title>
 </head>
 <body>
-
+<h1>ログインページです。</h1>
 </body>
 </html>
