@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ペトコレ|Myペット図鑑</title>
 </head>
 <body>
+<p>所有者、閲覧者、メインからMyペット図鑑をクリックした人によって見え方が変わるページ</p>
 
 </body>
 </html>
