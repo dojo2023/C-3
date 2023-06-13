@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<header>
+<img src="/coffee_Milk/img/logo.png" alt="ペトコレ">
+<p>テスト</p>
+</header>
 </body>
 </html>
