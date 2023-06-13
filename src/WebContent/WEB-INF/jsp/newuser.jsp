@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ペトコレ|チャット</title>
+
+<title>ぺトコレ｜新規登録</title>
 </head>
 <body>
 
