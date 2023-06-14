@@ -1,0 +1,25 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/pleiades/workspace/data/coffee
+
+
+
+【ユーザー名】	【パスワード】
+  milk               無し	
+
+【IDPWテーブルを作成するSQL文】
+CREATE TABLE MESSAGES (
+	ID VARCHAR  AUTO_INCREMENT PRIMARY KEY,
+	CHATROOMS_ID CHAR(1) NOT NULL,
+	NICKNAME VARCHAR(20),
+	MESSAGE VARCHAR(200) NOT NULL,
+	TIME TIMESTAMP NOT NULL
+);
+
+【IDPWテーブルにサンプルデータを登録するSQL文】
+INSERT INTO ()
+【テーブルを削除するSQL文】
+DROP TABLE MESSAGES
+
