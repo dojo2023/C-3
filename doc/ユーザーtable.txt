@@ -1,0 +1,26 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/pleiades/workspace/data/coffee
+
+
+
+【ユーザー名】	【パスワード】
+ milk              無し		
+
+【USERSテーブルを作成するSQL文】
+CREATE TABLE USERS (
+	ID INT  AUTO_INCREMENT PRIMARY KEY,
+	USER_ID VARCHAR(10) NOT NULL,
+ 	USER_PW VARCHAR(20) NOT NULL
+);
+
+【USERSテーブルにサンプルデータを登録するSQL文】
+INSERT INTO USERS (USER_ID,USER_PW) VALUES ('test','password');
+INSERT INTO USERS (USER_ID,USER_PW) VALUES ('test2','password2');
+
+
+【USERSテーブルを削除するSQL文】
+DROP TABLE USERS 
+
