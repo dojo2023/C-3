@@ -1,1 +1,7 @@
 @charset "UTF-8";
+
+.tab-group{
+	display: flex; /* 横並びにする */
+	justify-content: center; /* 真ん中に揃える */
+}
+

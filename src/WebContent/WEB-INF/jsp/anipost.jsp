@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ペトコレ|Myペット投稿</title>
+<title>Myペット投稿</title>
 </head>
 <body>
 
