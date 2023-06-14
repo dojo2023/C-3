@@ -5,3 +5,11 @@
 	justify-content: center; /* 真ん中に揃える */
 }
 
+.tab{
+	flex-grow:1; /* tabに対し要素同士が均等になる */
+	padding:5px;
+	list-style:none;
+	border:solid 1px #CCC;
+	text-align:center;
+	cursor:pointer; /* カーソルを合わせるとポインターになる */
+}
