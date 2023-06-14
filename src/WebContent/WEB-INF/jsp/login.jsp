@@ -5,11 +5,49 @@
 <head>
 <meta charset="UTF-8">
 <title>ペトコレ|ログイン</title>
+<link rel="stylesheet" href="/coffee_Milk/css/login.css">
 </head>
 <body>
 <h1>ログインページです。</h1>
+<main>
 
-<a href="/simpleBC/LoginServlet">
-<img src="/coffee_Milk/img/logo (1).png" width="160" height="70"  alt="名刺管理">
+<div class="wrapper"> <!--ログインページのメニューを管理するクラス名-->
+    <!--メイン-->
+<!--  <img src="/coffee_Milk/img/logo.png" width="160" height="70"  alt="名刺管理">-->
+
+    <h2>ログイン</h2>
+
+  <form id="login_form" method="POST" action="/coffee_Milk/LoginServlet">
+    <table id ="button">
+        <tr>
+            <td>
+                <label>
+                    ユーザーID:
+                        <input type="text" name="USER_ID" required="required"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    パスワード:
+                        <input type="password" name="USER_PW" required="required"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" name="LOGIN" value="ログイン" class ="button">
+                <input type="reset" name="reset" value="リセット" class ="button">
+            </td>
+        </tr>
+    </table>
+ </form>
+
+</main>
+
+
 </body>
 </html>
+
