@@ -7,17 +7,17 @@ jdbc:h2:file:C:/pleiades/workspace/data/coffee
 
 
 【ユーザー名】	【パスワード】
-    milk               無し			
+   milk               無し		
 
 【テーブルを作成するSQL文】
-CREATE TABLE CHATROOMS (
-	ID CHAR(1) PRIMARY KEY, →1.2.3.4で固定
-	ROOM CHAR   →犬、猫、小動物、水生生物で固定
+CREATE TABLE FAVORITES (
+	POSTS_ID VARCHAR PRIMARY KEY,   →ペット投稿のIDを入れる
+	FAVORITE INTEGER NOT NULL
 );
 
 【テーブルにサンプルデータを登録するSQL文】
-INSERT INTO CHATROOMS(ID,ROOM) VALUES ('1','犬')
+INSERT INTO FAVORITES (POSTS_ID,FAVORITE) VALUES ('1','1')
 
 【テーブルを削除するSQL文】
-DROP TABLE CHATROOMS
+DROP TABLE MESSAGES
 
