@@ -5,28 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/coffee_Milk/css/header.css">
 </head>
 <body>
 <header>
+<div class="header1">
 <a href ="/coffee_Milk/MenuServlet">
 <img src="/coffee_Milk/img/logo.png" alt="ペトコレ">
 </a>
-<nav>
-<ul>
-<li><a href ="/coffee_Milk/NewUserServlet">新規登録</a></li>
-<li><a href ="/coffee_Milk/LoginServlet">ログイン</a></li>
+<nav class="nav2">
+<ul class="header_link">
+<li><a href ="/coffee_Milk/MenuServlet" class="header6">メイン</a></li>
+<li><a href ="/coffee_Milk/ChatServlet" class="header6">チャット</a></li>
+<li><a href ="/coffee_Milk/MyAniBookServlet" class="header6">Myペット図鑑</a></li>
+<li class="genre_single">
+<a href ="/coffee_Milk/SearchServlet" class="header6">ジャンル</a>
+<ul class="genre_second">
+<li><a href ="/coffee_Milk/Servlet">犬</a></li>
+<li><a href ="/coffee_Milk/Servlet">猫</a></li>
+<li><a href ="/coffee_Milk/Servlet">小動物</a></li>
+<li><a href ="/coffee_Milk/Servlet">水生生物</a></li>
+</ul>
+</li>
 </ul>
 </nav>
-<input type="text" name="">
-<input type="submit" name="REGIST" value="検索">
-<nav>
+<nav class="nav1">
 <ul>
-<li><a href ="/coffee_Milk/MenuServlet">メイン</a></li>
-<li><a href ="/coffee_Milk/ChatServlet">チャット</a></li>
-<li><a href ="/coffee_Milk/MyAniBookServlet">Myペット図鑑</a></li>
-<li><a href ="/coffee_Milk/SearchServlet">ジャンル</a></li>
+<li><a href ="/coffee_Milk/NewUserServlet" class="header2">新規登録</a></li>
+<li><a href ="/coffee_Milk/LoginServlet" class="header2">ログイン</a></li>
 </ul>
 </nav>
+<div class="header3">
+<input type="text" name="keyword" id="header4">
+<input type="submit" name="search" value="検索" id="header5">
+</div>
+</div>
 </header>
 </body>
 </html>
