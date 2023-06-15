@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UsersDAO;
+import model.LoginUser;
+
 /**
  * Servlet implementation class NewUserServlet
  */
@@ -20,7 +23,7 @@ public class NewUserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//新規登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newuser.jsp");
 		dispatcher.forward(request, response);
 
@@ -31,7 +34,22 @@ public class NewUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("ID");
+		String pw = request.getParameter("PW");
+
+		// 登録処理を行う
+		UsersDAO nuDao = new UsersDAO();
+		if (nuDao.insert(new LoginUser(id, pw))) {	// 登録成功
+			response.sendRedirect("/coffee_Milk/CompServlet");
+		}
+		else {												// 登録失敗
+	        String error = "※入力されたユーザーIDはすでに使用されています";  //失敗の際にこれがすべて表示されるの？
+            request.setAttribute("error", error);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newuser.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 }

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +43,11 @@
 		<a href="/coffee_Milk/MenuServlet">メインメニューへ戻る</a><br>
 	</form>
 	</div>
+	 <%-- エラーメッセージの表示 --%>
+ <c:if test="${not empty error}">
+    <p>${error}</p>
+ </c:if>
+
 
 	<!-- Javascriptの挿入 -->
 	<script src="/coffee_Milk/js/newuser.js"></script>
