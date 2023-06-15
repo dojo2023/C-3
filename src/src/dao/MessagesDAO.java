@@ -2,7 +2,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,9 +69,42 @@ public class MessagesDAO
 			}
 			if(message.getMessage() != null && !message.getMessage().equals(""))
 			{
-				Pstmt.set
+				pStmt.setString(2,message.getMessage());
+			}
+			else
+			{
+				pStmt.setString(2, null);
+			}
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1)
+			{
+				result = true;
 			}
 		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			// データベースを切断
+			if (conn != null)
+				{
+					try
+					{
+						conn.close();
+					}
+					catch (SQLException e)
+					{
+						e.printStackTrace();
+					}
+				}
+		}
+		return result;
 	}
 
 }

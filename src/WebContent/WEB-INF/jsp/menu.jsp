@@ -46,7 +46,7 @@
   </span>
 </form>
 
-<!--  <c:forEach var="e" items="${}" > <%--//タグ名 設定値 varは配列の箱、itemは何を入れるかを指定、""の中は自分で指定、${データ名} --%>
+  <c:forEach var="e" items="${}" > <%--//タグ名 設定値 varは配列の箱、itemは何を入れるかを指定、""の中は自分で指定、${データ名} --%>
   <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
      <table class="tabletag">
 <tr>
@@ -66,7 +66,6 @@
 	<td><input type="text" name="POSITION" value="${e.position}"></td>
 </tr>
 </c:forEach>
--->
 
 <!-- ページ番号 -->
 <%
