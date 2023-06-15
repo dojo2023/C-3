@@ -85,23 +85,27 @@ public class UsersDAO
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
 			// SQL文を準備する
-			String sql = "insert into USERS values (?, ?)";
+			String sql = "insert into USERS values (?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (newuser.getId() != null && !newuser.getId().equals("")) {
-				pStmt.setString(1, newuser.getId());
-			}
-			else {
-				pStmt.setString(1, null);
-			}
+			pStmt.setString(1, null);
 
-			if (newuser.getPw() != null && !newuser.getPw().equals("")) {
-				pStmt.setString(2, newuser.getPw());
+			if (newuser.getId() != null && !newuser.getId().equals("")) {
+				pStmt.setString(2, newuser.getId());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
+
+			if (newuser.getPw() != null && !newuser.getPw().equals("")) {
+				pStmt.setString(3, newuser.getPw());
+			}
+			else {
+				pStmt.setString(3, null);
+			}
+
+
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
