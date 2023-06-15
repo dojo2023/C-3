@@ -26,6 +26,18 @@
         <input type="submit" name="weekly" value="週別">
       </span>
   </div>
+
+<table class =petpost>
+  <tr>
+    <td><img src="/coffee_Milk/img/dog.jpeg" width="100px" height="100px"></td><%-- e.はスコープから取り出したときの名前--%>
+  </tr>
+  <tr>
+	<td>ぽち</td>
+  </tr>
+  <tr>
+    <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
+   </tr>
+</table>
   </div>
   <!-- マウスカーソルを合わせると文字が出てくる -->
   <span class="word">

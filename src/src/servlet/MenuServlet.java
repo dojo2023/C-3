@@ -26,11 +26,16 @@ public class MenuServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<Pet> petList = new ArrayList<Pet>();
-
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("petList", petList);
-		
+
 
         //メニューサーブレットにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
