@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,53 +19,34 @@
   <div class= "botan"><!--データをservletにとばすならtypeはsubmit、JavaScriptならbutton -->
     <input type="submit" name="post" value="投稿順" >
     <input type="submit" name="shuffle" value="シャッフル">
-  <div class="mouse">
-    <input type="submit" name="favorite" value="いいね順">
-      <span class="word">
-        <input type="submit" name="total" value="総合">
-        <input type="submit" name="weekly" value="週別">
-      </span>
-  </div>
+     <div class="mouse">
+       <input type="submit" name="favorite" value="いいね順">
+         <span class="word">
+          <input type="submit" name="total" value="総合">
+          <input type="submit" name="weekly" value="週別">
+         </span>
+     </div>
 
-<table class =petpost>
+<c:forEach var="e" items="${petList}" > <%--//タグ名 設定値 varは配列の箱、itemは何を入れるかを指定、""の中は自分で指定、${データ名} --%>
+  <table class = petpost>
+  <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
   <tr>
     <td><img src="/coffee_Milk/img/dog.jpeg" width="100px" height="100px"></td><%-- e.はスコープから取り出したときの名前--%>
   </tr>
   <tr>
 	<td>ぽち</td>
   </tr>
-  <tr>
     <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
-   </tr>
+  </tr>
 </table>
-  </div>
+</c:forEach>
+</div>
   <!-- マウスカーソルを合わせると文字が出てくる -->
   <span class="word">
     <input type="submit" name="total" value="総合">
     <input type="submit" name="weekly" value="週別">
   </span>
-</form>
-
-  <c:forEach var="e" items="${}" > <%--//タグ名 設定値 varは配列の箱、itemは何を入れるかを指定、""の中は自分で指定、${データ名} --%>
-  <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
-     <table class="tabletag">
-<tr>
-    <th>番号</th>
-    <td><input type="text" name="NUMBER" value="${e.number}"></td><%-- e.はスコープから取り出したときの名前--%>
-</tr>
-<tr>
-	<th>会社名</th>
-	<td><input type="text" name="COMPANY" value="${e.company}"></td>
-</tr>
-<tr>
-    <th>部署名</th>
-    <td><input type="text" name="DEPARTMENT" value="${e.department}"></td>
-</tr>
-<tr>
-	<th>役職名</th>
-	<td><input type="text" name="POSITION" value="${e.position}"></td>
-</tr>
-</c:forEach>
+  </form>
 
 <!-- ページ番号 -->
 <%
