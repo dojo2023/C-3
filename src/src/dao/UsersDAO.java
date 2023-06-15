@@ -110,11 +110,11 @@ public class UsersDAO
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			RegistResult = false; //いる？いらない？
+			//RegistResult = false; //いる？いらない？
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			RegistResult = false;//いる？いらない？
+			//RegistResult = false;//いる？いらない？
 		}
 		finally {
 			// データベースを切断
@@ -124,7 +124,7 @@ public class UsersDAO
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					RegistResult = false; //いる？いらない？
+					//RegistResult = false; //いる？いらない？
 				}
 			}
 		}
