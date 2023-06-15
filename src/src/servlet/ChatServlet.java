@@ -21,7 +21,7 @@ public class ChatServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		//ログインページにフォワードする
+		//チャットページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
 				dispatcher.forward(request, response);
 	}
