@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myペット図鑑登録</title>
 </head>
 <body>
+<p>Myペット図鑑登録のページです。</p>
 
 </body>
 </html>
