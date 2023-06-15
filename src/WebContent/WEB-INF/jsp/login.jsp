@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ペトコレ|ログイン</title>
 <link rel="stylesheet" href="/coffee_Milk/css/login.css">
+<script src="/coffee_Milk/js/login.js"></script>
 </head>
 <body>
 <h1>ログインページです。</h1>
@@ -44,7 +45,14 @@
         </tr>
     </table>
  </form>
+<div>アカウントを持っていない方は<a href = "/coffee_Milk/NewUserServlet">こちら</a></div>
 
+ <%-- エラーメッセージの表示 --%>
+ <c:if test="${not empty error}">
+    <p>${error}</p>
+ </c:if>
+
+ </div>
 </main>
 
 

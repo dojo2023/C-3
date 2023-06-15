@@ -53,7 +53,9 @@ public class LoginServlet extends HttpServlet
 		}
 			else
 			{
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/header.jsp");
+		        String error = "※ユーザーIDとパスワードが一致しません";
+	            request.setAttribute("error", error);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 				dispatcher.forward(request, response);
 			}
 	}

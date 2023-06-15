@@ -71,5 +71,68 @@ public class UsersDAO
 		// 結果を返す
 		return loginResult;
 	}
+
+	// 引数newuserで指定されたログインユーザーを登録し、成功したらtrueを返す
+	public boolean insert(LoginUser newuser) {
+		Connection conn = null;
+		boolean RegistResult = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
+
+			// SQL文を準備する
+			String sql = "insert into USERS values (?, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (newuser.getId() != null && !newuser.getId().equals("")) {
+				pStmt.setString(1, newuser.getId());
+			}
+			else {
+				pStmt.setString(1, null);
+			}
+
+			if (newuser.getPw() != null && !newuser.getPw().equals("")) {
+				pStmt.setString(2, newuser.getPw());
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				RegistResult = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			//RegistResult = false; //いる？いらない？
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			//RegistResult = false;//いる？いらない？
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					//RegistResult = false; //いる？いらない？
+				}
+			}
+		}
+		// 結果を返す
+		return RegistResult;
+	}
+
+
+
 }
 

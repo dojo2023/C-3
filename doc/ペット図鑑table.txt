@@ -1,0 +1,30 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/pleiades/workspace/data/coffee
+
+
+
+【ユーザー名】	【パスワード】
+    milk              無し				
+
+【テーブルを作成するSQL文】
+CREATE TABLE PICTURE_BOOKS (
+	ID VARCHAR  AUTO_INCREMENT PRIMARY KEY,
+	USER_ID VARCHAR(10) NOT NULL,  →ユーザーテーブルのユーザーidと同じ DAOでスコープから入力
+	NAME VARCHAR(50) NOT NULL,
+	SEX INTEGER NOT NULL,
+	BIRTHDAY VARCHAR(4),
+	APPEAL VARCHAR(300),
+	CRY VARCHAR(100),
+	PICTURE VARCHAR(100) NOT NULL
+);
+
+【テーブルにサンプルデータを登録するSQL文】
+INSERT INTO PICTURE_BOOKS(USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE)
+		   VALUES('LOVE DOG','ポチ','1','0614','寝ている姿が可愛いです','"/coffee_Milk/cry/test.mp3"','"/coffee_Milk/img/test.png"')
+
+【テーブルを削除するSQL文】
+DROP TABLE PICTURE_BOOKS
+

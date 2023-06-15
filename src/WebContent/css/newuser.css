@@ -1,1 +1,23 @@
 @charset "UTF-8";
+
+/* wrapper */
+.wrapper {
+  margin: 0 auto 0 auto;
+  max-width: 600px;
+}
+
+/* bottan */
+#bottan {
+	 line-height:50px;
+	 margin-left:500px;
+}
+
+/* newid */
+#newid {
+	 line-height:50px;
+}
+
+/* newpw */
+#newpw {
+	 line-height:50px;
+}
