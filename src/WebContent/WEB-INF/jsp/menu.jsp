@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ペトコレ|メニュー</title>
 <script type="text/javascript" src="/coffee_Milk/js/menu.js"></script>
+<!-- スタイルシートの挿入 -->
+<link rel="stylesheet" href="/coffee_Milk/css/menu.css">
 </head>
 <body>
 <p>キーワード検索</p>
@@ -18,15 +21,40 @@
     <input type="submit" name="shuffle" value="シャッフル">
   <div class="mouse">
     <input type="submit" name="favorite" value="いいね順">
+      <span class="word">
+        <input type="submit" name="total" value="総合">
+        <input type="submit" name="weekly" value="週別">
+      </span>
   </div>
   </div>
   <!-- マウスカーソルを合わせると文字が出てくる -->
-  <div class="mouse">
+  <span class="word">
     <input type="submit" name="total" value="総合">
     <input type="submit" name="weekly" value="週別">
-  </div>
+  </span>
 </form>
 
+<!--  <c:forEach var="e" items="${}" > <%--//タグ名 設定値 varは配列の箱、itemは何を入れるかを指定、""の中は自分で指定、${データ名} --%>
+  <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
+     <table class="tabletag">
+<tr>
+    <th>番号</th>
+    <td><input type="text" name="NUMBER" value="${e.number}"></td><%-- e.はスコープから取り出したときの名前--%>
+</tr>
+<tr>
+	<th>会社名</th>
+	<td><input type="text" name="COMPANY" value="${e.company}"></td>
+</tr>
+<tr>
+    <th>部署名</th>
+    <td><input type="text" name="DEPARTMENT" value="${e.department}"></td>
+</tr>
+<tr>
+	<th>役職名</th>
+	<td><input type="text" name="POSITION" value="${e.position}"></td>
+</tr>
+</c:forEach>
+-->
 
 <!-- ページ番号 -->
 <%
