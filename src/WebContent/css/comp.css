@@ -1,1 +1,8 @@
 @charset "UTF-8";
+
+/* wrapper */
+.wrapper {
+  margin: 0 auto 0 auto;
+  max-width: 600px;
+  line-height:50px;
+}
