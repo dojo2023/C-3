@@ -1,6 +1,7 @@
 package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,54 @@ public class MessagesDAO
 			//SQL文を準備する
 			//?のことをパラメータ変数、プレースホルダ、バインド変数
 			String sql = "insert into MESSAGES values(? ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//SQL文を完成させるニックネーム
+			if(message.getNickname() != null && !message.getNickname().equals(""))
+			{
+				pStmt.setString(1, message.getNickname());
+			}
+			else
+			{
+				pStmt.setString(1,null);
+			}
+			if(message.getMessage() != null && !message.getMessage().equals(""))
+			{
+				pStmt.setString(2,message.getMessage());
+			}
+			else
+			{
+				pStmt.setString(2, null);
+			}
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1)
+			{
+				result = true;
+			}
 		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			// データベースを切断
+			if (conn != null)
+				{
+					try
+					{
+						conn.close();
+					}
+					catch (SQLException e)
+					{
+						e.printStackTrace();
+					}
+				}
+		}
+		return result;
 	}
 
 }

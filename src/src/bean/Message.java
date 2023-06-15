@@ -3,7 +3,8 @@ package bean;
 public class Message
 {
     private int messageId;
-    private String content;
+    private String message;
+    private String nickname;
     private int senderId;
     private int roomId;
 
@@ -12,7 +13,17 @@ public class Message
     {
     }
 
-    // messageIdのゲッターとセッター
+    public String getNickname()
+    {
+		return nickname;
+	}
+
+	public void setNickname(String nickname)
+	{
+		this.nickname = nickname;
+	}
+
+	// messageIdのゲッターとセッター
     public int getMessageId()
     {
         return messageId;
@@ -24,14 +35,14 @@ public class Message
     }
 
     // contentのゲッターとセッター
-    public String getContent()
+    public String getMessage()
     {
-        return content;
+        return message;
     }
 
-    public void setContent(String content)
+    public void setMessage(String message)
     {
-        this.content = content;
+        this.message = message;
     }
 
     // senderIdのゲッターとセッター
