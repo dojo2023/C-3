@@ -1,6 +1,8 @@
 package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +58,20 @@ public class MessagesDAO
 			//SQL文を準備する
 			//?のことをパラメータ変数、プレースホルダ、バインド変数
 			String sql = "insert into MESSAGES values(? ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//SQL文を完成させるニックネーム
+			if(message.getNickname() != null && !message.getNickname().equals(""))
+			{
+				pStmt.setString(1, message.getNickname());
+			}
+			else
+			{
+				pStmt.setString(1,null);
+			}
+			if(message.getMessage() != null && !message.getMessage().equals(""))
+			{
+				Pstmt.set
+			}
 		}
 	}
 
