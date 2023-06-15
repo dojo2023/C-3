@@ -14,8 +14,8 @@
 <div class="item-wrapper">
 	<div class="container">
 <!-- チャット画面を埋め込む -->
-<iframe src="message.jsp"width="650px"height="500px margin:0 auto;"></iframe>
-	<form method="post" action="<%=request.getContextPath()%>/message?roomid=<%=roomid%>&cmd=1">
+<iframe src="/coffee_Milk/MessageServlet"width=650px height="500px margin:0 auto;"></iframe>
+	<form method="post" action="/coffee_Milk/MessageServlet"/message?roomid=<%=roomid%>&cmd=1">
 		<p>
 		<input type=text size="70" name="message" placeholder="メッセージを入力してください。"></input>
 		<input type="submit" value="送信"></input>
