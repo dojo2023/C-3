@@ -5,11 +5,35 @@
 	justify-content: center; /* 真ん中に揃える */
 }
 
-.tab{
+.tab{ /* タブの選択部分に適用 */
 	flex-grow:1; /* tabに対し要素同士が均等になる */
 	padding:5px;
 	list-style:none;
-	border:solid 1px #CCC;
-	text-align:center;
+	border:solid 1px #CCC; /* Tab-A,B,Cにボーダーboxを付ける */
+	text-align:center; /* 中央揃え */
 	cursor:pointer; /* カーソルを合わせるとポインターになる */
+}
+
+/* タブ内の中身に適用 */
+.panel-group{
+	border:solid 1px #ccc;
+	border-top:none;
+	background:#eee;
+}
+
+/* panelクラスを非表示にしている */
+.panel{
+	display:none;
+}
+
+/* tabの中のactiveに適用 */
+.tab.is-active{
+	background:#f00;
+	color:#fff;
+	transition: all 0.2s ease-out;
+}
+
+/* panelの中のis-showに対して適用 */
+.panel.is-show{
+	display:block;
 }
