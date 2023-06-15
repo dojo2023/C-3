@@ -7,6 +7,8 @@
 <title>ぺトコレ｜完了</title>
 </head>
 <body>
-
+<h1>新規登録完了</h1>
+<a href="/coffee_Milk/MenuServlet">メインメニューへ戻る</a><br>
+<a href="/coffee_Milk/MyAniBooksServlet">Myペット図鑑へ戻る</a>
 </body>
 </html>
