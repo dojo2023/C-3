@@ -1,0 +1,28 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/pleiades/workspace/data/coffee
+
+
+【ユーザー名】	【パスワード】
+   milk		    無し	
+
+【テーブルを作成するSQL文】
+CREATE TABLE POSTS (
+	ID VARCHAR  AUTO_INCREMENT PRIMARY KEY,
+	PICTURE_BOOKS_ID VARCHAR NOT NULL,      →(図鑑IDを引っ張ってくる)
+	TITLE VARCHAR(30),
+	GENRE INTEGER NOT NULL,
+	FREE VARCHAR(200),
+	PICTURE VARCHAR NOT NULL,
+	TIME TIMESTAMP 
+);
+
+【テーブルにサンプルデータを登録するSQL文】
+INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE)
+   	   VALUES ('001','おやすみ中','1','#お休み中 #子犬','"/coffee_Milk/img/toukou.png"')
+
+【テーブルを削除するSQL文】
+DROP TABLE POSTS
+
