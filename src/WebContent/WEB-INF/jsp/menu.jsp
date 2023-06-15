@@ -29,15 +29,17 @@
 
 <c:forEach var="e" items="${petList}" > <%--//タグ名 設定値 varは配列の箱、itemは何を入れるかを指定、""の中は自分で指定、${データ名} --%>
   <table class = petpost>
+  <p class="table-cell">
   <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
   <tr>
-    <td><img src="/coffee_Milk/img/dog.jpeg" width="100px" height="100px"></td><%-- e.はスコープから取り出したときの名前--%>
+    <td><<img src="/coffee_Milk/img/dog.jpeg" width="100px" height="100px"></td><%-- e.はスコープから取り出したときの名前--%>
   </tr>
   <tr>
 	<td>ぽち</td>
   </tr>
     <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
   </tr>
+  </p>
 </table>
 </c:forEach>
 </div>

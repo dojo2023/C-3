@@ -31,3 +31,8 @@
 	margin-bottom: 10px;
 	border: 1px solid #333333;
 }
+
+.table-cell {
+	display:table-cell;
+    border: 1px solid;
+  }
