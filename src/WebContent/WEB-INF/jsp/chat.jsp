@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ペトコレ|チャット</title>
+<title>ペトコレ|チャットスペース</title>
 <link rel="stylesheet" href="/coffee_Milk/css/chat.css">
 </head>
 <body>
