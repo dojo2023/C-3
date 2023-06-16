@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/coffee_Milk/css/menu.css">
 </head>
 <body>
+<div class="wrapper">
 <p>キーワード検索</p>
   <input type="text" size="30" name="keyword">
 <h1>ペット投稿一覧</h1>
@@ -26,21 +27,27 @@
           <input type="submit" name="weekly" value="週別">
          </span>
      </div>
-
-<c:forEach var="e" items="${petList}" > <%--//タグ名 設定値 varは配列の箱、itemは何を入れるかを指定、""の中は自分で指定、${データ名} --%>
+  </div>
+</form>
+<c:forEach var="e" items="${petList}" >
   <table class = petpost>
-  <p class="table-cell">
-  <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
-  <tr>
-    <td><<img src="/coffee_Milk/img/dog.jpeg" width="100px" height="100px"></td><%-- e.はスコープから取り出したときの名前--%>
-  </tr>
-  <tr>
-	<td>ぽち</td>
-  </tr>
-    <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
-  </tr>
-  </p>
-</table>
+    <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
+      <tr>
+        <td><img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px"></td><%-- e.はスコープから取り出したときの名前--%>
+      </tr>
+      <tr>
+        <td>タイトル</td>
+      </tr>
+      <tr>
+	    <td>ハッシュタグ</td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="heart" value="ハート"></td> <!-- ハートボタンを押すとSearchServletにとぶのを修正 -->
+      </tr>
+        <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
+      </tr>
+    </form>
+  </table>
 </c:forEach>
 </div>
   <!-- マウスカーソルを合わせると文字が出てくる -->
@@ -48,9 +55,10 @@
     <input type="submit" name="total" value="総合">
     <input type="submit" name="weekly" value="週別">
   </span>
-  </form>
 
-<!-- ページ番号 -->
+
+<!-- ページ番号-->
+<div class="num">
 <%
 //ページ数・現在ページの変数宣言
 int currentPage;
@@ -117,8 +125,10 @@ final int BEFORE_AND_AFTER = 2;
 <%} %>
 </div>
 </section>
+</div>
   <!--投稿画像をクリックするとポップアップウインドウが表示-->
   <!--図鑑を見るをクリックするとMyaniBookServletにとぶ
 <p><a href="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></p>-->
+</div>
 </body>
 </html>

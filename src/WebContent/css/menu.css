@@ -1,4 +1,18 @@
 @charset "UTF-8";
+
+/*文字全体を下に下げる*/
+body{
+	margin:50px;
+}
+/*文字を中心に配置*/
+.wrapper {
+  text-align: center;
+  margin: 0 auto 0 auto;	/*中央揃え */
+  width: 700px;	          /* 幅を固定 */
+  justify-content: center;
+}
+
+/*いいね順を押すと総合週別が出る*/
 .mouse {
   margin: 30px 0px 0px 30px;
   position   : relative;
@@ -6,8 +20,7 @@
 .mouse:hover .word {
   display: inline;
 }
-
-/*色は適当です。*/
+/*週別総合の設定*/
 .word {
   position   : absolute;
   display: none;
@@ -25,14 +38,22 @@
 /*.petpost {
 	display:flex;
 }*/
-
+/*投稿一覧の写真*/
 .petpost {
 	padding: 10px;
-	margin-bottom: 10px;
-	border: 1px solid #333333;
+	margin :10px;
+    border: 1px solid #333333;
+	float:left;
+	box-sizing: border-box;
+	width: 50px;
+	padding:0px;
+	/*justify-content: center;*/
 }
-
-.table-cell {
-	display:table-cell;
-    border: 1px solid;
-  }
+.num{
+	display: block;
+    margin-block-start: 88em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center;
+}

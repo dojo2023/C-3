@@ -32,6 +32,12 @@ public class MenuServlet extends HttpServlet {
 		petList.add(new Pet());
 		petList.add(new Pet());
 		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
+		petList.add(new Pet());
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("petList", petList);
