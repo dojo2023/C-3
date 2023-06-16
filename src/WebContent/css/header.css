@@ -60,7 +60,7 @@
 }
 
 /*メイン・チャット・Myペット図鑑・ジャンルの位置と大きさ*/
-.nav2 li {
+/*.nav2 li {
 	display: inline-block;
 	margin-right:20px;
 	font-size:30px;
@@ -80,23 +80,35 @@
 	text-align:center;
 	width:70%;
 }
+*/
 
-/*ジャンルのドロップダウン*/
-.header_link > li.genre_single{
-    position: relative;
+/*ジャンルのプルダウン*/
+.header_link {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.header_link li {
+    list-style: none;
+    width: 200px;
+    background: #fff;
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 2.8;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+.header_link li a {
+    text-decoration: none;
+    color: #000;
 }
 
-
-li.genre_single ul.genre_second {
+.header_link li ul {
+    display: none;
+    margin-left: -40px;
     position: absolute;
-    top: 40px;
-    background: green;
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
 }
-
-li.genre_single:hover ul.genre_second {
-    top: 50px;
-    visibility: visible;
-    opacity: 1;
+.header_link li ul li {
+    border-top: 1px solid #eee;
 }
