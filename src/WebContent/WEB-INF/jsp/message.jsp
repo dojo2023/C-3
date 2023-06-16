@@ -32,7 +32,8 @@ if (messageList != null && !messageList.isEmpty())
         out.println("Message: " + message.getMessage());
     }
 }
-%> -->
+%>
+-->
 </div>
 </body>
 </html>

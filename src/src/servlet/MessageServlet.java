@@ -23,21 +23,32 @@ public class MessageServlet extends HttpServlet
             throws ServletException, IOException
     {
         // チャットルームのIDを取得
-    	int roomId = 1;
+    	 // チャットルームのIDを取得
+        int roomId;
+        String roomIdParam = request.getParameter("roomid"); // roomIdParamの値を取得
 
+        if (roomIdParam != null && !roomIdParam.isEmpty()) {
+            roomId = Integer.parseInt(roomIdParam);
+        } else {
+            roomId = 1; // デフォルト値
+        }
         // MessagesDAOを使用してメッセージを取得
         MessagesDAO messagesDAO = new MessagesDAO();
         List<Message> messageList = null;
-        try {
+        try
+        {
             messageList = messagesDAO.selectByRoomId(roomId);
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e)
+        {
             e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             e.printStackTrace();
         }
 
         // リクエスト属性にメッセージリストを設定
         request.setAttribute("messageList", messageList);
+        request.setAttribute("roomId", roomId);
 
         // message.jspにフォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/message.jsp");
@@ -45,7 +56,8 @@ public class MessageServlet extends HttpServlet
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         // フォームから送信されたメッセージを取得
         String messageContent = request.getParameter("message");
 
@@ -62,13 +74,13 @@ public class MessageServlet extends HttpServlet
         boolean result = messagesDAO.insert(message);
 
         // メッセージの挿入結果に応じて処理を行う（必要に応じて実装）
-        if (result) 
+        if (result)
         {
             // メッセージの挿入に成功した場合の処理
-          
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
             dispatcher.forward(request, response);
-        } else 
+        } else
         {
             // メッセージの挿入に失敗した場合の処理
         }

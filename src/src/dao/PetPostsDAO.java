@@ -1,5 +1,6 @@
 package dao;
 
-public class PetPostsDAO {
+public class PetPostsDAO
+{
 
 }
