@@ -2,7 +2,7 @@ package model;
 import java.io.Serializable;
 
 public class Pets implements Serializable {
-	private String id;       // USER_ID
+	private String user_id;  // USER_ID
 	private String name;     // NAME
 	private String sex;      // SEX 数字でもらうけどStringでいいかね？？
 	private String birthday; // BIRTHDAY
@@ -10,8 +10,8 @@ public class Pets implements Serializable {
 	private String cry;      // CRY
 	private String picture;  // PICTURE
 
-	public Pets(String id, String name, String sex, String birthday, String appeal,String cry,String picture) {
-		this.id = id;
+	public Pets(String user_id, String name, String sex, String birthday, String appeal,String cry,String picture) {
+		this.user_id = user_id;
 		this.name = name;
 		this.sex = sex;
 		this.birthday = birthday;
@@ -20,7 +20,7 @@ public class Pets implements Serializable {
 		this.picture = picture;
 	}
 	public Pets() {
-		this.id = "";
+		this.user_id = "";
 		this.name = "";
 		this.sex = "";
 		this.birthday = "";
@@ -29,11 +29,14 @@ public class Pets implements Serializable {
 		this.picture = "";
 	}
 
-	public String getId() {
-		return id;
+	public Pets(String user_id) {
+		this.user_id = user_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getName() {
 		return name;
