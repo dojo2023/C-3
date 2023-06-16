@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +16,23 @@
     	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
     	<span id="error_message"></span>
     </div>
+	<c:if test="${empty petsList}">
+	  <p>一致するデータはありません。</p>
+    </c:if>
+    <c:forEach var="e" items="${petsList}" >
+    	<h1>Myペットプロフィール</h1><br>
+		<p><c:out value="${e.picture}"></c:out></p>
+    	ペットの名前<br>
+    	<p><c:out value="${e.name}"></c:out></p>
+		性別<br>
+		<p><c:out value="${e.sex}"></c:out></p>
+		誕生日<br>
+		<p><c:out value="${e.birthday}"></c:out></p>
+		鳴き声<br>
+		<p><c:out value="${e.cry}"></c:out></p>
+		アピールポイント<br>
+		<p><c:out value="${e.appeal}"></c:out></p></div>
+    </c:forEach>
 	<div class="tab-panel">
  	 	<!--タブ-->
  		<ul class="tab-group">

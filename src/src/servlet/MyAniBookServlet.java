@@ -29,11 +29,11 @@ public class MyAniBookServlet extends HttpServlet {
 
 		//  セッションスコープからIDを取得する
 		HttpSession session = request.getSession();
-		session.getAttribute("id");
+		String user_id = (String) session.getAttribute("id");
 
-		//
+		// DAOを使ってMyペット図鑑の情報をゲットする
 		PictureBooksDAO aDao = new PictureBooksDAO();
-		List<Pets> cardList = aDao.select(new Pets(user_id))
+		List<Pets> petsList = aDao.select(new Pets(user_id));
 
 		// Myペット図鑑にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
