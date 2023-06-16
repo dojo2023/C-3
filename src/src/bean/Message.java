@@ -23,8 +23,8 @@ public class Message
 	{
 		return chatroomsid;
 	}
-	public void setChatroomsid(String chatroomsid) {
-		this.chatroomsid = chatroomsid;
+	public void setChatroomsid(String string) {
+		this.chatroomsid = string;
 	}
 	public String getNickname()
 	{

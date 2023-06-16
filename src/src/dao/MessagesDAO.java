@@ -10,13 +10,15 @@ import java.util.List;
 import bean.Message;
 
 public class MessagesDAO {
-    public List<Message> selectByRoomId(int roomId) throws ClassNotFoundException, SQLException {
+    public List<Message> selectByRoomId(int roomId) throws ClassNotFoundException, SQLException
+    {
         List<Message> messageList = new ArrayList<>();
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try {
+        try 
+        {
             Class.forName("org.h2.Driver");
             conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
@@ -26,30 +28,43 @@ public class MessagesDAO {
 
             rs = pstmt.executeQuery();
 
-            while (rs.next()) {
+            while (rs.next())
+            {
                 Message message = new Message();
                 message.setId(rs.getInt("ID"));
                 message.setChatroomsid(rs.getString("CHATROOMS_ID"));
                 message.setNickname(rs.getString("NICKNAME"));
                 message.setMessage(rs.getString("MESSAGE"));
                 message.setTime(rs.getTimestamp("TIME"));
+
+                System.out.println("CHATROOMS_ID: " + message.getChatroomsid()); // 追加する行
                 messageList.add(message);
             }
-        } finally {
-            if (rs != null) {
+        }
+        finally {
+            if (rs != null)
+            {
                 rs.close();
             }
-            if (pstmt != null) {
-                try {
+            if (pstmt != null)
+            {
+                try
+                {
                     pstmt.close();
-                } catch (SQLException e) {
+                }
+                catch (SQLException e)
+                {
                     e.printStackTrace();
                 }
             }
-            if (conn != null) {
-                try {
+            if (conn != null)
+            {
+                try
+                {
                     conn.close();
-                } catch (SQLException e) {
+                }
+                catch (SQLException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -58,12 +73,14 @@ public class MessagesDAO {
         return messageList;
     }
 
-    public boolean insert(Message message) {
+    public boolean insert(Message message)
+    {
         Connection conn = null;
         PreparedStatement pstmt = null;
         boolean result = false;
 
-        try {
+        try
+        {
             Class.forName("org.h2.Driver");
             conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
@@ -74,34 +91,42 @@ public class MessagesDAO {
             pstmt.setString(3, message.getMessage());
             pstmt.setTimestamp(4, message.getTime());
 
-            if (pstmt.executeUpdate() == 1) 
+            if (pstmt.executeUpdate() == 1)
             {
                 result = true;
             }
             conn.commit();
-        } 
-        catch (SQLException e) 
+        }
+
+        catch (SQLException e)
         {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) 
+        }
+        catch (ClassNotFoundException e)
         {
             e.printStackTrace();
-        } finally {
-            if (pstmt != null) 
+        }
+
+        finally
+        {
+            if (pstmt != null)
             {
-                try {
+                try
+                {
                     pstmt.close();
-                } catch (SQLException e)
+                }
+                catch (SQLException e)
                 {
                     e.printStackTrace();
                 }
             }
-            if (conn != null) 
+            if (conn != null)
             {
-                try 
+                try
                 {
                     conn.close();
-                } catch (SQLException e)
+                }
+                catch (SQLException e)
                 {
 
                     e.printStackTrace();
