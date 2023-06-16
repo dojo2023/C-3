@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.PictureBooksDAO;
+import model.Pets;
 
 /**
  * Servlet implementation class MyAniBookServlet
@@ -19,8 +24,18 @@ public class MyAniBookServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	// Myペット図鑑にフォワードする
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//  セッションスコープからIDを取得する
+		HttpSession session = request.getSession();
+		session.getAttribute("id");
+
+		//
+		PictureBooksDAO aDao = new PictureBooksDAO();
+		List<Pets> cardList = aDao.select(new Pets(user_id))
+
+		// Myペット図鑑にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
 		dispatcher.forward(request, response);
 	}
