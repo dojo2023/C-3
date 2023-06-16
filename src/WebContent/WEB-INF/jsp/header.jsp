@@ -15,18 +15,18 @@
 </a>
 <nav class="nav2">
 <ul class="header_link">
-<li><a href ="/coffee_Milk/MenuServlet" class="header6">メイン</a></li>
-<li><a href ="/coffee_Milk/ChatServlet" class="header6">チャット</a></li>
-<li><a href ="/coffee_Milk/MyAniBookServlet" class="header6">Myペット図鑑</a></li>
-<li class="genre_single">
-<a href ="/coffee_Milk/SearchServlet" class="header6">ジャンル</a>
-<ul class="genre_second">
-<li><a href ="/coffee_Milk/Servlet">犬</a></li>
-<li><a href ="/coffee_Milk/Servlet">猫</a></li>
-<li><a href ="/coffee_Milk/Servlet">小動物</a></li>
-<li><a href ="/coffee_Milk/Servlet">水生生物</a></li>
-</ul>
-</li>
+	<li><a href ="/coffee_Milk/MenuServlet" class="header6">メイン</a></li>
+	<li><a href ="/coffee_Milk/ChatServlet" class="header6">チャット</a></li>
+	<li><a href ="/coffee_Milk/MyAniBookServlet" class="header6">Myペット図鑑</a></li>
+	<li id="genre_single">
+	<a href ="/coffee_Milk/SearchServlet" class="header6">ジャンル</a>
+		<ul>
+			<li><a href ="/coffee_Milk/Servlet">犬</a></li>
+			<li><a href ="/coffee_Milk/Servlet">猫</a></li>
+			<li><a href ="/coffee_Milk/Servlet">小動物</a></li>
+			<li><a href ="/coffee_Milk/Servlet">水生生物</a></li>
+		</ul>
+	</li>
 </ul>
 </nav>
 <nav class="nav1">
@@ -41,5 +41,7 @@
 </div>
 </div>
 </header>
+<script src="/coffee_Milk/js/header.js"></script>
+<script type="text/javascript" src="/coffee_Milk/js/jquery-3.7.0.min.js"></script>
 </body>
 </html>
