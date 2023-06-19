@@ -88,7 +88,7 @@ public class PictureBooksDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
 			// SQL文を準備する
-			String sql = "insert into PETS values (?, ?, ?, ?, ?, ?. ?)";
+			String sql = "insert into PICTURE_BOOKS values (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, null);
