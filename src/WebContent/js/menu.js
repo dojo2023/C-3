@@ -11,3 +11,4 @@ function changeColor(button)
   whiteHeart.classList.toggle("hidden");	//要素のクラスを切り替えるため
   redHeart.classList.toggle("hidden");		//要素のクラスを切り替えるためhiddenは非表示にするため
 }
+/*ポップアップウィンドウ*/

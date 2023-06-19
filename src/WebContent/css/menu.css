@@ -150,3 +150,7 @@ body{
       {
       	display:none;
       }
+     /*ハートのコンテンツ領域を狭める*/
+     .heart{
+        width: auto;
+     }
