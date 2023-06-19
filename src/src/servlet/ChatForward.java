@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,15 +43,14 @@ public class ChatForward extends HttpServlet
 	    String message = request.getParameter("message");
 	    int roomId = Integer.parseInt(request.getParameter("roomId"));
 	    String nickname = request.getParameter("nickname");
-	    Timestamp timestamp = request,getParameter("time");
+
 
 	    // Messageクラスの新しいインスタンスを作成し、メッセージの内容、ルームIDを設定する
 	    Message newMessage = new Message();
 	    newMessage.setMessage(message);
 	    newMessage.setChatroomsid(String.valueOf(roomId));
 	    newMessage.setNickname(nickname);
-
-
+	    newMessage.setTime(new Timestamp(System.currentTimeMillis()));
 	    // MessagesDAOを使用してメッセージをデータベースに挿入する
 	    MessagesDAO messagesDAO = new MessagesDAO();
 	    boolean result = messagesDAO.insert(newMessage);
@@ -69,4 +69,5 @@ public class ChatForward extends HttpServlet
 	}
 
 }
+
 

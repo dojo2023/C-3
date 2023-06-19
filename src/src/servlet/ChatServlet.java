@@ -89,13 +89,16 @@ public class ChatServlet extends HttpServlet
 			error = "DB接続エラーの為、メッセージの投稿は行えませんでした。";
 			return;
 
-		} finally {
+		}
+		finally
+		{
 			// メッセージの登録を行い、画面へ遷移
 			if (error == (""))
 			{
 				request.getRequestDispatcher("/coffee_Milk/ChatForwardServlet").forward(request, response);
 
-			} else
+			}
+			else
 			{
 				// 登録された件数を持ってフォワード
 				request.setAttribute("error", error);
