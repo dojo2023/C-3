@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -6,34 +6,47 @@
 <head>
 <meta charset="UTF-8">
 <title>ペトコレ|メニュー</title>
+<!-- jsの挿入 -->
 <script type="text/javascript" src="/coffee_Milk/js/menu.js"></script>
 <!-- スタイルシートの挿入 -->
 <link rel="stylesheet" href="/coffee_Milk/css/menu.css">
+<!--ポップアップウィンドウの表示-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="wrapper">
-<p>キーワード検索</p>
-  <input type="text" size="30" name="keyword">
+  <div class="wrapper">
+    <p>キーワード検索</p>
+       <input type="text" size="30" name="keyword">
 <h1>ペット投稿一覧</h1>
-<p>並べ替え</p>
-<form id="posts_list" method="POST" action="/coffee_Milk/SearchServlet" onsubmit="return checkPostList();">
-  <div class= "botan"><!--データをservletにとばすならtypeはsubmit、JavaScriptならbutton -->
-    <input type="submit" name="post" value="投稿順" >
-    <input type="submit" name="shuffle" value="シャッフル">
-     <div class="mouse">
+  <p>並べ替え</p>
+    <form id="posts_list" method="POST" action="/coffee_Milk/SearchServlet" onsubmit="return checkPostList();">
+      <div class= "botan"><!--データをservletにとばすならtypeはsubmit、JavaScriptならbutton -->
+        <input type="submit" name="post" value="投稿順" >
+        <input type="submit" name="shuffle" value="シャッフル">
+      <!--  <div class="mouse">
        <input type="submit" name="favorite" value="いいね順">
          <span class="word">
           <input type="submit" name="total" value="総合">
           <input type="submit" name="weekly" value="週別">
          </span>
-     </div>
-  </div>
-</form>
+      </div>-->
+        <div class="menu_outer01">
+          <ul class="list">
+            <li class="title">いいねランキング</li>
+            <li><input type="submit" name="total" value="総合"></li>
+            <li><input type="submit" name="weekly" value="週別"></li>
+          </ul>
+        </div>
+      </div>
+    </form>
 <c:forEach var="e" items="${petList}" >
+
   <table class = petpost>
-    <form method="POST" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
+    <form method="POST" id="pop" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
       <tr>
-        <td><img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px"></td><%-- e.はスコープから取り出したときの名前--%>
+        <td><a href="/coffee_Milk/img/dog.jpeg" data-lightbox="group"><img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px"></a></td><%-- e.はスコープから取り出したときの名前--%>
       </tr>
       <tr>
         <td>タイトル</td>
@@ -42,8 +55,15 @@
 	    <td>ハッシュタグ</td>
       </tr>
       <tr>
-        <td><input type="submit" name="heart" value="ハート"></td> <!-- ハートボタンを押すとSearchServletにとぶのを修正 -->
+        <td>
+          <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる 、ハートの周りを押しても色が変わるため修正必要-->
+          <div class="heart" onclick="changeColor(this)" >
+            <img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25" class="white-heart">
+            <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden">
+          </div>
+        </td>
       </tr>
+      <tr>
         <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
       </tr>
     </form>
@@ -129,6 +149,5 @@ final int BEFORE_AND_AFTER = 2;
   <!--投稿画像をクリックするとポップアップウインドウが表示-->
   <!--図鑑を見るをクリックするとMyaniBookServletにとぶ
 <p><a href="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></p>-->
-</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
-<%@page contentType="text/html;charset=UTF-8"%>
-<%@page import="java.util.List"%>
-<%@page import="bean.Message"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="bean.Message"%>
 
 <html>
 <head>
@@ -15,7 +15,7 @@ if (messageList != null && !messageList.isEmpty())
 {
     for (Message message : messageList)
     { %>
-        <p><%= message.getMessage() %></p>
+        <p><b><%= message.getNickname() %>：</b><%= message.getMessage() %> <b>投稿日時：<%= message.getTime() %></b></p>
 <%  }
 } %>
 
