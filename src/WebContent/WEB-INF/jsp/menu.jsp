@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -20,13 +20,20 @@
   <div class= "botan"><!--データをservletにとばすならtypeはsubmit、JavaScriptならbutton -->
     <input type="submit" name="post" value="投稿順" >
     <input type="submit" name="shuffle" value="シャッフル">
-     <div class="mouse">
+      <!--  <div class="mouse">
        <input type="submit" name="favorite" value="いいね順">
          <span class="word">
           <input type="submit" name="total" value="総合">
           <input type="submit" name="weekly" value="週別">
          </span>
-     </div>
+      </div>-->
+      <div class="menu_outer01">
+      <ul class="list">
+        <li class="title">いいねランキング</li>
+        <li><input type="submit" name="total" value="総合"></li>
+        <li><input type="submit" name="weekly" value="週別"></li>
+      </ul>
+    </div>
   </div>
 </form>
 <c:forEach var="e" items="${petList}" >
@@ -42,8 +49,11 @@
 	    <td>ハッシュタグ</td>
       </tr>
       <tr>
-        <td><input type="submit" name="heart" value="ハート"></td> <!-- ハートボタンを押すとSearchServletにとぶのを修正 -->
+        <td><a href ="/coffee_Milk/SearchServlet"></a>
+            <div id="heart" onclick="changeColor()"><img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25"></div><!-- ハートボタンを押すとSearchServletにとぶのを修正 -->
+            <div id="redheart"><img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25"></div>
       </tr>
+      <tr>
         <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
       </tr>
     </form>
