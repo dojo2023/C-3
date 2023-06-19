@@ -27,9 +27,17 @@ public class MyAniBookServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//  セッションスコープからIDを取得する
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		LoginUsers login_users = (LoginUsers) session.getAttribute("id");
+		if (session.getAttribute("id") == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+
+		//  セッションスコープからIDを取得する
+		HttpSession session1 = request.getSession();
+		LoginUsers login_users = (LoginUsers) session1.getAttribute("id");
 
 		// DAOを使ってMyペット図鑑の情報をゲットする
 		PictureBooksDAO aDao = new PictureBooksDAO();

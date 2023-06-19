@@ -9,118 +9,75 @@
 		<script src="js/myanibook.js"></script>
 		</head>
 <body>
-	<p>所有者、閲覧者、メインからMyペット図鑑をクリックした人によって見え方が変わるページ。</p>
-	<!-- とりあえず投稿者のページを作成してみる。閲覧者と非ログイン者は投稿者のページの縮小版だから -->
-	<div>
-  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
-    	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
-    	<span id="error_message"></span>
-    </div>
-	<c:if test="${empty petsList}">
-	  <p>一致するデータはありません。</p>
-    </c:if>
-    <c:forEach var="e" items="${petsList}" >
-    	<h1>Myペットプロフィール</h1><br>
-    	<!-- ペットの写真が表示される -->
-		<img src="<c:out value="${e.picture}"></c:out>">
 
-		<c:out value="${e.picture}"></c:out>
-    	ペットの名前<br>
-    	<p><c:out value="${e.name}"></c:out></p>
-		性別<br>
-		<p><c:out value="${e.sex}"></c:out></p>
-		誕生日<br>
-		<p><c:out value="${e.birthday}"></c:out></p>
-		鳴き声<br>
-		<p><c:out value="${e.cry}"></c:out></p>
-		アピールポイント<br>
-		<p><c:out value="${e.appeal}"></c:out></p></div>
-    </c:forEach>
+
+	<c:if test="${empty id}">
+	  <p>Myペット図鑑の利用には新規登録もしくはログインが必要です。</p>
+	</c:if>
+
+
+	<c:if test="${!empty id}">
+		<div>
+	  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
+	    	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
+	    	<span id="error_message"></span>
+	    </div>
+
+		<!--タブ-->
+		<!-- ログインしていて登録データがないとき -->
+		<c:if test="${empty petsList}">
+			<p>登録しているデータはありません。</p>
+		</c:if>
+	</c:if>
+
+	<!-- ログインしていて登録データが1つでもあるとき -->
 	<div class="tab-panel">
- 	 	<!--タブ-->
- 		<ul class="tab-group">
-    		<li class="tab tab-A is-active">1</li>
-    		<li class="tab tab-B">2</li>
-    		<li class="tab tab-C">3</li>
-    		<li class="tab tab-D">4</li>
-    		<li class="tab tab-E">5</li>
- 		</ul>
 
-  		<!--タブを切り替えて表示するコンテンツ-->
- 	 	<div class="panel-group">
- 	 		<div class="panel tab-A is-show">
- 	 			<h1>Myペットプロフィール</h1><br>
-				<img src="img/うみちゃん.png">
-				ペットの名前<br>
-				<p>うみちゃん</p>
-				性別<br>
-				<p>メス</p>
-				誕生日<br>
-				<p>3月3日</p>
-				鳴き声<br>
-				<p>鳴き声をどうやって出力するのかわからんけど出力</p>
-				アピールポイント<br>
-				<p>食べることが大好きなミニチュアピンシャーです。テンションが上がるとぴょんぴょんジャンプします。知らない人には警戒心が強いですが、一度懐いたら忠誠心が強い子です♪</p></div>
-			<div class="panel tab-B">
-				<h1>Myペットプロフィール</h1><br>
-				<img src="img/うみちゃん.png">
-				ペットの名前<br>
-				<p>うみちゃん</p>
-				性別<br>
-				<p>メス</p>
-				誕生日<br>
-				<p>3月3日</p>
-				鳴き声<br>
-				<p>鳴き声をどうやって出力するのかわからんけど出力</p>
-				アピールポイント<br>
-				<p>食べることが大好きなミニチュアピンシャーです。テンションが上がるとぴょんぴょんジャンプします。知らない人には警戒心が強いですが、一度懐いたら忠誠心が強い子です♪</p></div>
+		<!-- タブ表示 -->
+		<ul class="tab-group">
+			<c:forEach var="e" items="${petsList}" varStatus="status" >
+				<li class="tab tab-<c:out value="${status.index+1}"/>
+			  		<c:if test="${status.index==0}">
+			  			is-active
+			  		</c:if>
+			  	">
+				<c:out value="${status.index+1}"/></li>
+			</c:forEach>
+	 	</ul>
+
+ 		<!--タブを切り替えて表示するコンテンツ-->
+		<c:forEach var="e" items="${petsList}" varStatus="status" >
+ 		 	<div class="panel-group">
+ 		 		<div class="panel tab-<c:out value="${status.index+1}"/>
+ 		 			<c:if test="${status.index==0}">
+ 		 				is-show
+ 		 			</c:if>
+ 		 		">
+
+ 		 		<!-- ページを開いたらどのようになるのか -->
+ 		 		<!-- <div class="panel tab-1 is-show ">  -->
+ 		 		<!-- <div class="panel tab-2 ">  -->
+
+ 		 			<h1>Myペットプロフィール</h1><br>
+					<img src="<c:out value="${e.picture}"></c:out>">
+					ペットの名前<br>
+		    		<p><c:out value="${e.name}"></c:out></p>
+					性別<br>
+					<p><c:out value="${e.sex}"></c:out></p>
+					誕生日<br>
+					<p><c:out value="${e.birthday}"></c:out></p>
+					鳴き声<br>
+					<p><c:out value="${e.cry}"></c:out></p>
+					アピールポイント<br>
+					<p><c:out value="${e.appeal}"></c:out></p>
+				</div>
 			</div>
-			<div class="panel tab-C">
-				<h1>Myペットプロフィール</h1><br>
-				<p>データベースから画像を何とか表示する</p>
-				ペットの名前<br>
-				<p>c:outにvalue属性を付けてペットの名前を出力</p>
-				性別<br>
-				<p>c:outにvalue属性を付けて性別を出力</p>
-				誕生日<br>
-				<p>c:outにvalue属性を付けて誕生日を出力</p>
-				鳴き声<br>
-				<p>鳴き声をどうやって出力するのかわからんけど出力</p>
-				アピールポイント<br>
-				<p>c:outにvalue属性を付けてアピールポイントを出力</p>
-			</div>
-			<div class="panel tab-D">
-				<h1>Myペットプロフィール</h1><br>
-				<p>データベースから画像を何とか表示する</p>
-				ペットの名前<br>
-				<p>c:outにvalue属性を付けてペットの名前を出力</p>
-				性別<br>
-				<p>c:outにvalue属性を付けて性別を出力</p>
-				誕生日<br>
-				<p>c:outにvalue属性を付けて誕生日を出力</p>
-				鳴き声<br>
-				<p>鳴き声をどうやって出力するのかわからんけど出力</p>
-				アピールポイント<br>
-				<p>c:outにvalue属性を付けてアピールポイントを出力</p>
-			</div>
-			<div class="panel tab-E">
-				<h1>Myペットプロフィール</h1><br>
-				<p>データベースから画像を何とか表示する</p>
-				ペットの名前<br>
-				<p>c:outにvalue属性を付けてペットの名前を出力</p>
-				性別<br>
-				<p>c:outにvalue属性を付けて性別を出力</p>
-				誕生日<br>
-				<p>c:outにvalue属性を付けて誕生日を出力</p>
-				鳴き声<br>
-				<p>鳴き声をどうやって出力するのかわからんけど出力</p>
-				アピールポイント<br>
-				<p>c:outにvalue属性を付けてアピールポイントを出力</p>
-			</div>
-		</div>
+		</c:forEach>
 	</div>
-	<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
-	<h2><a href="/coffee_Milk/UpdateDeleteServlet"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
-	<h2><a href="/coffee_Milk/AniPostServlet"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
+	<c:if test="${!empty id}">
+		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
+		<h2><a href="/coffee_Milk/UpdateDeleteServlet"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
+		<h2><a href="/coffee_Milk/AniPostServlet"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
+	</c:if>
 </body>
 </html>
