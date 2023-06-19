@@ -42,7 +42,6 @@
             <!--  GETリクエストを送信するURL
             特定のRoom IDに関連するチャットメッセージを表示するためのサーブレットにアクセスできる-->
             <iframe src="/coffee_Milk/MessageServlet?roomid=${param.roomid}" width="650px" height="500px" style="margin: 0 auto;"></iframe>
-
 		</c:if>
             <form method="post" action="/coffee_Milk/ChatForward">
                 <p>
@@ -54,7 +53,6 @@
                     <input type="hidden" name="roomId" value="${param.roomid}"> <!-- RoomIDをhiddenフィールドで送信 -->
                 </p>
             </form>
-
             <form method="get" action="/coffee_Milk/ChatForward">
                 <label for="roomSelect">Select Room ID:</label>
                 <select id="roomSelect" name="roomid">

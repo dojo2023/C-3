@@ -50,7 +50,4 @@ public class Message
 	{
 		this.time = time;
 	}
-
-
-
 }
