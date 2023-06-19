@@ -23,7 +23,7 @@ CREATE TABLE PICTURE_BOOKS (
 
 【テーブルにサンプルデータを登録するSQL文】
 INSERT INTO PICTURE_BOOKS(USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE)
-		   VALUES('LOVE DOG','ポチ','1','0614','寝ている姿が可愛いです','"/coffee_Milk/cry/test.mp3"','"/coffee_Milk/img/test.png"')
+		   VALUES('LOVE DOG','ポチ','1','0614','寝ている姿が可愛いです','/coffee_Milk/cry/test.mp3','/coffee_Milk/img/test.png')
 
 【テーブルを削除するSQL文】
 DROP TABLE PICTURE_BOOKS
