@@ -41,13 +41,14 @@ public class ChatForward extends HttpServlet
 	    // リクエストパラメータからメッセージを取得する
 	    String message = request.getParameter("message");
 	    int roomId = Integer.parseInt(request.getParameter("roomId"));
-
-
+	    String nickname = request.getParameter("nickname");
+	    Timestamp timestamp = request,getParameter("time");
 
 	    // Messageクラスの新しいインスタンスを作成し、メッセージの内容、ルームIDを設定する
 	    Message newMessage = new Message();
 	    newMessage.setMessage(message);
 	    newMessage.setChatroomsid(String.valueOf(roomId));
+	    newMessage.setNickname(nickname);
 
 
 	    // MessagesDAOを使用してメッセージをデータベースに挿入する
@@ -57,7 +58,6 @@ public class ChatForward extends HttpServlet
 	    if (result)
 	    {
 	        // メッセージの挿入が成功した場合はchat.jspにリダイレクトする
-	       	//チャットページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
 			dispatcher.forward(request, response);
 	    }

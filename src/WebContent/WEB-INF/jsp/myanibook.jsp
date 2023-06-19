@@ -21,7 +21,10 @@
     </c:if>
     <c:forEach var="e" items="${petsList}" >
     	<h1>Myペットプロフィール</h1><br>
-		<p><c:out value="${e.picture}"></c:out></p>
+    	<!-- ペットの写真が表示される -->
+		<img src="<c:out value="${e.picture}"></c:out>">
+
+		<c:out value="${e.picture}"></c:out>
     	ペットの名前<br>
     	<p><c:out value="${e.name}"></c:out></p>
 		性別<br>
