@@ -14,7 +14,7 @@ body{
 
 /*いいね順を押すと総合週別が出る*/
 .mouse {
-  margin: 30px 0px 0px 30px;
+  margin: 0px 0px 0px 500px;
   position   : relative;
 }
 .mouse:hover .word {
@@ -27,13 +27,16 @@ body{
   padding: 2px;
   color: aliceblue;
   border-radius: 5px;
-  background-color:purple;
+  background-color:black;
   width:100px;
   top: 50px;
   left: 0px;
   font-size: 12px;
   text-align: center;
 }
+/*.botan{
+	margin: 50px 0px 0px 200px;
+}*/
 
 /*.petpost {
 	display:flex;
@@ -51,9 +54,99 @@ body{
 }
 .num{
 	display: block;
-    margin-block-start: 88em;
+    margin-block-start: 100em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     text-align: center;
 }
+
+/*マウスオーバーの設定
+.list{
+	padding-inline-start: 0;
+        position: relative;
+        width:50px;
+        margin: 4rem auto;
+        cursor: pointer;
+}
+.list li{
+	background-color: white;
+        list-style: none;
+        width: 250px;
+        padding: 10px;
+        border-bottom: solid darkgreen thin;
+        display: grid;
+        align-items: center;
+        transition: opacity .4s, height .4s, background-color .1s, color .1s;
+}
+.list li:last-child{
+	border-bottom: none;
+}
+.listtop{
+	background-color: darkgreen;
+        z-index: 1;
+        color: white;
+}
+.list li:not(.listtop){
+	opacity: 0;
+        height: 0;
+        position: relative;
+}
+メニューを表示させるための設定
+.list li:not(.listtop){
+	opacity: 1;
+        height: 2rem;
+}
+メニューにカーソルを合わせたときの設定
+.listtop:hover li:not(.listtop):hover{
+	background-color: rgba(62, 139, 30, 0.52);
+        color: white;
+}*/
+.list {
+        padding-inline-start: 0;
+        position: relative;
+        width: fit-content;
+        width: -moz-fit-content;
+        margin: 4rem auto;
+        cursor: pointer;
+      }
+ .list li {
+        background-color: white;
+        list-style: none;
+        width: 140spx;
+        padding: 5px;
+        display: grid; /*要素を各市場に並べる*/
+        align-items: center;
+        transition: opacity .4s, height .4s, background-color .1s, color .1s; /*要素のスタイルを変化する速度の調整*/
+      }
+      .list li:last-child { /*兄弟要素の最後の要素*/
+        border-bottom: none;
+      }
+      li.title {
+        background-color:silver ;
+        z-index: 1; /*要素の重なり*/
+        color: black;
+        font-size:13px;
+        margin: 0px 0px 0px 0px;
+
+      }
+      .list li:not(.title) {
+        opacity: 0;
+        height: 0;
+        position: relative;
+      }
+      /* メニューを表示させるためのCSS */
+      .list:hover > li:not(.title) {
+        opacity: 1;
+        height: 2rem;
+      }
+      /* メニューにカーソルを合わせた時のアクション */
+      .list li:not(.title):hover {
+        background-color: white;
+        color: white;
+      }
+      /*赤いハートの画像をいったん非表示に*/
+      .hidden
+      {
+      	display:none;
+      }

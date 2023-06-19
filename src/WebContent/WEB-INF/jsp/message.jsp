@@ -15,7 +15,7 @@ if (messageList != null && !messageList.isEmpty())
 {
     for (Message message : messageList)
     { %>
-        <p><%= message.getMessage() %></p>
+        <p> <p><b><%= message.getNickname() %>:</b><%= message.getMessage() %></p>
 <%  }
 } %>
 
