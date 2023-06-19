@@ -23,15 +23,18 @@ public class MessageServlet extends HttpServlet
             throws ServletException, IOException
     {
         // チャットルームのIDを取得
-    	 // チャットルームのIDを取得
         int roomId;
         String roomIdParam = request.getParameter("roomid"); // roomIdParamの値を取得
 
-        if (roomIdParam != null && !roomIdParam.isEmpty()) {
+        if (roomIdParam != null && !roomIdParam.isEmpty())
+        {
             roomId = Integer.parseInt(roomIdParam);
-        } else {
+        }
+        else
+        {
             roomId = 1; // デフォルト値
         }
+
         // MessagesDAOを使用してメッセージを取得
         MessagesDAO messagesDAO = new MessagesDAO();
         List<Message> messageList = null;
@@ -60,14 +63,22 @@ public class MessageServlet extends HttpServlet
     {
         // フォームから送信されたメッセージを取得
         String messageContent = request.getParameter("message");
+        String nickname = request.getParameter("nickname");
+
+        //ニックネームが空の場合
+        if(nickname == null || nickname.isEmpty())
+        {
+        	nickname = "ゲスト";
+        }
 
         // チャットルームのIDを取得
         int roomId = 1;
 
         // メッセージオブジェクトを作成
         Message message = new Message();
-        message.setChatroomsid(String.valueOf(roomId)); // チャットルームIDを設定
+        message.setChatroomsid(String.valueOf(roomId)); // チャットルームIDを設定(integerオブジェクトに変換)
         message.setMessage(messageContent); // メッセージを設定
+        message.setNickname(nickname);
 
         // MessagesDAOを使用してメッセージをデータベースに挿入
         MessagesDAO messagesDAO = new MessagesDAO();
@@ -80,7 +91,8 @@ public class MessageServlet extends HttpServlet
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
             dispatcher.forward(request, response);
-        } else
+        }
+        else
         {
             // メッセージの挿入に失敗した場合の処理
         }

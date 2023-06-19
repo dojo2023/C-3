@@ -145,3 +145,8 @@ body{
         background-color: white;
         color: white;
       }
+      /*赤いハートの画像をいったん非表示に*/
+      .hidden
+      {
+      	display:none;
+      }

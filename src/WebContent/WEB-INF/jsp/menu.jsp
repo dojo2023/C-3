@@ -50,8 +50,13 @@
       </tr>
       <tr>
         <td><a href ="/coffee_Milk/SearchServlet"></a>
-            <div id="heart" onclick="changeColor()"><img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25"></div><!-- ハートボタンを押すとSearchServletにとぶのを修正 -->
-            <div id="redheart"><img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25"></div>
+
+<!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる -->
+<div class="heart" onclick="changeColor(this)">
+  <img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25" class="white-heart">
+  <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden">
+</div>
+
       </tr>
       <tr>
         <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
