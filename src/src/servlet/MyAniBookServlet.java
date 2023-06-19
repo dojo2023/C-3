@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.PictureBooksDAO;
+import model.LoginUsers;
 import model.Pets;
-
 /**
  * Servlet implementation class MyAniBookServlet
  */
@@ -29,11 +29,14 @@ public class MyAniBookServlet extends HttpServlet {
 
 		//  セッションスコープからIDを取得する
 		HttpSession session = request.getSession();
-		session.getAttribute("id");
+		LoginUsers login_users = (LoginUsers) session.getAttribute("id");
 
-		//
+		// DAOを使ってMyペット図鑑の情報をゲットする
 		PictureBooksDAO aDao = new PictureBooksDAO();
-		List<Pets> cardList = aDao.select(new Pets(user_id))
+		List<Pets> petsList = aDao.select(new Pets(login_users.getId()));
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("petsList", petsList);
 
 		// Myペット図鑑にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
