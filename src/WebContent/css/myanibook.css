@@ -28,7 +28,7 @@
 
 /* tabの中のactiveに適用 */
 .tab.is-active{
-	background:#f00;
+	background:#78CDD1;
 	color:#fff;
 	transition: all 0.2s ease-out;
 }

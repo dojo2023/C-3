@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.PictureBooksDAO;
+import model.LoginUsers;
 import model.Pets;
 
 /**
@@ -22,10 +24,17 @@ public class MyAniAddServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	//Myペット図鑑登録画面にフォワード
+	// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/coffee_Milk/LoginServlet");
+			return;
+		}
+	//ペット図鑑登録にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaniadd.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 	/**
@@ -33,9 +42,14 @@ public class MyAniAddServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		//  セッションスコープからIDを取得する
+		HttpSession session1 = request.getSession();
+		LoginUsers login_users = (LoginUsers) session1.getAttribute("id");
+
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String user_id = request.getParameter("USER_ID");
 		String name = request.getParameter("NAME");
 		String sex = request.getParameter("SEX");
 		String birthday = request.getParameter("BIRTHDAY");
@@ -45,7 +59,7 @@ public class MyAniAddServlet extends HttpServlet {
 
 		// 登録処理を行う
 		PictureBooksDAO pbDao = new PictureBooksDAO();
-		if (pbDao.insert(new Pets(user_id, name, sex, birthday, appeal, cry, picture))) {	// 登録成功
+		if (pbDao.insert(new Pets(login_users.getId(), name, sex, birthday, appeal, cry, picture))) {	// 登録成功
 			response.sendRedirect("/coffee_Milk/MyAniBookServlet");
 		}
 		else {												// 登録失敗

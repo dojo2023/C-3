@@ -41,5 +41,32 @@ public class PictureBooksDAOTest {
 		else {
 			System.out.println("登録失敗！");
 		}
+
+		//update()のテスト
+		System.out.println("---------- update()のテスト ----------");
+		Pets upRec = new Pets ("msk", "うみちゃん更新", "2", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
+		if (dao.update(upRec)) {
+			System.out.println("更新成功！");
+			List<Pets> petsList4 = dao.select(upRec);
+			for (Pets aniUp : petsList4) {
+				System.out.println("USER_ID：" + aniUp.getUser_id());
+				System.out.println("NAME：" + aniUp.getName());
+				System.out.println("SEX：" + aniUp.getSex());
+				System.out.println("BIRTHDAY：" + aniUp.getBirthday());
+				System.out.println("APPEAL：" + aniUp.getAppeal());
+				System.out.println("CRY：" + aniUp.getCry());
+				System.out.println("PICTURE：" + aniUp.getPicture());}
+		}
+		else {
+			System.out.println("更新失敗！");
+		}
+		// delete()のテスト
+		System.out.println("---------- delete()のテスト ----------");
+		if (dao.delete("33")) {
+			System.out.println("削除成功！");
+		}
+		else {
+			System.out.println("削除失敗！");
+		}
 	}
 }
