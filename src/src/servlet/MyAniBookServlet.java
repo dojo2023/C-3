@@ -27,7 +27,7 @@ public class MyAniBookServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// もしもログインしていなかったらそのままjspにフォワードする。
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
