@@ -21,7 +21,10 @@ CREATE TABLE POSTS (
 
 【テーブルにサンプルデータを登録するSQL文】
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('001','おやすみ中','1','#お休み中 #子犬','/coffee_Milk/img/toukou.png',CURRENT_TIMESTAMP)
+   	   VALUES ('1','おやすみ中','1','#お休み中 #子犬','/img/dog.jpeg',CURRENT_TIMESTAMP)
+
+INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
+   	   VALUES ('2','おうちのお庭でbbq','1','#ミニチュアピンシャー','/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 【テーブルを削除するSQL文】
 DROP TABLE POSTS
