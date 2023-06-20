@@ -35,10 +35,10 @@
 <li><a href ="/coffee_Milk/LoginServlet" class="header2">ログイン</a></li>
 </ul>
 </nav>
-<div class="header3">
+<!-- キーワード検索を消した <div class="header3">
 <input type="text" name="keyword" id="header4">
 <input type="submit" name="search" value="検索" id="header5">
-</div>
+</div>-->
 </div>
 </header>
 <script src="/coffee_Milk/js/header.js"></script>

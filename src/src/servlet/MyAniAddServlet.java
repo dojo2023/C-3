@@ -31,6 +31,10 @@ public class MyAniAddServlet extends HttpServlet {
 			response.sendRedirect("/coffee_Milk/LoginServlet");
 			return;
 		}
+	//ペット図鑑登録にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaniadd.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 	/**
