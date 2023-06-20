@@ -1,6 +1,7 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +11,16 @@
 <script type="text/javascript" src="/coffee_Milk/js/menu.js"></script>
 <!-- スタイルシートの挿入 -->
 <link rel="stylesheet" href="/coffee_Milk/css/menu.css">
-<!--ポップアップウィンドウの表示-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
 </head>
 <body>
   <div class="wrapper">
-    <p>キーワード検索</p>
-       <input type="text" size="30" name="keyword">
+    <form method="POST" action="/coffee_Milk/SearchServlet">
+      <p>キーワード検索</p>
+        <input type="text" size="30" name="keyword">
+  <div class= "serch">
+    <input type="submit" name="REGIST" value="検索"><br>
+  </div>
+    </form>
 <h1>ペット投稿一覧</h1>
   <p>並べ替え</p>
     <form id="posts_list" method="POST" action="/coffee_Milk/SearchServlet" onsubmit="return checkPostList();">
@@ -44,9 +46,12 @@
 <c:forEach var="e" items="${petList}" >
 
   <table class = petpost>
-    <form method="POST" id="pop" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkKekka();">
+    <form method="POST" id="pop" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkfavorite();">
       <tr>
-        <td><a href="/coffee_Milk/img/dog.jpeg" data-lightbox="group"><img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px"></a></td><%-- e.はスコープから取り出したときの名前--%>
+        <!-- 拡大される画像のファイル名 -->
+        <td>
+        	<img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px" >
+        </td>
       </tr>
       <tr>
         <td>タイトル</td>
@@ -56,11 +61,18 @@
       </tr>
       <tr>
         <td>
-          <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる 、ハートの周りを押しても色が変わるため修正必要-->
-          <div class="heart" onclick="changeColor(this)" >
+          <form method="POST" id="favorite" action="/coffee_Milk/MenuServlet">
+          <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる-->
+          <div class="heart" onclick="changeColor(this)">
             <img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25" class="white-heart">
-            <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden">
+            <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden" name="favorite">
           </div>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p1>回数</p1>
         </td>
       </tr>
       <tr>

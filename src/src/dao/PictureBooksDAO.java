@@ -167,5 +167,144 @@ public class PictureBooksDAO {
 		// 結果を返す
 		return AniaddResult;
 	}
+	//引数aniaddで指定されたペット図鑑を更新し、成功したらtrueを返す
+	public boolean update(Pets aniup) {
+		Connection conn = null;
+		boolean AniaddResult = false;
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
+
+			// SQL文を準備する
+			String sql = " update PICTURE_BOOKS values (?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, null);
+
+			if (aniup.getUser_id() != null && !aniup.getUser_id().equals("")) {
+				pStmt.setString(2, aniup.getUser_id());
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+
+			if (aniup.getName() != null && !aniup.getName().equals("")) {
+				pStmt.setString(3, aniup.getName());
+			}
+			else {
+				pStmt.setString(3, null);
+			}
+
+			if (aniup.getSex() != null && !aniup.getSex().equals("")) {
+				pStmt.setString(4, aniup.getSex());
+			}
+			else {
+				pStmt.setString(4, null);
+			}
+
+			if (aniup.getBirthday() != null && !aniup.getBirthday().equals("")) {
+				pStmt.setString(5, aniup.getBirthday());
+			}
+			else {
+				pStmt.setString(5, null);
+			}
+
+			if (aniup.getAppeal() != null && !aniup.getAppeal().equals("")) {
+				pStmt.setString(6, aniup.getAppeal());
+			}
+			else {
+				pStmt.setString(6, null);
+			}
+
+			if (aniup.getCry() != null && !aniup.getCry().equals("")) {
+				pStmt.setString(7, aniup.getCry());
+			}
+			else {
+				pStmt.setString(7, null);
+			}
+
+			if (aniup.getPicture() != null && !aniup.getPicture().equals("")) {
+				pStmt.setString(8, aniup.getPicture());
+			}
+			else {
+				pStmt.setString(8, null);
+			}
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				AniaddResult = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	// 結果を返す
+			return AniaddResult;
+    }
+	//引数idで指定されたペット図鑑を削除し、成功したらtrueを返す
+	public boolean delete(String id) {
+		Connection conn = null;
+		boolean AniaddResult = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
+
+			// SQL文を準備する
+			String sql = "delete from PICTURE_BOOKS where ID=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, id);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				AniaddResult = true;
+
+		    }
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return AniaddResult;
+    }
 
 }

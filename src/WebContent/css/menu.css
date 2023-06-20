@@ -34,14 +34,8 @@ body{
   font-size: 12px;
   text-align: center;
 }
-/*.botan{
-	margin: 50px 0px 0px 200px;
-}*/
 
-/*.petpost {
-	display:flex;
-}*/
-/*投稿一覧の写真*/
+/*投稿一覧の写真の設定*/
 .petpost {
 	padding: 10px;
 	margin :10px;
@@ -102,6 +96,7 @@ body{
 	background-color: rgba(62, 139, 30, 0.52);
         color: white;
 }*/
+  /*いいねランキングのドロップダウン*/
 .list {
         padding-inline-start: 0;
         position: relative;
@@ -152,5 +147,9 @@ body{
       }
      /*ハートのコンテンツ領域を狭める*/
      .heart{
-        width: auto;
+        width: 30px
+     }
+     /*ハートの位置設定*/
+     .heart{
+        margin:0px 0px 0px 83px;
      }
