@@ -4,6 +4,7 @@
 
 <html>
 <head>
+    <script src="js/header.js"></script>
 <meta charset="UTF-8">
 <title>メッセージ</title>
 </head>

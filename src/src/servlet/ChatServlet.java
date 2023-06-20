@@ -60,7 +60,6 @@ public class ChatServlet extends HttpServlet
 						request.getRequestDispatcher("/view/error.jsp").forward(request, response);
 					}
 				}
-
 	}
 
 	/**
@@ -102,7 +101,7 @@ public class ChatServlet extends HttpServlet
 			{
 				// 登録された件数を持ってフォワード
 				request.setAttribute("error", error);
-				request.getRequestDispatcher("/view/error.jsp").forward(request, response);
+				request.getRequestDispatcher("/coffee_Milk/ChatForwardServlet").forward(request, response);
 			}
 		}
 
