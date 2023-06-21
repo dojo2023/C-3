@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<%@ include file="header.jsp" %>
 		<meta charset="UTF-8">
 		<title>Myペット図鑑</title>
 		<link rel="stylesheet" href="css/myanibook.css">
