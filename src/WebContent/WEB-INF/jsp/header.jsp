@@ -35,7 +35,6 @@
 <ul>
 <li><a href ="/coffee_Milk/NewUserServlet" class="header2">新規登録</a></li>
 <li><a href ="/coffee_Milk/LoginServlet" class="header2">ログイン</a></li>
-<li><a href ="/coffee_Milk/menuServlet" class="header2">ログアウト</a></li>
 </ul>
 </nav>
 </c:if>
