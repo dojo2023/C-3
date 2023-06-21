@@ -65,4 +65,90 @@ public class PetPostsDAO {
 		}
 		return petList;
 	}
+
+	// 引数postaddで指定されたペット投稿を登録し、成功したらtrueを返す
+	public boolean insert(Pet postadd) {
+		Connection conn = null;
+		boolean PostaddResult = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
+
+			// SQL文を準備する
+			String sql = "insert into POSTS values (?, ?, ?, ?, ?, ?, ?,)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, null);
+
+			if (postadd.getPicture_books_id() != null && !postadd.getPicture_books_id().equals("")) {
+				pStmt.setString(2, postadd.getPicture_books_id());
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+
+			if (postadd.getTitle() != null && !postadd.getTitle().equals("")) {
+				pStmt.setString(3, postadd.getTitle());
+			}
+			else {
+				pStmt.setString(3, null);
+			}
+
+			if (postadd.getGenre() != null && !postadd.getGenre().equals("")) {
+				pStmt.setString(4, postadd.getGenre());
+			}
+			else {
+				pStmt.setString(4, null);
+			}
+
+			if (postadd.getFree() != null && !postadd.getFree().equals("")) {
+				pStmt.setString(5, postadd.getFree());
+			}
+			else {
+				pStmt.setString(5, null);
+			}
+
+			if (postadd.getPicture() != null && !postadd.getPicture().equals("")) {
+				pStmt.setString(6, postadd.getPicture());
+			}
+			else {
+				pStmt.setString(6, null);
+			}
+
+			if (postadd.getTime() != null && !postadd.getTime().equals("")) {
+				pStmt.setTimestamp(7, postadd.getTime());
+			}
+			else {
+				pStmt.setTimestamp(7, null);
+			}
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				PostaddResult = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			PostaddResult = false;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			PostaddResult = false;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return PostaddResult;
+	}
 }
