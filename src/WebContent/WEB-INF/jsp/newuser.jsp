@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<%@ include file="header.jsp" %>
 	<div class="wrapper">
 	<h1>ユーザー新規登録</h1>
 	<form id="userregister_form" method="POST" action="/coffee_Milk/NewUserServlet">
