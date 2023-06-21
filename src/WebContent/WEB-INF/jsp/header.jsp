@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,6 @@
 <ul>
 <li><a href ="/coffee_Milk/NewUserServlet" class="header2">新規登録</a></li>
 <li><a href ="/coffee_Milk/LoginServlet" class="header2">ログイン</a></li>
-<li><a href ="/coffee_Milk/menuServlet" class="header2">ログアウト</a></li>
 </ul>
 </nav>
 </c:if>
