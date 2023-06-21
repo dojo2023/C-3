@@ -28,6 +28,9 @@
 	</li>
 </ul>
 </nav>
+
+<!-- 非ログイン者の場合 -->
+<c:if test="${empty id}">
 <nav class="nav1">
 <ul>
 <li><a href ="/coffee_Milk/NewUserServlet" class="header2">新規登録</a></li>
@@ -35,6 +38,15 @@
 <li><a href ="/coffee_Milk/menuServlet" class="header2">ログアウト</a></li>
 </ul>
 </nav>
+</c:if>
+<!-- ログイン者の場合 -->
+<c:if test="${!empty id}">
+<nav class="nav1">
+<ul>
+<li><a href ="/coffee_Milk/LogoutServlet" class="header2">ログアウト</a></li>
+</ul>
+</nav>
+</c:if>
 <!-- キーワード検索を消した <div class="header3">
 <input type="text" name="keyword" id="header4">
 <input type="submit" name="search" value="検索" id="header5">
