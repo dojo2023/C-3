@@ -24,13 +24,17 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //ペット投稿一覧
-        int page =1;
+        int page = 1; //←問題
+        String pageParam = request.getParameter("page");
+        if (pageParam != null && !pageParam.isEmpty()) {
+            page = Integer.parseInt(pageParam);
+        }
         int Page = 12;
         int OFFSET = (page-1)* Page;
 
 		//DAOからペット投稿のデータを取得する
         MenuDAO mDAO = new MenuDAO();
-        List<Pet> petList = mDAO.select(page);
+        List<Pet> petList = mDAO.select(OFFSET);
 
         // 検索結果をリクエストスコープに格納する
 		request.setAttribute("petList", petList);

@@ -23,19 +23,21 @@ public class PageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int PAGE =1;
-        int Page = 12;
-        int OFFSET = (PAGE-1)* Page;
 		//リクエストパラメーターを取得
 		request.setCharacterEncoding("UTF-8");
 		String page = request.getParameter("page");
-
+        Integer.parseInt(page);
 		System.out.println(request.getParameter("page"));
 		//             (page - 1) * 12
 		//1 page  0    (  1  - 1) * 12
 		//2 page 12    (  2  - 1) * 12
 		//3 page 24    (  3  - 1) * 12
 		//4 page 36    (  4  - 1) * 12
+
+		int PAGE = Integer.parseInt(request.getParameter("page"));
+        int Page = 12;
+        int OFFSET = (PAGE-1)* Page;
+
 
 //		String page2 = request.getParameter("page");
 //		String page3 = request.getParameter("page");
