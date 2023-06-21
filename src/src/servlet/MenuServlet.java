@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PetPostsDAO;
+import dao.MenuDAO;
 import model.Pet;
-
 /**
  * Servlet implementation class MenuServlet
  */
@@ -25,23 +24,10 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //ペット投稿一覧
-		/*List<Pet> petList = new ArrayList<Pet>();
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());
-		petList.add(new Pet());*/
-		//DAOからペット投稿のデータを取得する
 
-        PetPostsDAO pDAO = new PetPostsDAO();
-        List<Pet> petList = pDAO.select();
+		//DAOからペット投稿のデータを取得する
+        MenuDAO mDAO = new MenuDAO();
+        List<Pet> petList = mDAO.select();
 
         // 検索結果をリクエストスコープに格納する
 		request.setAttribute("petList", petList);

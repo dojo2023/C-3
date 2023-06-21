@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 <h1>Myペット図鑑登録</h1>
 <form id="myaniadd_form" method="POST" action="/coffee_Milk/MyAniAddServlet">
 <div class="flex">
