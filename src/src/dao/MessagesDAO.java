@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class MessagesDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try 
+        try
         {
             Class.forName("org.h2.Driver");
             conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
@@ -37,11 +38,12 @@ public class MessagesDAO {
                 message.setMessage(rs.getString("MESSAGE"));
                 message.setTime(rs.getTimestamp("TIME"));
 
-                System.out.println("CHATROOMS_ID: " + message.getChatroomsid()); // 追加する行
+                System.out.println("CHATROOMS_ID: " + message.getChatroomsid());
                 messageList.add(message);
             }
         }
-        finally {
+        finally
+        {
             if (rs != null)
             {
                 rs.close();
@@ -89,6 +91,7 @@ public class MessagesDAO {
             pstmt.setString(1, message.getChatroomsid());
             pstmt.setString(2, message.getNickname());
             pstmt.setString(3, message.getMessage());
+            message.setTime(new Timestamp(System.currentTimeMillis()));
             pstmt.setTimestamp(4, message.getTime());
 
             if (pstmt.executeUpdate() == 1)

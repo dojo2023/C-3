@@ -18,10 +18,12 @@ import dao.MessagesDAO;
 public class MessageServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
+    String error ="";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+    	request.setCharacterEncoding("UTF-8");
         // チャットルームのIDを取得
         int roomId;
         String roomIdParam = request.getParameter("roomid"); // roomIdParamの値を取得
@@ -61,6 +63,7 @@ public class MessageServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+    	request.setCharacterEncoding("UTF-8");
         // フォームから送信されたメッセージを取得
         String messageContent = request.getParameter("message");
         String nickname = request.getParameter("nickname");
@@ -72,7 +75,7 @@ public class MessageServlet extends HttpServlet
         }
 
         // チャットルームのIDを取得
-        int roomId = 1;
+        int roomId = Integer.parseInt(request.getParameter("roomid"));
 
         // メッセージオブジェクトを作成
         Message message = new Message();
@@ -88,16 +91,19 @@ public class MessageServlet extends HttpServlet
         if (result)
         {
             // メッセージの挿入に成功した場合の処理
-
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
             dispatcher.forward(request, response);
         }
         else
         {
             // メッセージの挿入に失敗した場合の処理
+        	 error = "※メッセージの挿入に失敗しました。※";
+        	 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
+             dispatcher.forward(request, response);
+             // doGetメソッドを呼び出してメッセージ一覧を表示
+             doGet(request, response);
         }
 
-        // doGetメソッドを呼び出してメッセージ一覧を表示
-        doGet(request, response);
+
     }
 }

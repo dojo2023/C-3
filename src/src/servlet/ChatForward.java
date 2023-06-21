@@ -57,14 +57,14 @@ public class ChatForward extends HttpServlet
 
 	    if (result)
 	    {
-	        // メッセージの挿入が成功した場合はchat.jspにリダイレクトする
+	        // メッセージの挿入が成功した
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
 			dispatcher.forward(request, response);
 	    }
 	    else
 	    {
-	        // メッセージの挿入が失敗した場合は、エラーメッセージを表示するかエラーページにリダイレクトするなど、
-	        response.sendRedirect("error.jsp");
+	        // メッセージの挿入が失敗した
+	        response.sendRedirect("/WEB-INF/jsp/chat.jsp");
 	    }
 	}
 
