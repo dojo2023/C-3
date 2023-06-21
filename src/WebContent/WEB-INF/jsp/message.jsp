@@ -2,9 +2,10 @@
 <%@ page import="java.util.List"%>
 <%@ page import="bean.Message"%>
 
+
 <html>
 <head>
-    <script src="js/header.js"></script>
+      <script type="text/javascript" src="/coffee_Milk/js/message.js"></script>
 <meta charset="UTF-8">
 <title>メッセージ</title>
 </head>
