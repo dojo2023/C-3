@@ -42,6 +42,10 @@ public class UpdateDeleteServlet extends HttpServlet {
 		if (session.getAttribute("id") == null) {
 		response.sendRedirect("/coffee_Milk/LoginServlet");
 		return;
+
+		// ↓これでidが引っ張れます！by鈴木
+		request.getParameter("id");
+
 	}
 
 		//  セッションスコープからIDを取得する
