@@ -167,7 +167,7 @@ public class PictureBooksDAO {
 		// 結果を返す
 		return AniaddResult;
 	}
-	//引数aniaddで指定されたペット図鑑を更新し、成功したらtrueを返す
+	//引数aniupで指定されたペット図鑑を更新し、成功したらtrueを返す
 	public boolean update(Pets aniup) {
 		Connection conn = null;
 		boolean AniaddResult = false;
