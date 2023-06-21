@@ -62,7 +62,7 @@ public class PictureBooksDAOTest {
 		}
 		// delete()のテスト
 		System.out.println("---------- delete()のテスト ----------");
-		if (dao.delete("33")) {
+		if (dao.delete("34")) {
 			System.out.println("削除成功！");
 		}
 		else {

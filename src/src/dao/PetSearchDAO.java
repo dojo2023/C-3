@@ -26,8 +26,13 @@ public class PetSearchDAO
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
 				// ペット投稿をTIMEで並び替えるSQL文を準備する
-				String sql = "SELECT * FROM POSTS ORDER BY TIME DESC";
+				String sql = "SELECT * FROM POSTS WHERE TITLE LIKE ? OR GENRE LIKE ? OR FREE LIKE ? OR PICTURE LIKE ?  ORDER BY TIME DESC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				pStmt.setString(1, "%" + keyWord + "%");
+	            pStmt.setString(2, "%" + keyWord + "%");
+	            pStmt.setString(3, "%" + keyWord + "%");
+	            pStmt.setString(4, "%" + keyWord + "%");
 
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();

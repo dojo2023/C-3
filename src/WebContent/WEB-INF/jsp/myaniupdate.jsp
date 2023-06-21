@@ -29,7 +29,7 @@
 			<input type="text" placeholder="例：0101" name="BIRTHDAY"><br>
 			アピールポイント<br>
 			<input type="text" name="POINT"><br>
-			<input type="submit" name="REGIST" value="登録">
+			<input type="submit" name="REGIST" value="編集完了">
 			</p>
 			<p id="output"></p>
         	<span id="error_message"></span>

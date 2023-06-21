@@ -27,8 +27,7 @@ public class PictureBooksDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
 			// USER_IDを用いてペット図鑑を検索するSQL文を準備する
-			// 並び替えるIDはselectで取得しなくても使用できるのかが懸念点
-			String sql = "select USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE from PICTURE_BOOKS WHERE USER_ID = ? ORDER BY ID";
+			String sql = "select ID,USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE from PICTURE_BOOKS WHERE USER_ID = ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -40,6 +39,7 @@ public class PictureBooksDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Pets inf = new Pets(
+				rs.getString("ID"),
 				rs.getString("USER_ID"),
 				rs.getString("NAME"),
 				rs.getString("SEX"),
@@ -167,7 +167,7 @@ public class PictureBooksDAO {
 		// 結果を返す
 		return AniaddResult;
 	}
-	//引数aniaddで指定されたペット図鑑を更新し、成功したらtrueを返す
+	//引数aniupで指定されたペット図鑑を更新し、成功したらtrueを返す
 	public boolean update(Pets aniup) {
 		Connection conn = null;
 		boolean AniaddResult = false;
