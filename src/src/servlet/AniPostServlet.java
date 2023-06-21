@@ -21,8 +21,13 @@ public class AniPostServlet extends HttpServlet {
 	 */
 	// ペット投稿にフォワードする
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("id"));
 
+		// リクエストパラメーターを取得する
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+
+		// リクエストパラメーターに格納する
+		request.setAttribute("ID",id);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/anipost.jsp");
 		dispatcher.forward(request, response);
