@@ -20,5 +20,13 @@ function(){
 		const arrayTabs = Array.prototype.slice.call(tabs);
 		const index = arrayTabs.indexOf(this);
 		document.getElementsByClassName('panel')[index].classList.add('is-show');
+
+/*		// 編集、削除、投稿ボタンのclassの値を変更
+		document.getElementsByClassName('is-express')[0].classList.remove('is-express');
+		const arrayTabs = Array.prototype.slice.call(tabs);
+		const index = arrayTabs.indexOf(this);
+		document.getElementsByClassName('botton')[index].classList.add('is-express');
+*/
 	};
+
 });

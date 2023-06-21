@@ -26,6 +26,11 @@
 	display:none;
 }
 
+/* bottonクラスを非表示にしている */
+.botton{
+	display:none;
+}
+
 /* tabの中のactiveに適用 */
 .tab.is-active{
 	background:#78CDD1;
@@ -35,5 +40,10 @@
 
 /* panelの中のis-showに対して適用 */
 .panel.is-show{
+	display:block;
+}
+
+/* bottonの中のis-expressに対して適用 */
+.botton.is-express{
 	display:block;
 }
