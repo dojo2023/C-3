@@ -24,10 +24,13 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //ペット投稿一覧
+        int page =1;
+        int Page = 12;
+        int OFFSET = (page-1)* Page;
 
 		//DAOからペット投稿のデータを取得する
         MenuDAO mDAO = new MenuDAO();
-        List<Pet> petList = mDAO.select();
+        List<Pet> petList = mDAO.select(OFFSET);
 
         // 検索結果をリクエストスコープに格納する
 		request.setAttribute("petList", petList);
@@ -35,8 +38,15 @@ public class MenuServlet extends HttpServlet {
         //メニューサーブレットにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 		dispatcher.forward(request, response);
+    }
 
-//		//リクエストパラメーターを取得、doPostに書く
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		//リクエストパラメーターを取得、doPostに書く
 //		 request.setCharacterEncoding("UTF-8");
 //		 String posts = request.getParameter("POSTS_ID");
 //		 String fav = request.getParameter("favorite");
@@ -48,14 +58,6 @@ public class MenuServlet extends HttpServlet {
 //		 //fDaoを利用していいねする updateFavorite(posts_id)
 //		 fDao.updateFavorite(posts_id);
 
-    }
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

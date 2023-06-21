@@ -96,76 +96,13 @@
     <input type="submit" name="total" value="総合">
     <input type="submit" name="weekly" value="週別">
   </span>
-
-
-<!-- ページ番号-->
-<div class="num">
-<%
-//ページ数・現在ページの変数宣言
-int currentPage;
-int lastPageNum;
-//変数代入、データの数÷１ページに表示する投稿の数を代入できるようにする
-currentPage = 1;
-lastPageNum = 9;
-//定数宣言
-final int FIRST_PAGE = 1;
-final int FIRST_HALF_CHECK = 5;
-final int LAST_HALF_CHECK = 4;
-final int BEFORE_AND_AFTER = 2;
-%>
-<section>
-  <div class="pageLeft">
-    <%if(currentPage != FIRST_PAGE){ %>
-      <a href="">前のページ</a>
-    <%} %>
+  <!--ページ番号 -->
+  <div class ="page">
+  	<a href="/coffee_Milk/PageServlet?page">1</a>
+    <a href="/coffee_Milk/PageServlet?page">2</a>
+    <a href="/coffee_Milk/PageServlet?page">3</a>
+    <a href="/coffee_Milk/PageServlet?page">4</a>
   </div>
-  <div class="pageCenter">
-    <%if(currentPage >= FIRST_HALF_CHECK){ %>
-      <a href="">1</a>
-…
-    <%} %>
-    <%if(currentPage < FIRST_HALF_CHECK){ %>
-      <%for(int i = 1; i <= FIRST_HALF_CHECK; i++){ %>
-        <%if(i <= lastPageNum){ %>
-        <!-- aタグを入れるか入れないかの分岐（現在ページにaタグは入れない）-->
-            <%if(i == currentPage){ %>
-                <span><%=i %></span>
-            <%}else{ %>
-                <a href=""><%=i %></a>
-            <%} %>
-        <%} %>
-      <%} %>
-    <%}else if(lastPageNum - currentPage < LAST_HALF_CHECK){ %>
-      <%for(int i = lastPageNum - LAST_HALF_CHECK; i <= lastPageNum; i++){ %>
-        <%if(i > 0){ %>
-        <!-- aタグを入れるか入れないかの分岐（現在ページにaタグは入れない）-->
-            <%if(i == currentPage){ %>
-                <span><%=i %></span>
-            <%}else{ %>
-                <a href=""><%=i %></a>
-            <%} %>
-        <%} %>
-    <%} %>
-            <%}else{ %>
-      <%for(int i = currentPage - BEFORE_AND_AFTER; i <= currentPage + BEFORE_AND_AFTER; i++){ %>
-        <!--  aタグを入れるか入れないかの分岐（現在ページにaタグは入れない）-->
-            <%if(i == currentPage){ %>
-                <span><%=i %></span>
-            <%}else{ %>
-                <a href=""><%=i %></a>
-            <%} %>
-      <%} %>
-<%} %>
-    <%if(lastPageNum - currentPage >= LAST_HALF_CHECK){ %>
-      …<a href=""><%=lastPageNum %></a>
-    <%} %>
-</div>
-<div class="pageRight">
-<%if(currentPage != lastPageNum){ %>
-    <a href="">後ろのページ</a>
-<%} %>
-</div>
-</section>
 </div>
   <!--投稿画像をクリックするとポップアップウインドウが表示-->
   <!--図鑑を見るをクリックするとMyaniBookServletにとぶ

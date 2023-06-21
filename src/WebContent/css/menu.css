@@ -46,7 +46,8 @@ body{
 	padding:0px;
 	/*justify-content: center;*/
 }
-.num{
+/*ページ番号の設定*/
+.page{
 	display: block;
     margin-block-start: 100em;
     margin-block-end: 1em;
@@ -54,48 +55,10 @@ body{
     margin-inline-end: 0px;
     text-align: center;
 }
+.page li {
+	display:inline;
+}
 
-/*マウスオーバーの設定
-.list{
-	padding-inline-start: 0;
-        position: relative;
-        width:50px;
-        margin: 4rem auto;
-        cursor: pointer;
-}
-.list li{
-	background-color: white;
-        list-style: none;
-        width: 250px;
-        padding: 10px;
-        border-bottom: solid darkgreen thin;
-        display: grid;
-        align-items: center;
-        transition: opacity .4s, height .4s, background-color .1s, color .1s;
-}
-.list li:last-child{
-	border-bottom: none;
-}
-.listtop{
-	background-color: darkgreen;
-        z-index: 1;
-        color: white;
-}
-.list li:not(.listtop){
-	opacity: 0;
-        height: 0;
-        position: relative;
-}
-メニューを表示させるための設定
-.list li:not(.listtop){
-	opacity: 1;
-        height: 2rem;
-}
-メニューにカーソルを合わせたときの設定
-.listtop:hover li:not(.listtop):hover{
-	background-color: rgba(62, 139, 30, 0.52);
-        color: white;
-}*/
   /*いいねランキングのドロップダウン*/
 .list {
         padding-inline-start: 0;
