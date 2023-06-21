@@ -55,7 +55,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 		PictureBooksDAO pDao = new PictureBooksDAO();
 		if (request.getParameter("SUBMIT").equals("更新")) {
 			if (pDao.update(new Pets
-					(login_users.getId(),name, sex, birthday,appeal,cry, picture))) {	// 更新成功
+					(login_users.getId(),id, name, sex, birthday,appeal,cry, picture))) {	// 更新成功
 				     response.sendRedirect("/coffee_Milk/MyAniBookServlet");
 			}else {												// 更新失敗
 		        String error = "※更新失敗しました。";

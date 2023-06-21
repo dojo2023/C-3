@@ -25,7 +25,7 @@ public class PictureBooksDAOTest {
 
 		// insert()のテスト
 		System.out.println("---------- insert()のテスト ----------");
-		Pets insRec = new Pets("msk", "うみちゃん", "2", "0601", "かわいい", "", "/coffee_Milk/img/test.png");
+		Pets insRec = new Pets("","msk", "うみちゃん", "2", "0601", "かわいい", "", "/coffee_Milk/img/test.png");
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
 			List<Pets> petsList3 = dao.select(insRec);
@@ -44,7 +44,7 @@ public class PictureBooksDAOTest {
 
 		//update()のテスト
 		System.out.println("---------- update()のテスト ----------");
-		Pets upRec = new Pets ("msk", "うみちゃん更新", "2", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
+		Pets upRec = new Pets ("41","msk", "まゆかちゃん更新", "2", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
 		if (dao.update(upRec)) {
 			System.out.println("更新成功！");
 			List<Pets> petsList4 = dao.select(upRec);
@@ -62,7 +62,7 @@ public class PictureBooksDAOTest {
 		}
 		// delete()のテスト
 		System.out.println("---------- delete()のテスト ----------");
-		if (dao.delete("34")) {
+		if (dao.delete("47")) {
 			System.out.println("削除成功！");
 		}
 		else {
