@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<%@ include file="header.jsp" %>
 		<meta charset="UTF-8">
 		<title>Myペット図鑑</title>
 		<link rel="stylesheet" href="css/myanibook.css">
@@ -49,7 +50,7 @@
 	    </div>
 	</c:if>
 
-<!-- case1:ログインしていて登録データがないとき -->
+<!-- case2:ログインしていて登録データがないとき -->
 		<c:if test="${!empty id}">
 		<!-- タブ表示 -->
 		<c:if test="${empty petsList}">
@@ -117,16 +118,27 @@
 					<p><c:out value="${e.cry}"></c:out></p>
 					アピールポイント<br>
 					<p><c:out value="${e.appeal}"></c:out></p>
+
+					<h2><a href="/coffee_Milk/UpdateDeleteServlet?id=<c:out value="${e.id}"></c:out>&cmd=1"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
+					<h2><a href="/coffee_Milk/UpdateDeleteServlet?id=<c:out value="${e.id}"></c:out>&cmd=2"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
+					<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
+
 				</div>
 			</div>
+			<!-- ペットの登録データがある方のみ表示するボタン -->
+<!-- 				<div class="botton-group">
+					<div class="botton tab-<c:out value="${status.index+1}"/>
+						<c:if test="${status.index==0}">
+ 		 					is-express
+ 		 				</c:if>
+ 		 			">
+						<h2><a href="/coffee_Milk/UpdateDeleteServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
+						<h2><a href="/coffee_Milk/UpdateDeleteServlet"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
+						<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
+					</div>
+				</div>
+ -->
 		</c:forEach>
 	</div>
-
-	<!-- ペットの登録データがある方のみ表示するボタン -->
-	<c:if test="${!empty petsList}">
-		<h2><a href="/coffee_Milk/UpdateDeleteServlet"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
-		<h2><a href="/coffee_Milk/UpdateDeleteServlet"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
-		<h2><a href="/coffee_Milk/AniPostServlet"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
-	</c:if>
 </body>
 </html>

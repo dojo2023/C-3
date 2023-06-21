@@ -36,6 +36,7 @@
 		</c:if>
 	</c:otherwise>
 </c:choose>
+※10秒ごとに更新されます※
 
     <div class="item-wrapper">
         <div class="container">
@@ -49,8 +50,8 @@
             特定のRoom IDに関連するチャットメッセージを表示するためのサーブレットにアクセスできる-->
             <iframe src="/coffee_Milk/MessageServlet?roomid=${param.roomid}" width="650px" height="500px" style="margin: 0 auto;"></iframe>
 		</c:if>
-		
-            <form method="post" action="/coffee_Milk/MessageServlet?roomid=${param.roomid}" onsubmit="return SubmitNGWords()">
+
+            <form id="messageForm" method="post" action="/coffee_Milk/MessageServlet?roomid=${param.roomid}" onsubmit="return SubmitNGWords()">
 
 <p>
            <c:if test = "${!empty param.roomid}">

@@ -27,8 +27,7 @@ public class PictureBooksDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
 			// USER_IDを用いてペット図鑑を検索するSQL文を準備する
-			// 並び替えるIDはselectで取得しなくても使用できるのかが懸念点
-			String sql = "select USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE from PICTURE_BOOKS WHERE USER_ID = ? ORDER BY ID";
+			String sql = "select ID,USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE from PICTURE_BOOKS WHERE USER_ID = ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -40,6 +39,7 @@ public class PictureBooksDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Pets inf = new Pets(
+				rs.getString("ID"),
 				rs.getString("USER_ID"),
 				rs.getString("NAME"),
 				rs.getString("SEX"),
@@ -167,7 +167,7 @@ public class PictureBooksDAO {
 		// 結果を返す
 		return AniaddResult;
 	}
-	//引数aniaddで指定されたペット図鑑を更新し、成功したらtrueを返す
+	//引数aniupで指定されたペット図鑑を更新し、成功したらtrueを返す
 	public boolean update(Pets aniup) {
 		Connection conn = null;
 		boolean AniaddResult = false;
@@ -179,59 +179,61 @@ public class PictureBooksDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
 			// SQL文を準備する
-			String sql = " update PICTURE_BOOKS values (?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = " update PICTURE_BOOKS set User_id=?, Name=?, Sex=?, Birthday=?, Appeal=?, Cry=?, Picture=? where Id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setString(1, null);
 
 			if (aniup.getUser_id() != null && !aniup.getUser_id().equals("")) {
-				pStmt.setString(2, aniup.getUser_id());
+				pStmt.setString(1, aniup.getUser_id());
+			}
+			else {
+				pStmt.setString(1, null);
+			}
+
+			if (aniup.getName() != null && !aniup.getName().equals("")) {
+				pStmt.setString(2, aniup.getName());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
 
-			if (aniup.getName() != null && !aniup.getName().equals("")) {
-				pStmt.setString(3, aniup.getName());
+			if (aniup.getSex() != null && !aniup.getSex().equals("")) {
+				pStmt.setString(3, aniup.getSex());
 			}
 			else {
 				pStmt.setString(3, null);
 			}
 
-			if (aniup.getSex() != null && !aniup.getSex().equals("")) {
-				pStmt.setString(4, aniup.getSex());
+			if (aniup.getBirthday() != null && !aniup.getBirthday().equals("")) {
+				pStmt.setString(4, aniup.getBirthday());
 			}
 			else {
 				pStmt.setString(4, null);
 			}
 
-			if (aniup.getBirthday() != null && !aniup.getBirthday().equals("")) {
-				pStmt.setString(5, aniup.getBirthday());
+			if (aniup.getAppeal() != null && !aniup.getAppeal().equals("")) {
+				pStmt.setString(5, aniup.getAppeal());
 			}
 			else {
 				pStmt.setString(5, null);
 			}
 
-			if (aniup.getAppeal() != null && !aniup.getAppeal().equals("")) {
-				pStmt.setString(6, aniup.getAppeal());
+			if (aniup.getCry() != null && !aniup.getCry().equals("")) {
+				pStmt.setString(6, aniup.getCry());
 			}
 			else {
 				pStmt.setString(6, null);
 			}
 
-			if (aniup.getCry() != null && !aniup.getCry().equals("")) {
-				pStmt.setString(7, aniup.getCry());
+			if (aniup.getPicture() != null && !aniup.getPicture().equals("")) {
+				pStmt.setString(7, aniup.getPicture());
 			}
 			else {
 				pStmt.setString(7, null);
 			}
 
-			if (aniup.getPicture() != null && !aniup.getPicture().equals("")) {
-				pStmt.setString(8, aniup.getPicture());
-			}
-			else {
-				pStmt.setString(8, null);
-			}
+			pStmt.setString(8, aniup.getId());
+
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
