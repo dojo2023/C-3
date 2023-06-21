@@ -44,22 +44,30 @@
       </div>
     </form>
 <c:forEach var="e" items="${petList}" >
-
   <table class = petpost>
-    <form method="POST" id="pop" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkfavorite();">
+    <form method="POST" id="pop" action="/coffee_Milk/MenuServlet">
       <tr>
-        <!-- 拡大される画像のファイル名 -->
         <td>
-        	<img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px" >
+        	<!-- <img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px" > -->
+            <c:out value="${e.picture_books_id}"></c:out>
         </td>
       </tr>
       <tr>
-        <td>タイトル</td>
+        <td><c:out value="${e.title}"></c:out></td>
       </tr>
       <tr>
-	    <td>ハッシュタグ</td>
+	    <td><c:out value="${e.genre}"></c:out></td>
       </tr>
       <tr>
+        <td><c:out value="${e.free}"></c:out></td>
+      </tr>
+      <tr>
+        <td><c:out value="${e.picture}"></c:out></td>
+      </tr>
+      <tr>
+        <td><c:out value="${e.time}"></c:out></td>
+      </tr>
+       <tr>
         <td>
           <form method="POST" id="favorite" action="/coffee_Milk/MenuServlet">
           <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる-->
