@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.MenuDAO;
+import model.Pet;
 /**
  * Servlet implementation class PageServlet
  */
@@ -20,15 +23,31 @@ public class PageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int PAGE =1;
+        int Page = 12;
+        int OFFSET = (PAGE-1)* Page;
 		//リクエストパラメーターを取得
 		request.setCharacterEncoding("UTF-8");
-		String page = request.getParameter("page1");
-		//System.out.println(request.getParameter("page"));
-		String page2 = request.getParameter("page2");
-		String page3 = request.getParameter("page3");
-		String page4 = request.getParameter("page4");
+		String page = request.getParameter("page");
+
+		System.out.println(request.getParameter("page"));
+		//             (page - 1) * 12
+		//1 page  0    (  1  - 1) * 12
+		//2 page 12    (  2  - 1) * 12
+		//3 page 24    (  3  - 1) * 12
+		//4 page 36    (  4  - 1) * 12
+
+//		String page2 = request.getParameter("page");
+//		String page3 = request.getParameter("page");
+//		String page4 = request.getParameter("page");
 		//ページが押されたときの処理
 		MenuDAO mDao = new MenuDAO ();
+		 List<Pet> petList = mDao.select(OFFSET);
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("petList", petList);
+        //メニュー画面にフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+		dispatcher.forward(request, response);
 
 	}
 
