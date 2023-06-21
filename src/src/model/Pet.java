@@ -16,7 +16,7 @@ public class Pet implements Serializable{
 		this.genre = genre;
 		this.free = free;
 		this.picture = picture;
-		this.time = time;
+		this.time = new Timestamp(System.currentTimeMillis());
 	}
 
 	public Pet() {

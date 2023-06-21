@@ -2,6 +2,7 @@ package model;
 import java.io.Serializable;
 
 public class Pets implements Serializable {
+	private String id; // ID
 	private String user_id;  // USER_ID
 	private String name;     // NAME
 	private String sex;      // SEX 数字でもらうけどStringでいいかね？？
@@ -10,7 +11,8 @@ public class Pets implements Serializable {
 	private String cry;      // CRY
 	private String picture;  // PICTURE
 
-	public Pets(String user_id, String name, String sex, String birthday, String appeal,String cry,String picture) {
+	public Pets(String id, String user_id, String name, String sex, String birthday, String appeal,String cry,String picture) {
+		this.id = id;
 		this.user_id = user_id;
 		this.name = name;
 		this.sex = sex;
@@ -20,6 +22,7 @@ public class Pets implements Serializable {
 		this.picture = picture;
 	}
 	public Pets() {
+		this.id = "";
 		this.user_id = "";
 		this.name = "";
 		this.sex = "";
@@ -73,6 +76,12 @@ public class Pets implements Serializable {
 	}
 	public void setPicture(String picture) {
 		this.picture = picture;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

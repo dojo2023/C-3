@@ -1,7 +1,6 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +12,8 @@
 <link rel="stylesheet" href="/coffee_Milk/css/menu.css">
 </head>
 <body>
+<!-- ヘッダー挿入 -->
+<%@ include file="header.jsp" %>
   <div class="wrapper">
     <form method="POST" action="/coffee_Milk/SearchServlet">
       <p>キーワード検索</p>
@@ -44,22 +45,30 @@
       </div>
     </form>
 <c:forEach var="e" items="${petList}" >
-
   <table class = petpost>
-    <form method="POST" id="pop" action="/coffee_Milk/SearchServlet" class="kekka" onsubmit= "return checkfavorite();">
-      <tr>
-        <!-- 拡大される画像のファイル名 -->
+    <form method="POST" id="pop" action="/coffee_Milk/MenuServlet">
+     <!-- <tr>
         <td>
-        	<img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px" >
+        	 <img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px" >
+            <c:out value="${e.picture_books_id}"></c:out>
         </td>
+      </tr>-->
+      <tr>
+        <td><c:out value="${e.title}"></c:out></td>
       </tr>
       <tr>
-        <td>タイトル</td>
+	    <td><c:out value="${e.genre}"></c:out></td>
       </tr>
       <tr>
-	    <td>ハッシュタグ</td>
+        <td><c:out value="${e.free}"></c:out></td>
       </tr>
       <tr>
+        <td><c:out value="${e.picture}"></c:out></td>
+      </tr>
+      <tr>
+        <td><c:out value="${e.time}"></c:out></td>
+      </tr>
+       <tr>
         <td>
           <form method="POST" id="favorite" action="/coffee_Milk/MenuServlet">
           <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる-->

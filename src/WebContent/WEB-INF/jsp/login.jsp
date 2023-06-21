@@ -47,6 +47,8 @@
  </form>
 <div>アカウントを持っていない方は<a href = "/coffee_Milk/NewUserServlet">こちら</a></div>
 
+	<a href="/coffee_Milk/MenuServlet">メニューへ戻る</a>
+
  <%-- エラーメッセージの表示 --%>
  <c:if test="${not empty error}">
     <p>${error}</p>
