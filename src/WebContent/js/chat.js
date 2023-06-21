@@ -28,8 +28,3 @@ function SubmitNGWords()
 	}
   return true;
 }
-
-setInterval(function()
-{
-  location.reload();
-}, 1000);
