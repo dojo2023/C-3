@@ -59,7 +59,7 @@ public class MyAniAddServlet extends HttpServlet {
 
 		// 登録処理を行う
 		PictureBooksDAO pbDao = new PictureBooksDAO();
-		if (pbDao.insert(new Pets(login_users.getId(), name, sex, birthday, appeal, cry, picture))) {	// 登録成功
+		if (pbDao.insert(new Pets("",login_users.getId(), name, sex, birthday, appeal, cry, picture))) {	// 登録成功
 			response.sendRedirect("/coffee_Milk/MyAniBookServlet");
 		}
 		else {												// 登録失敗
