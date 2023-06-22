@@ -10,6 +10,18 @@ public class PictureBooksDAOTest {
 	public static void main(String[] args) {
 		PictureBooksDAO dao = new PictureBooksDAO();
 
+		// editselect()のテスト
+		System.out.println("---------- editselect()のテスト ----------");
+		Pets pets = dao.editselect(1);
+			System.out.println("USER_ID：" + pets.getUser_id());
+			System.out.println("NAME：" + pets.getName());
+			System.out.println("SEX：" + pets.getSex());
+			System.out.println("BIRTHDAY：" + pets.getBirthday());
+			System.out.println("APPEAL：" + pets.getAppeal());
+			System.out.println("CRY：" + pets.getCry());
+			System.out.println("PICTURE：" + pets.getPicture());
+
+
 		// select()のテスト
 		System.out.println("---------- select()のテスト ----------");
 		List<Pets> petsList2 = dao.select(new Pets("LOVE DOG"));
@@ -44,7 +56,7 @@ public class PictureBooksDAOTest {
 
 		//update()のテスト
 		System.out.println("---------- update()のテスト ----------");
-		Pets upRec = new Pets ("41","msk", "まゆかちゃん更新", "2", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
+		Pets upRec = new Pets ("1","LOVE DOG", "まゆかちゃん更新", "2", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
 		if (dao.update(upRec)) {
 			System.out.println("更新成功！");
 			List<Pets> petsList4 = dao.select(upRec);
@@ -62,11 +74,12 @@ public class PictureBooksDAOTest {
 		}
 		// delete()のテスト
 		System.out.println("---------- delete()のテスト ----------");
-		if (dao.delete("47")) {
+		if (dao.delete("3")) {
 			System.out.println("削除成功！");
 		}
 		else {
 			System.out.println("削除失敗！");
 		}
+
 	}
 }

@@ -39,7 +39,7 @@ public class PictureBooksDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Pets inf = new Pets(
-				rs.getString("ID"),
+				rs.getString("ID"),// これはペット図鑑のID....//
 				rs.getString("USER_ID"),
 				rs.getString("NAME"),
 				rs.getString("SEX"),
@@ -75,6 +75,67 @@ public class PictureBooksDAO {
 		// 結果を返す
 				return petsList;
 	}
+	// 引数paramでペット図鑑データを指定し、検索結果のリストを返す
+		public Pets editselect(int id) { // paramはParameterの文字をとったもの
+			Connection conn = null; // Connectionはもともとあるもの、connは自分で作ったもの
+			Pets pets = null;
+
+			try
+			{
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
+
+				// USER_IDを用いてペット図鑑を検索するSQL文を準備する
+				String sql = "select ID,USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE from PICTURE_BOOKS WHERE ID = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setInt(1,id);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				if (rs.next()) {
+					pets = new Pets(
+					rs.getString("ID"),// これはペット図鑑のID....//
+					rs.getString("USER_ID"),
+					rs.getString("NAME"),
+					rs.getString("SEX"),
+					rs.getString("BIRTHDAY"),
+					rs.getString("APPEAL"),
+					rs.getString("CRY"),
+					rs.getString("PICTURE")
+							);
+				}
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace(); // エラー内容を表示させる
+				pets = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				pets = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						pets = null;
+					}
+				}
+			}
+			// 結果を返す
+					return pets;
+		}
 
 	// 引数aniaddで指定されたペット図鑑を登録し、成功したらtrueを返す
 	public boolean insert(Pets aniadd) {
