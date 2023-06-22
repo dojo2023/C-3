@@ -17,8 +17,19 @@ body {
   background-image: url(/coffee_Milk/img/足跡.png);
   background-repeat: repeat-x;
 
-  margin: 0 auto 0 auto;
+  margin: 30px auto 0 auto;
   padding: 5px 5px 5px 5px;
   background-position: bottom;
   max-width: 600px;
+}
+
+/* wrapper */
+.wrapper {
+  margin: 0 auto 0 auto;
+  max-width: 600px;
+}
+
+/*button*/
+#button {
+  margin: 0 auto 0 auto;
 }

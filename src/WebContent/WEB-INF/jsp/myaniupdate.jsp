@@ -16,6 +16,8 @@
 <h1>Myペット図鑑編集</h1>
 	<form id="myaniadd_form" method="POST" action="/coffee_Milk/UpdateDeleteServlet">
 		<div class="flex">
+			<input type="hidden" value="${pets.id}" name="ID">
+			<input type="hidden" value="${pets.user_id}" name="USER_ID">
 			<p class="image">ペットの写真を載せてください<br>
 				<input type="text" name="PICTURE" value="${pets.picture}"><br>
 				鳴き声<br>
@@ -24,17 +26,17 @@
 			<p class="main">ペットの名前<br>
 				<input type="text" name="NAME" value="${pets.name}"><br>
 				性別<br>
-				<input type="radio" name="sex" value="オス"
+				<input type="radio" name="SEX" value="オス"
 				<c:if test="${pets.sex == 'オス'}">
 					checked
 				</c:if>
 				>オス
-				<input type="radio" name="sex" value="メス"
+				<input type="radio" name="SEX" value="メス"
 				<c:if test="${pets.sex == 'メス'}">
 					checked
 				</c:if>
 				>メス
-				<input type="radio" name="sex" value="わからない"
+				<input type="radio" name="SEX" value="わからない"
 				<c:if test="${pets.sex == 'わからない'}">
 					checked
 				</c:if>
@@ -42,7 +44,7 @@
 				誕生日<br>
 				<input type="text" placeholder="例：0101" name="BIRTHDAY" value="${pets.birthday}"><br>
 				アピールポイント<br>
-				<input type="text" name="POINT" value="${pets.appeal}"><br>
+				<input type="text" name="APPEAL" value="${pets.appeal}"><br>
 				<input type="submit" name="REGIST" value="編集完了">
 			</p>
 			<p id="output"></p>

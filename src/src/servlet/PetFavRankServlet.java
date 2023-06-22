@@ -46,7 +46,7 @@ public class PetFavRankServlet extends HttpServlet
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String picture_books_id = request.getParameter("PICTURE_BOOK_ID")
+		String picture_books_id = request.getParameter("PICTURE_BOOK_ID");
 		String title = request.getParameter("TITLE");
 		String genre = request.getParameter("GENRE");
 		String free = request.getParameter("FREE");
@@ -54,7 +54,7 @@ public class PetFavRankServlet extends HttpServlet
 		Integer favorite = Integer.parseInt(request.getParameter("FAVORITE"));
 		// 検索処理を行う
 		PetSearchFavDAO fDao = new PetSearchFavDAO();
-		List<Pet> petList = fDao.select(new Pet());
+		List<Pet> petList = fDao.select();
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("petList", petList);

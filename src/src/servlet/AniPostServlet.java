@@ -43,24 +43,24 @@ public class AniPostServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// リクエストパラメータを取得する
-			request.setCharacterEncoding("UTF-8");
-			String id = request.getParameter("ID");
-			String title = request.getParameter("TITLE");
-			String genre = request.getParameter("GENRE");
-			String free = request.getParameter("FREE");
-			String picture = request.getParameter("PICTURE");
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("ID");
+		String title = request.getParameter("TITLE");
+		String genre = request.getParameter("GENRE");
+		String free = request.getParameter("FREE");
+		String picture = request.getParameter("PICTURE");
 
-			// 登録処理を行う
-			PetPostsDAO aDAO = new PetPostsDAO();
-			if (aDAO.insert(new Pet(id, title, genre, free, picture))) {	// 登録成功
-				response.sendRedirect("/coffee_Milk/MyAniBookServlet");
-			}
-			else {												// 登録失敗
-		        String error = "※登録失敗しました。";
-	            request.setAttribute("error", error);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/anipost.jsp");
-				dispatcher.forward(request, response);
-			}
+		// 登録処理を行う
+		PetPostsDAO aDAO = new PetPostsDAO();
+		if (aDAO.insert(new Pet(id, title, genre, free, picture))) {	// 登録成功
+			response.sendRedirect("/coffee_Milk/MyAniBookServlet");
+		}
+		else {												// 登録失敗
+	        String error = "※登録失敗しました。";
+            request.setAttribute("error", error);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/anipost.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 }
