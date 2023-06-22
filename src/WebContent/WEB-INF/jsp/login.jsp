@@ -3,17 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ペトコレ|ログイン</title>
-<link rel="stylesheet" href="/coffee_Milk/css/login.css">
-<script src="/coffee_Milk/js/login.js"></script>
+	<meta charset="UTF-8">
+	<title>ペトコレ|ログイン</title>
+	<link rel="stylesheet" href="/coffee_Milk/css/login.css">
+	<script src="/coffee_Milk/js/login.js"></script>
 </head>
 <body>
-<%@ include file="header.jsp" %>
-<h1>ログインページです。</h1>
-<main>
+	<%@ include file="header.jsp" %>
+	<h1>ログインページです。</h1>
+	<main>
 
-<div class="wrapper"> <!--ログインページのメニューを管理するクラス名-->
+	<div class="wrapper"> <!--ログインページのメニューを管理するクラス名-->
     <!--メイン-->
 <!--  <img src="/coffee_Milk/img/logo.png" width="160" height="70"  alt="名刺管理">-->
 
@@ -56,9 +56,13 @@
  </c:if>
 
  </div>
-</main>
+	</main>
 
-
+	<!--footer ここから-->
+	<div id="footer">
+    	<p id="copy">&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+	</div>
+	<!--footer ここまで-->
 </body>
 </html>
 

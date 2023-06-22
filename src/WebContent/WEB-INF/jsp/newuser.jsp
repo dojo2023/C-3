@@ -47,9 +47,8 @@
     <p>${error}</p>
  </c:if>
 
-
 	<!-- Javascriptの挿入 -->
 	<script src="/coffee_Milk/js/newuser.js"></script>
-
+<footer>d</footer>
 </body>
 </html>

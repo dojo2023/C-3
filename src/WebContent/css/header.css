@@ -3,6 +3,7 @@
 /*bodyのフォント*/
 body {
 	font-family: "うずらフォント";
+	background-color: #FFFFC9;
 }
 
 /*ロゴ画像の横にリンクデータなどを持ってくる*/
@@ -96,4 +97,5 @@ body {
 .header_link li ul li {
     border-top: 1px solid #eee;
 }
+
 
