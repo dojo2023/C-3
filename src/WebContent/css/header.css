@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/*bodyのフォント*/
+body {
+	font-family: "うずらフォント";
+}
+
 /*ロゴ画像の横にリンクデータなどを持ってくる*/
 .header1 {
   /*border-bottom:3px dotted black;*/
