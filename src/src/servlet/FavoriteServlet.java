@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.FavoritesDAO;
 /**
  * Servlet implementation class FavoriteServlet
  */
@@ -38,13 +40,13 @@ public class FavoriteServlet extends HttpServlet {
 		 //if(on.equals("true")) {
 			 //1増やす
 			 //いいねが押されたときの処理
-			// FavoritesDAO fDao = new FavoritesDAO ();
-			  //updateFavorite
+			FavoritesDAO fDao = new FavoritesDAO ();
+			//updateFavorite
 			 //postsを数値に変換する（posts_id)
-			 //int posts_id = Integer.parseInt(posts);//postsを変換したもの
-			   //int posts_id = Integer.parseInt(request.getParameter("POSTS_ID"));
+			 int posts_id = Integer.parseInt(posts);//postsを変換したもの
+			 //int posts_id = Integer.parseInt(request.getParameter("POSTS_ID"));
 			 //fDaoを利用していいねする updateFavorite(posts_id)
-			// fDao.updateFavorite(posts_id);
+			 fDao.updateFavorite(posts_id);
 		// }else {
 			 //1減らす
 		// }

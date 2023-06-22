@@ -56,7 +56,7 @@ public class PictureBooksDAOTest {
 
 		//update()のテスト
 		System.out.println("---------- update()のテスト ----------");
-		Pets upRec = new Pets ("1","LOVE DOG", "まゆかちゃん更新", "2", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
+		Pets upRec = new Pets ("1","LOVE DOG", "まゆかちゃん更新", "メス", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
 		if (dao.update(upRec)) {
 			System.out.println("更新成功！");
 			List<Pets> petsList4 = dao.select(upRec);
