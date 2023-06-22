@@ -10,12 +10,15 @@ import java.util.List;
 
 import model.Pet;
 
-public class PetSearchFavDAO {
-    public List<Pet> select() {
+public class PetSearchFavDAO
+{
+    public List<Pet> select()
+    {
         Connection conn = null;
         List<Pet> petList = new ArrayList<Pet>();
 
-        try {
+        try
+        {
             Class.forName("org.h2.Driver");
             conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
@@ -34,17 +37,25 @@ public class PetSearchFavDAO {
                 );
                 petList.add(pet);
             }
-        } catch (ClassNotFoundException e) {
+        }
+        catch (ClassNotFoundException e)
+        {
             e.printStackTrace();
             petList = null;
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
             petList = null;
-        } finally {
-            if (conn != null) {
-                try {
+        }
+        finally {
+            if (conn != null)
+            {
+                try
+                {
                     conn.close();
-                } catch (SQLException e) {
+                } catch (SQLException e)
+                {
                     e.printStackTrace();
                     petList = null;
                 }
