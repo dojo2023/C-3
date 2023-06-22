@@ -18,7 +18,9 @@
 	<p class="image">ペットの写真を載せてください ※必須<br>
 	<input type="text" name="PICTURE"><br>
 		鳴き声<br>
-		<input type="text" name="CRY"><br></p>
+		<input type="text" name="CRY"><br>
+		アピールポイント<br>
+		<input type="text" name="APPEAL"><br></p>
 			<p class="main">ペットの名前 ※必須<br>
 			<input type="text" name="NAME"><br>
 			性別 ※必須<br>
@@ -27,8 +29,6 @@
 			<input type="radio" name="SEX" value="3">わからない<br>
 			誕生日 ※4桁<br>
 			<input type="text" placeholder="例：0101" name="BIRTHDAY"><br>
-			アピールポイント<br>
-			<input type="text" name="APPEAL"><br>
 			<input type="submit" name="REGIST" value="登録">
 			</p>
 			<p id="output"></p>
