@@ -10,7 +10,6 @@
 
 <!-- スタイルシートの挿入 -->
 <link rel="stylesheet" href="/coffee_Milk/css/newuser.css">
-<link rel="stylesheet" href="/coffee_Milk/css/common.css">
 
 </head>
 <body>
@@ -21,28 +20,26 @@
 	<table>
 	<tr>
 		<td id="newid">
-			<label>ID　　　　
-        		<input type="text" name="ID"><br>
-			</label>
+			<label>ID</label>
+        		<input type="text" name="ID" style="width: 200px; height: 30px; background:#FFFFEF"><br>
 		</td>
 	</tr>
 	<tr>
 		<td id="newpw">
-        	<label>パスワード
-				<input type="password" name="PW">
-			</label>
+        	<label>パスワード</label>
+				<input type="password" name="PW" style="width: 200px; height: 30px; background:#FFFFEF">
 		</td>
 	</tr>
 	<tr id="bottan">
 		<td colspan="2">
-			<input type="submit" name="REGIST" value="登録">
-        	<input type="reset" name="reset" value="リセット">
+			<input type="submit" name="REGIST" value="登録" class="regist">
+        	<input type="reset" name="reset" value="リセット" class="reset">
 			<p id="output"></p>
         	<span id="error_message"></span>
 		</td>
 	</tr>
 	</table>
-		<a href="/coffee_Milk/MenuServlet">メインメニューへ戻る</a><br>
+		<p id="menu"> <a href="/coffee_Milk/MenuServlet">メインメニューへ戻る</a></p><br>
 	</form>
 	</div>
 	 <%-- エラーメッセージの表示 --%>

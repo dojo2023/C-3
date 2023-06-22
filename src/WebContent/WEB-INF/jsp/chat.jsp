@@ -12,6 +12,7 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
+<div class="chat-center">
 <!--  ルームIDが空だったら-->
 <c:choose>
 <c:when test = "${empty param.roomid}">
@@ -20,19 +21,19 @@
 
 	<c:otherwise>
 		<c:if test ="${param.roomid == '1'}">
-    		<h1>犬チャット欄</h1>
+    		<h1>犬チャット欄 <img src="/coffee_Milk/img/dog_akitainu.png" alt="イヌ"></h1>
 		</c:if>
 
 		<c:if test ="${param.roomid == '2'}">
-			<h1>猫チャット欄</h1>
+			<h1>猫チャット欄 <img src="/coffee_Milk/img/cat06_moyou_chatora.png" alt="ネコ"></h1>
 		</c:if>
 
 		<c:if test = "${param.roomid == '3'}">
-			<h1>水生動物チャット欄</h1>
+			<h1>水生動物チャット欄 <img src="/coffee_Milk/img/fish_kingyo2.png" alt="水生動物"></h1>
 		</c:if>
 
 		<c:if test = "${param.roomid == '4'}">
-			<h1>小動物チャット欄</h1>
+			<h1>小動物チャット欄 <img src="/coffee_Milk/img/animal_hamster.png" alt="小動物"></h1>
 		</c:if>
 	</c:otherwise>
 </c:choose>
@@ -48,7 +49,7 @@
             <!-- チャット画面を埋め込む -->
             <!--  GETリクエストを送信するURL
             特定のRoom IDに関連するチャットメッセージを表示するためのサーブレットにアクセスできる-->
-            <iframe src="/coffee_Milk/MessageServlet?roomid=${param.roomid}" width="650px" height="500px" style="margin: 0 auto;"></iframe>
+            <iframe src="/coffee_Milk/MessageServlet?roomid=${param.roomid}" width="650px" height="500px" style="margin: 0 auto; background-color:white;"></iframe>
 		</c:if>
 
             <form id="messageForm" method="post" action="/coffee_Milk/MessageServlet?roomid=${param.roomid}" onsubmit="return SubmitNGWords()">
@@ -93,6 +94,7 @@
                 <input type="submit" value="選択">
             </form>
         </div>
+      </div>
     </div>
 </body>
 </html>

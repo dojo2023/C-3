@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+/*body*/
+html,body {
+	background-image: url("/coffee_Milk/img/背景2.jpeg");    /* 背景画像指定 */
+	font-family: "うずらフォント";
+}
+
+/*h1*/
+h1 {
+	color:#3E260C;
+	font-family: "うずらフォント";
+}
+
+/*label*/
+label{
+	display: inline-block;
+    text-align: right;
+    width: 150px;
+    font-family: "うずらフォント";
+}
+
 /* wrapper */
 .wrapper {
   margin: 0 auto 0 auto;
@@ -8,16 +28,52 @@
 
 /* bottan */
 #bottan {
-	 line-height:50px;
-	 margin-left:500px;
+	margin: auto;
+    text-align: center;
+	font-size:50px;
+	line-height:50px;
+	margin-left:500px;
 }
 
 /* newid */
 #newid {
-	 line-height:50px;
+	font-size:30px;
+	line-height:50px;
+	color:#805C39;
 }
+
 
 /* newpw */
 #newpw {
-	 line-height:50px;
+	font-size:30px;
+	line-height:50px;
+	color:#805C39;
+}
+
+/*regist*/
+.regist{
+    width: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #68779a;
+    background: #FFFF8D;
+    cursor: pointer;
+	font-family: "うずらフォント";
+}
+/*reset*/
+.reset{
+    width: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #68779a;
+    background: #FFFF8D;
+    cursor: pointer;
+	font-family: "うずらフォント";
+}
+
+/*menu*/
+#menu{
+	margin-left: 100px;
+	font-family: "うずらフォント";
+
 }
