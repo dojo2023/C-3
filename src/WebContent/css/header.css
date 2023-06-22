@@ -1,9 +1,15 @@
 @charset "UTF-8";
 
+/*bodyのフォント*/
+body {
+	font-family: "うずらフォント";
+	background-color: #FFFFC9;
+}
+
 /*ロゴ画像の横にリンクデータなどを持ってくる*/
 .header1 {
-  border-bottom:3px dotted black;
-  background-color:yellow;
+  /*border-bottom:3px dotted black;*/
+  background-color:000;
 }
 
 
@@ -60,28 +66,6 @@
 }
 
 /*メイン・チャット・Myペット図鑑・ジャンルの位置と大きさ*/
-/*.nav2 li {
-	display: inline-block;
-	margin-right:20px;
-	font-size:30px;
-}
-
-.header6{
-	background-color:green;
-	color:white;
-	padding: 18px 20px;
-
-}
-
-.nav2 {
-	position:absolute;
-	top:30px;
-	left:200px;
-	text-align:center;
-	width:70%;
-}
-*/
-
 /*ジャンルのプルダウン*/
 .header_link {
     margin: 0;
@@ -90,17 +74,18 @@
 }
 .header_link li {
     list-style: none;
-    width: 200px;
+    width: 360px;
     background: #fff;
-    height: 40px;
+    height: 50px;
     text-align: center;
-    font-size: 14px;
-    line-height: 2.8;
-    border-right: 1px solid #eee;
+    font-size: 18px;
+    line-height: 3;
+    border: 1px solid #333399; /*ナビの周りの枠色*/
     box-sizing: border-box;
+    background-color:#CCFF99; /*ヘッダーのナビの後ろの色*/
 }
 .header_link li a {
-    text-decoration: none;
+    /*text-decoration: none;*/
     color: #000;
 }
 
@@ -112,3 +97,5 @@
 .header_link li ul li {
     border-top: 1px solid #eee;
 }
+
+
