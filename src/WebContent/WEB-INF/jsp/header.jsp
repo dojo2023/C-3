@@ -15,11 +15,11 @@
 </a>
 <nav class="nav2">
 <ul class="header_link">
-	<li><a href ="/coffee_Milk/MenuServlet" class="header6">メイン</a></li>
-	<li><a href ="/coffee_Milk/ChatForward" class="header6">チャット</a></li>
-	<li><a href ="/coffee_Milk/MyAniBookServlet" class="header6">Myペット図鑑</a></li>
-	<li id="genre_single">
-	<a href ="/coffee_Milk/SearchServlet" class="header6">ジャンル</a>
+	<li class="header6"><a href ="/coffee_Milk/MenuServlet">メイン</a></li>
+	<li class="header6"><a href ="/coffee_Milk/ChatForward">チャット</a></li>
+	<li class="header6"><a href ="/coffee_Milk/MyAniBookServlet">Myペット図鑑</a></li>
+	<li class="header6">
+	<a href ="/coffee_Milk/SearchServlet">ジャンル</a>
 		<ul>
 			<li><a href ="/coffee_Milk/Servlet">犬</a></li>
 			<li><a href ="/coffee_Milk/Servlet">猫</a></li>

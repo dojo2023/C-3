@@ -6,7 +6,7 @@ public class FavoritesDAOTest {
 	public static void main(String[] args) {
 		FavoritesDAO dao = new FavoritesDAO(); //インスタンスの生成
 		// テストデータの準備
-        int POSTS_ID = 3;
+        int POSTS_ID = 2;
 
 		// updateFavorite()のテスト
 		System.out.println("---------- updateFavorite()のテスト ----------");
