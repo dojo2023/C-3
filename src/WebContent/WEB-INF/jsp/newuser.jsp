@@ -10,6 +10,7 @@
 
 <!-- スタイルシートの挿入 -->
 <link rel="stylesheet" href="/coffee_Milk/css/newuser.css">
+<link rel="stylesheet" href="/coffee_Milk/css/common.css">
 
 </head>
 <body>

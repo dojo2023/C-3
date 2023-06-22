@@ -10,3 +10,7 @@
 .post {
 	line-height:50px;
 }
+
+.secret {
+	display:none;
+}
