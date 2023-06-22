@@ -1,1 +1,12 @@
 @charset "UTF-8";
+
+/*h1*/
+h1 {
+	color:#3E260C;
+	font-family: "うずらフォント";
+}
+
+/*body*/
+body {
+	font-family: "うずらフォント";
+}
