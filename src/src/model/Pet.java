@@ -9,6 +9,7 @@ public class Pet implements Serializable{
 	private String free; // FREE
 	private String picture; // PICTURE
 	private Timestamp time; // TIME
+	private Integer favorite; //FAVORITE
 
 	public Pet(String picture_books_id, String title, String genre, String free, String picture,Timestamp time){
 		this.picture_books_id = picture_books_id;
@@ -17,6 +18,24 @@ public class Pet implements Serializable{
 		this.free = free;
 		this.picture = picture;
 		this.time = new Timestamp(System.currentTimeMillis());
+	}
+
+	public Pet(String picture_books_id, String title, String genre, String free, String picture){
+		this.picture_books_id = picture_books_id;
+		this.title = title;
+		this.genre = genre;
+		this.free = free;
+		this.picture = picture;
+	}
+
+	public Pet(String picture_books_id, String title, String genre, String free, String picture,Integer favorite)
+	{
+		this.picture_books_id = picture_books_id;
+		this.title = title;
+		this.genre = genre;
+		this.free = free;
+		this.picture = picture;
+		this.favorite = favorite;
 	}
 
 	public Pet() {
@@ -62,6 +81,14 @@ public class Pet implements Serializable{
 	}
 	public void setTime(Timestamp time) {
 		this.time = time;
+	}
+	public Integer getFavorite()
+	{
+		return favorite;
+	}
+	public void setFavorite(Integer favorite)
+	{
+		this.favorite = favorite;
 	}
 }
 

@@ -79,7 +79,7 @@ public class PetPostsDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
 			// SQL文を準備する
-			String sql = "insert into POSTS values (?, ?, ?, ?, ?, ?, ?,)";
+			String sql = "insert into POSTS values (?, ?, ?, ?, ?, ?, current_timestamp,)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, null);
@@ -117,13 +117,6 @@ public class PetPostsDAO {
 			}
 			else {
 				pStmt.setString(6, null);
-			}
-
-			if (postadd.getTime() != null && !postadd.getTime().equals("")) {
-				pStmt.setTimestamp(7, postadd.getTime());
-			}
-			else {
-				pStmt.setTimestamp(7, null);
 			}
 
 			// SQL文を実行する
