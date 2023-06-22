@@ -22,5 +22,4 @@ function changeColor(button)
 }
 
 
-/*ポップアップウィンドウ*/
 
