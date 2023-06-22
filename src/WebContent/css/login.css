@@ -10,3 +10,14 @@ h1 {
 body {
 	font-family: "うずらフォント";
 }
+
+/* footer*/
+#footer {
+  background-image: url(/coffee_Milk/img/足跡.png);
+  background-repeat: repeat-x;
+
+  margin: 0 auto 0 auto;
+  padding: 5px 5px 5px 5px;
+  background-position: bottom;
+  max-width: 600px;
+}

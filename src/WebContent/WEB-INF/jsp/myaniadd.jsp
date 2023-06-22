@@ -24,9 +24,9 @@
 			<p class="main">ペットの名前 ※必須<br>
 			<input type="text" name="NAME"><br>
 			性別 ※必須<br>
-			<input type="radio" name="SEX" value="1">オス
-			<input type="radio" name="SEX" value="2">メス
-			<input type="radio" name="SEX" value="3">わからない<br>
+			<input type="radio" name="SEX" value="オス">オス
+			<input type="radio" name="SEX" value="メス">メス
+			<input type="radio" name="SEX" value="わからない">わからない<br>
 			誕生日 ※4桁<br>
 			<input type="text" placeholder="例：0101" name="BIRTHDAY"><br>
 			<input type="submit" name="REGIST" value="登録">

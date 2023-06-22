@@ -119,6 +119,7 @@
 					アピールポイント<br>
 					<p><c:out value="${e.appeal}"></c:out></p>
 
+					<!-- ここではペット図鑑のIDとアプデとデリトの識別変数cmdを渡すようにしている。 -->
 					<h2><a href="/coffee_Milk/UpdateDeleteServlet?id=<c:out value="${e.id}"></c:out>&cmd=1"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
 					<h2><a href="/coffee_Milk/UpdateDeleteServlet?id=<c:out value="${e.id}"></c:out>&cmd=2"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
 					<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>

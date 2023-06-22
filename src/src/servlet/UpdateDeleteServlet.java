@@ -27,21 +27,36 @@ public class UpdateDeleteServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	//編集ボタンが押されたときには、myaniupdate.jspへフォワード
-	//削除ボタンが押されたときには、result.jspへフォワード
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println(request.getParameter("cmd"));
 
-	//変数を宣言する
-String cmd = request.getParameter("cmd");
+		// リクエストパラメーターを取得する
+		request.setCharacterEncoding("UTF-8");
 
-	if(cmd.equals("1")) {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaniupdate.jsp");
-		dispatcher.forward(request, response);
-	}else {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-		dispatcher.forward(request, response);
-	  }
+		// アプデかデリトか識別するcmdを取得
+		String cmd = request.getParameter("cmd");
+
+		// どのペット図鑑のIDを取得する。これはどのペットについて編集もしくは削除するのかを識別するためのもの。
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		//編集ボタンが押されたときには、myaniupdate.jspへフォワード
+		if(cmd.equals("1")) {
+
+			// DAOを使ってペット図鑑の情報をゲットする
+			PictureBooksDAO aDao = new PictureBooksDAO();
+			Pets pets = aDao.editselect(id);
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("pets", pets);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaniupdate.jsp");
+			dispatcher.forward(request, response);
+		}
+		//削除ボタンが押されたときには、result.jspへフォワード
+		else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			dispatcher.forward(request, response);
+		}
 
 
 	}
