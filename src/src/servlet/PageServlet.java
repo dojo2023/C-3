@@ -1,5 +1,4 @@
 package servlet;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -18,7 +17,6 @@ import model.Pet;
 @WebServlet("/PageServlet")
 public class PageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -33,12 +31,9 @@ public class PageServlet extends HttpServlet {
 		//2 page 12    (  2  - 1) * 12
 		//3 page 24    (  3  - 1) * 12
 		//4 page 36    (  4  - 1) * 12
-
 		int PAGE = Integer.parseInt(request.getParameter("page"));
         int Page = 12;
         int OFFSET = (PAGE-1)* Page;
-
-
 //		String page2 = request.getParameter("page");
 //		String page3 = request.getParameter("page");
 //		String page4 = request.getParameter("page");
@@ -50,9 +45,7 @@ public class PageServlet extends HttpServlet {
         //メニュー画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 		dispatcher.forward(request, response);
-
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -60,5 +53,4 @@ public class PageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
