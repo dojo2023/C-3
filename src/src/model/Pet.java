@@ -19,6 +19,14 @@ public class Pet implements Serializable{
 		this.time = new Timestamp(System.currentTimeMillis());
 	}
 
+	public Pet(String picture_books_id, String title, String genre, String free, String picture){
+		this.picture_books_id = picture_books_id;
+		this.title = title;
+		this.genre = genre;
+		this.free = free;
+		this.picture = picture;
+	}
+
 	public Pet() {
 		this.picture_books_id ="";
 		this.title ="";

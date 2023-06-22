@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.PetPostsDAO;
+import model.Pet;
+
 /**
  * Servlet implementation class AniPostServlet
  */
@@ -29,6 +32,7 @@ public class AniPostServlet extends HttpServlet {
 		// リクエストパラメーターに格納する
 		request.setAttribute("ID",id);
 
+		// ペット投稿ページへフォワードする！
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/anipost.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -37,8 +41,26 @@ public class AniPostServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		// リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			String id = request.getParameter("ID");
+			String title = request.getParameter("TITLE");
+			String genre = request.getParameter("GENRE");
+			String free = request.getParameter("FREE");
+			String picture = request.getParameter("PICTURE");
+
+			// 登録処理を行う
+			PetPostsDAO aDAO = new PetPostsDAO();
+			if (aDAO.insert(new Pet(id, title, genre, free, picture))) {	// 登録成功
+				response.sendRedirect("/coffee_Milk/MyAniBookServlet");
+			}
+			else {												// 登録失敗
+		        String error = "※登録失敗しました。";
+	            request.setAttribute("error", error);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/anipost.jsp");
+				dispatcher.forward(request, response);
+			}
 	}
 
 }
