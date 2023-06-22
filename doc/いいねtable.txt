@@ -11,7 +11,7 @@ jdbc:h2:file:C:/pleiades/workspace/data/coffee
 
 【テーブルを作成するSQL文】
 CREATE TABLE FAVORITES (
-	POSTS_ID VARCHAR PRIMARY KEY,   →ペット投稿のIDを入れる
+	POSTS_ID VARCHAR PRIMARY KEY,   
 	FAVORITE INTEGER NOT NULL
 );
 
