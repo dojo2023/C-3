@@ -16,7 +16,9 @@ function changeColor(button)
 
 	//posts_idを取得
 	//いいねをつけたらtrue、外したらfalseをonに指定して送る
-	xhr.send( 'posts_id=1&on=true' );
+	xhr.send( 'posts_id=1&on=true' );	//いいねがついたとき
+
+	//xhr.send( 'posts_id=1&on=false' );  //いいねをはずしたとき
 }
 
 
