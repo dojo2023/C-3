@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="header.jsp" %>
 <meta charset="UTF-8">
 <title>Myペット図鑑編集</title>
 
@@ -24,11 +25,20 @@
 				<input type="text" name="NAME" value="${pets.name}"><br>
 				性別<br>
 				<input type="radio" name="sex" value="オス"
-				<c:if>
+				<c:if test="${pets.sex == 'オス'}">
+					checked
 				</c:if>
 				>オス
-				<input type="radio" name="sex" value="メス">メス
-				<input type="radio" name="sex" value="わからない" checked>わからない<br>
+				<input type="radio" name="sex" value="メス"
+				<c:if test="${pets.sex == 'メス'}">
+					checked
+				</c:if>
+				>メス
+				<input type="radio" name="sex" value="わからない"
+				<c:if test="${pets.sex == 'わからない'}">
+					checked
+				</c:if>
+				>わからない<br>
 				誕生日<br>
 				<input type="text" placeholder="例：0101" name="BIRTHDAY" value="${pets.birthday}"><br>
 				アピールポイント<br>
