@@ -21,45 +21,45 @@ CREATE TABLE POSTS (
 
 【テーブルにサンプルデータを登録するSQL文】
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('1','おやすみ中','犬','#お休み中 #子犬','/img/dog.jpeg',CURRENT_TIMESTAMP)
+   	   VALUES ('1','おやすみ中','犬','#お休み中 #子犬','/coffee_Milk/img/dog.jpeg',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('2','おうちのお庭でbbq','犬','#ミニチュアピンシャー','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('2','おうちのお庭でbbq','犬','#ミニチュアピンシャー','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('3','窓辺でのんびり','犬','#ミニチュアダックスフント','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('3','窓辺でのんびり','犬','#ミニチュアダックスフント','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('4','トリミング中','犬','#ゴールデンレトリバー','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('4','トリミング中','犬','#ゴールデンレトリバー','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('5','もぐもぐタイム','猫','#子猫　#アメリカンショートヘア','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('5','もぐもぐタイム','猫','#子猫　#アメリカンショートヘア','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('6','ゆらゆら泳いでる','水生生物','#水生生物　#グッピー','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('6','ゆらゆら泳いでる','水生生物','#水生生物　#グッピー','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('7','ボールの取り合い','犬','#コーギー','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('7','ボールの取り合い','犬','#コーギー','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('8','リボンでおめかし','猫','#子猫　#マンチカン','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('8','リボンでおめかし','猫','#子猫　#マンチカン','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('9','大好きなのはヒマワリの種','小動物','#ハムスター　#小動物','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('9','大好きなのはヒマワリの種','小動物','#ハムスター　#小動物','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('10','水浴び中','小動物','#ヤモリ　#小動物','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('10','水浴び中','小動物','#ヤモリ　#小動物','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('11','水草が好き','水生生物','#金魚　#水生生物','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('11','水草が好き','水生生物','#金魚　#水生生物','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('12','爪とぎ中','猫','#メインクーン #猫','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('12','爪とぎ中','猫','#メインクーン #猫','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('13','じゃれあい。','犬','#シェパード　#子犬','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('13','じゃれあい。','犬','#シェパード　#子犬','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 INSERT INTO POSTS (PICTURE_BOOKS_ID,TITLE,GENRE,FREE,PICTURE,TIME)
-   	   VALUES ('14','のんびりもぐもぐ','小動物','#亀 #小動物','/img/うみちゃん.png',CURRENT_TIMESTAMP)
+   	   VALUES ('14','のんびりもぐもぐ','小動物','#亀 #小動物','/coffee_Milk/img/うみちゃん.png',CURRENT_TIMESTAMP)
 
 【テーブルを削除するSQL文】
 DROP TABLE POSTS
