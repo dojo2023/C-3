@@ -98,10 +98,10 @@
   </span>
   <!--ページ番号 -->
   <div class ="page">
-  	<a href="/coffee_Milk/PageServlet?page">1</a>
-    <a href="/coffee_Milk/PageServlet?page">2</a>
-    <a href="/coffee_Milk/PageServlet?page">3</a>
-    <a href="/coffee_Milk/PageServlet?page">4</a>
+  	<a href="/coffee_Milk/PageServlet?page=1">1</a>
+    <a href="/coffee_Milk/PageServlet?page=2">2</a>
+    <a href="/coffee_Milk/PageServlet?page=3">3</a>
+    <a href="/coffee_Milk/PageServlet?page=4">4</a>
   </div>
 </div>
   <!--投稿画像をクリックするとポップアップウインドウが表示-->
