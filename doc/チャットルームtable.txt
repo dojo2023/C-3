@@ -11,8 +11,8 @@ jdbc:h2:file:C:/pleiades/workspace/data/coffee
 
 【テーブルを作成するSQL文】
 CREATE TABLE CHATROOMS (
-	ID CHAR(1) PRIMARY KEY, →1.2.3.4で固定
-	ROOM CHAR   →犬、猫、小動物、水生生物で固定
+	ID CHAR(1) PRIMARY KEY, 
+	ROOM CHAR   
 );
 
 【テーブルにサンプルデータを登録するSQL文】
