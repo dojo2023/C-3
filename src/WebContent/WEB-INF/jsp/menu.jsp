@@ -46,7 +46,6 @@
     </form>
 <c:forEach var="e" items="${petList}" >
   <table class = petpost>
-    <form method="POST" id="pop" action="/coffee_Milk/MenuServlet">
      <!-- <tr>
         <td>
         	 <img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px" >
@@ -63,18 +62,16 @@
         <td><c:out value="${e.free}"></c:out></td>
       </tr>
       <tr>
-        <td><c:out value="${e.picture}"></c:out></td>
-      </tr>
-      <tr>
-        <td><c:out value="${e.time}"></c:out></td>
+        <td><img src="<c:out value="${e.picture}"></c:out>"></td>
       </tr>
        <tr>
         <td>
-          <form method="POST" id="favorite" action="/coffee_Milk/MenuServlet">
+          <form method="POST" id="favorite" action="/coffee_Milk/FavoriteServlet">
           <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる-->
           <div class="heart" onclick="changeColor(this)">
-            <img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25" class="white-heart">
-            <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden" name="favorite">
+          <input type="hidden" name="posts_id" value="${e.picture_books_id}">
+            <img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25" class="white-heart" name="favorite">
+            <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden">
           </div>
           </form>
         </td>
@@ -85,9 +82,8 @@
         </td>
       </tr>
       <tr>
-        <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
+        <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td><!--   -->
       </tr>
-    </form>
   </table>
 </c:forEach>
 </div>

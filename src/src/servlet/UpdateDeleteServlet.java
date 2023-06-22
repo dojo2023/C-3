@@ -27,7 +27,22 @@ public class UpdateDeleteServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	//編集ボタンが押されたときには、myaniupdate.jspへフォワード
+	//削除ボタンが押されたときには、result.jspへフォワード
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		System.out.println(request.getParameter("cmd"));
+
+	//変数を宣言する
+String cmd = request.getParameter("cmd");
+
+	if(cmd.equals("1")) {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaniupdate.jsp");
+		dispatcher.forward(request, response);
+	}else {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+		dispatcher.forward(request, response);
+	  }
+
 
 	}
 
@@ -44,7 +59,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 		return;
 
 		// ↓これでidが引っ張れます！by鈴木
-		request.getParameter("id");
+		//request.getParameter("id");
 
 	}
 
@@ -85,9 +100,9 @@ public class UpdateDeleteServlet extends HttpServlet {
 						}
 					}
 
-					// 結果ページにフォワードする
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-					dispatcher.forward(request, response);
+//					// 結果ページにフォワードする
+//					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+//					dispatcher.forward(request, response);
 
 			  }
 
