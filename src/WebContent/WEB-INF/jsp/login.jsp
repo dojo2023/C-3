@@ -9,6 +9,7 @@
 <script src="/coffee_Milk/js/login.js"></script>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <h1>ログインページです。</h1>
 <main>
 
