@@ -9,6 +9,7 @@
 	<script src="/coffee_Milk/js/login.js"></script>
 </head>
 <body>
+<div class="wrapper">
 	<%@ include file="header.jsp" %>
 	<h1>ログインページです。</h1>
 	<main>
@@ -60,9 +61,9 @@
 
 	<!--footer ここから-->
 	<div id="footer">
-    	<p id="copy">&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
 	</div>
 	<!--footer ここまで-->
+</div>
 </body>
 </html>
 

@@ -15,7 +15,7 @@
 <h1>Myペット図鑑登録</h1>
 <form id="myaniadd_form" method="POST" action="/coffee_Milk/MyAniAddServlet">
 <div class="flex">
-	<p class="image">ペットの写真を載せてください ※必須<br>
+	<p class="image">ペットの写真 ※必須<br>
 	<input type="text" name="PICTURE"><br>
 		鳴き声<br>
 		<input type="text" name="CRY"><br>
@@ -29,7 +29,7 @@
 			<input type="radio" name="SEX" value="わからない">わからない<br>
 			誕生日 ※4桁<br>
 			<input type="text" placeholder="例：0101" name="BIRTHDAY"><br>
-			<input type="submit" name="REGIST" value="登録">
+			<input type="submit" name="REGIST" value="登録" class="regist">
 			</p>
 			<p id="output"></p>
         	<span id="error_message"></span>
