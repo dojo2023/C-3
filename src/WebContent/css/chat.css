@@ -1,2 +1,12 @@
 @charset "UTF-8";
 
+/*チャット欄を真ん中へ*/
+.chat-center {
+	text-align:center;
+}
+
+/*背景*/
+body {
+	background-color:#FFFFDD;
+}
+

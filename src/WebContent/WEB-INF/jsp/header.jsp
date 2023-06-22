@@ -11,7 +11,7 @@
 <header>
 <div class="header1">
 <a href ="/coffee_Milk/MenuServlet">
-<img src="/coffee_Milk/img/logo.png" alt="ペトコレ">
+<img src="/coffee_Milk/img/logo.png" alt="ペトコレ" id="dog-title">
 </a>
 <nav class="nav2">
 <ul class="header_link">
