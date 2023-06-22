@@ -26,7 +26,7 @@ INSERT INTO PICTURE_BOOKS(USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE)
 		   VALUES('LOVE DOG','ポチ','わからない','0614','寝ている姿が可愛いです','/cry/test.mp3','/img/test.png')
 
 INSERT INTO PICTURE_BOOKS(USER_ID,NAME,SEX,BIRTHDAY,APPEAL,CRY,PICTURE)
-		   VALUES('suzuki','うみ','メス','0303','食べることが大好きなミニチュアピンシャーです。テンションが上がるとぴょんぴょんジャンプします。知らない人には警戒心が強いですが、一度懐いたら忠誠心が強い子です♪','/cry/test.mp3','うみちゃん.png')
+		   VALUES('suzuki','うみ','メス','0303','食べることが大好きなミニチュアピンシャーです。テンションが上がるとぴょんぴょんジャンプします。知らない人には警戒心が強いですが、一度懐いたら忠誠心が強い子です♪','/cry/test.mp3','/coffee_Milk/img/うみちゃん.png')
 
 【テーブルを削除するSQL文】
 DROP TABLE PICTURE_BOOKS
