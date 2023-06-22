@@ -17,7 +17,7 @@
   <div class="wrapper">
     <form method="POST" action="/coffee_Milk/SearchServlet">
       <p>キーワード検索</p>
-        <input type="text" size="30" name="keyword">
+        <input type="text" size="30" name="keyWord">
   <div class= "serch">
     <input type="submit" name="REGIST" value="検索"><br>
   </div>
@@ -44,7 +44,10 @@
         </div>
       </div>
     </form>
-<c:forEach var="e" items="${petList}" >
+ <c:if test="${empty PetList}">
+    <p>一致するデータはありません。</p>
+</c:if>
+<c:forEach var="e" items="${PetList}" >
   <table class = petpost>
      <!-- <tr>
         <td>

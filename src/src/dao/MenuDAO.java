@@ -13,7 +13,7 @@ public class MenuDAO {
 	// 引数paramでペット図鑑データを指定し、検索結果のリストを返す
 		public List<Pet> select(int offset) {
 			Connection conn = null; // Connectionはもともとあるもの、connは自分で作ったもの
-			List<Pet> petList = new ArrayList<Pet>();
+			List<Pet> PetList = new ArrayList<Pet>();
 
             //ページ番号と1ページあたりの表示件数からMySQLのLIMIT句に当てるオフセット値の計算
 
@@ -45,16 +45,16 @@ public class MenuDAO {
 							rs.getString("PICTURE"),
 							rs.getTimestamp("TIME")
 									);
-							petList.add(inf);
+							PetList.add(inf);
 					}
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				petList = null;
+				PetList = null;
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
-				petList = null;
+				PetList = null;
 			}
 			finally {
 				// データベースを切断
@@ -64,11 +64,11 @@ public class MenuDAO {
 					}
 					catch (SQLException e) {
 						e.printStackTrace();
-						petList = null;
+						PetList = null;
 					}
 				}
 			}
-			return petList;
+			return PetList;
 		}
 }
 
