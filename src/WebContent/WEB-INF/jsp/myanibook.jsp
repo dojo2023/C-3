@@ -124,8 +124,29 @@
 					<h2><a href="/coffee_Milk/UpdateDeleteServlet?id2=<c:out value="${e.id}"></c:out>&cmd=2"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
 					<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
 
-					<!-- ここからプログラムを書いてね！ -->
-
+			<!-- 投稿一覧表示 -->
+<h1>ペット投稿一覧</h1>
+  <p>並べ替え</p>
+ <c:if test="${empty PetList}">
+    <p>一致するデータはありません。</p>
+</c:if>
+<c:forEach var="e" items="${PetList}" >
+  <table class = petpost>
+      <tr>
+        <td><c:out value="${e.title}"></c:out></td>
+      </tr>
+      <tr>
+	    <td><c:out value="${e.genre}"></c:out></td>
+      </tr>
+      <tr>
+        <td><c:out value="${e.free}"></c:out></td>
+      </tr>
+      <tr>
+        <td><img src="<c:out value="${e.picture}"></c:out>"></td>
+      </tr>
+  </table>
+</c:forEach>
+</div>
 				</div>
 			</div>
 			<!-- ペットの登録データがある方のみ表示するボタン -->
