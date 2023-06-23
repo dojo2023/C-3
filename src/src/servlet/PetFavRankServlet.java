@@ -54,10 +54,10 @@ public class PetFavRankServlet extends HttpServlet
 		Integer favorite = Integer.parseInt(request.getParameter("FAVORITE"));
 		// 検索処理を行う
 		PetSearchFavDAO fDao = new PetSearchFavDAO();
-		List<Pet> petList = fDao.select();
+		List<Pet> PetList = fDao.select(picture_books_id, title, genre, free, picture, favorite);
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("petList", petList);
+		request.setAttribute("PetList", PetList);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
