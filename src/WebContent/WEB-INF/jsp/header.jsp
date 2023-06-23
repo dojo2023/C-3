@@ -19,12 +19,14 @@
 	<li class="header6"><a href ="/coffee_Milk/ChatForward">チャット</a></li>
 	<li class="header6"><a href ="/coffee_Milk/MyAniBookServlet">Myペット図鑑</a></li>
 	<li class="header6">
-	<a href ="/coffee_Milk/SearchServlet">ジャンル</a>
+	ジャンル
 		<ul>
-			<li><a href ="/coffee_Milk/Servlet">犬</a></li>
-			<li><a href ="/coffee_Milk/Servlet">猫</a></li>
-			<li><a href ="/coffee_Milk/Servlet">小動物</a></li>
-			<li><a href ="/coffee_Milk/Servlet">水生生物</a></li>
+
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=dog">犬</a></li>
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=cat">猫</a></li>
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=small">小動物</a></li>
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=aqua">水生生物</a></li>
+
 		</ul>
 	</li>
 </ul>
