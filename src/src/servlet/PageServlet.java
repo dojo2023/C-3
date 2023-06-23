@@ -39,9 +39,9 @@ public class PageServlet extends HttpServlet {
 //		String page4 = request.getParameter("page");
 		//ページが押されたときの処理
 		MenuDAO mDao = new MenuDAO ();
-		 List<Pet> petList = mDao.select(OFFSET);
+		 List<Pet> PetList = mDao.select(OFFSET);
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("petList", petList);
+		request.setAttribute("PetList", PetList);
         //メニュー画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 		dispatcher.forward(request, response);

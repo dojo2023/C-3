@@ -32,8 +32,10 @@ public class MenuServlet extends HttpServlet {
 		//DAOからペット投稿のデータを取得する
         MenuDAO mDAO = new MenuDAO();
         List<Pet> PetList = mDAO.select(OFFSET);
+       // List<Pet> petList = mDAO.select(OFFSET);
         // 検索結果をリクエストスコープに格納する
-		request.setAttribute("PetList", PetList);
+        request.setAttribute("PetList", PetList);
+        //request.setAttribute("petList", petList);
         //メニューjspにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 		dispatcher.forward(request, response);
