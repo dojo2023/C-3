@@ -46,7 +46,7 @@ public class PetFavRankServlet extends HttpServlet
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String picture_books_id = request.getParameter("PICTURE_BOOK_ID")
+		String picture_books_id = request.getParameter("PICTURE_BOOK_ID");
 		String title = request.getParameter("TITLE");
 		String genre = request.getParameter("GENRE");
 		String free = request.getParameter("FREE");
