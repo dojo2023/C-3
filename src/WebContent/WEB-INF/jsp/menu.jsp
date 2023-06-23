@@ -74,7 +74,7 @@
           <form method="POST" id="favorite" action="/coffee_Milk/FavoriteServlet">
           <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる-->
           <div class="heart" onclick="changeColor(this)">
-          <input type="hidden" name="posts_id" value="${e.picture_books_id}">
+          	<input type="hidden" name="posts_id" value="${e.picture_books_id}" >
             <img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25" class="white-heart" name="favorite">
             <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden">
           </div>
@@ -87,7 +87,7 @@
         </td>
       </tr>
       <tr>
-        <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td><!--   -->
+        <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
       </tr>
   </table>
 </c:forEach>
