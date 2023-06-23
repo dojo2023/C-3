@@ -15,17 +15,17 @@
 </a>
 <nav class="nav2">
 <ul class="header_link">
-	<li class="header6"><a href ="/coffee_Milk/MenuServlet">メイン</a></li>
-	<li class="header6"><a href ="/coffee_Milk/ChatForward">チャット</a></li>
-	<li class="header6"><a href ="/coffee_Milk/MyAniBookServlet">Myペット図鑑</a></li>
+	<li class="header6"><a href ="/coffee_Milk/MenuServlet">ホーム 🏡</a></li>
+	<li class="header6"><a href ="/coffee_Milk/ChatForward">チャット 👪</a></li>
+	<li class="header6"><a href ="/coffee_Milk/MyAniBookServlet">Myペット図鑑 📚</a></li>
 	<li class="header6">
-	ジャンル
+	ジャンル 👇
 		<ul>
 
-			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=dog">犬</a></li>
-			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=cat">猫</a></li>
-			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=small">小動物</a></li>
-			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=aqua">水生生物</a></li>
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=dog">犬 🐶</a></li>
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=cat">猫 🐈</a></li>
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=small">小動物 🐹</a></li>
+			<li><a href ="/coffee_Milk/GenreSearchServlet?genre=aqua">水生生物 🐡</a></li>
 
 		</ul>
 	</li>
