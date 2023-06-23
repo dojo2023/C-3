@@ -8,7 +8,7 @@ public class PetPostsDAOTest {
 		PetPostsDAO dao = new PetPostsDAO();
 		// select()のテスト
 		System.out.println("---------- select()のテスト ----------");
-		List<Pet> petList2 = dao.select();
+		List<Pet> petList2 = dao.select(2);
 		for (Pet inf : petList2) {
 			System.out.println("PICTURE_BOOKS_ID：" + inf.getPicture_books_id());
 			System.out.println("TITLE：" + inf.getTitle());
@@ -17,6 +17,7 @@ public class PetPostsDAOTest {
 			System.out.println("PICTURE：" + inf.getPicture());
 			System.out.println("TIME：" + inf.getTime());
 		}
+		/*
 		// insert()のテスト
 		System.out.println("---------- insert()のテスト ----------");
 		Pet insRec = new Pet("1", "おうちのお庭でbbq", "1", "#ミニチュアピンシャー", "/img/うみちゃん.png", null);
@@ -26,5 +27,6 @@ public class PetPostsDAOTest {
 			else {
 				System.out.println("登録失敗！");
 			}
+		*/
 	}
 }

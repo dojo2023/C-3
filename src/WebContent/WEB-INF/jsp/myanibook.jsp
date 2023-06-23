@@ -119,28 +119,34 @@
 					アピールポイント<br>
 					<p><c:out value="${e.appeal}"></c:out></p>
 
+
 					<!-- ここではペット図鑑のIDとアプデとデリトの識別変数cmdを渡すようにしている。 -->
 					<h2><a href="/coffee_Milk/UpdateDeleteServlet?id1=<c:out value="${e.id}"></c:out>&cmd=1&id2=<c:out value="${e.id}"></c:out>"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
 					<h2><a href="/coffee_Milk/UpdateDeleteServlet?id2=<c:out value="${e.id}"></c:out>&cmd=2"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
 					<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
 
-					<!-- ここからプログラムを書いてね！ -->
-
+					<!-- 投稿一覧表示 -->
+					<c:if test="${empty e.post}">
+    					<p>一致するデータはありません。</p>
+					</c:if>
+					<c:forEach var="e" items="${e.post}" >
+					  <table class = petpost>
+					      <tr>
+					        <td><c:out value="${e.title}"></c:out></td>
+					      </tr>
+					      <tr>
+						    <td><c:out value="${e.genre}"></c:out></td>
+					      </tr>
+					      <tr>
+					        <td><c:out value="${e.free}"></c:out></td>
+					      </tr>
+					      <tr>
+					        <td><img src="<c:out value="${e.picture}"></c:out>"></td>
+					      </tr>
+					  </table>
+					</c:forEach>
 				</div>
 			</div>
-			<!-- ペットの登録データがある方のみ表示するボタン -->
-<!-- 				<div class="botton-group">
-					<div class="botton tab-<c:out value="${status.index+1}"/>
-						<c:if test="${status.index==0}">
- 		 					is-express
- 		 				</c:if>
- 		 			">
-						<h2><a href="/coffee_Milk/UpdateDeleteServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
-						<h2><a href="/coffee_Milk/UpdateDeleteServlet"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
-						<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
-					</div>
-				</div>
- -->
 		</c:forEach>
 	</div>
 </body>
