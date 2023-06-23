@@ -2,6 +2,7 @@
  *
  */
  /*いいねボタンを押したときの処理*/
+
 let button = document.getElementById("heart");
 function changeColor(button)
 {
@@ -16,7 +17,17 @@ function changeColor(button)
 
 	//posts_idを取得
 	//いいねをつけたらtrue、外したらfalseをonに指定して送る
-	xhr.send( 'posts_id=1&on=true' );	//いいねがついたとき
+	// /coffee_Milk/FavoriteServlet?posts_id=1&on=true
+
+	//idごとにいいねをカウントする処理
+	let post_id =button.firstElementChild.value;
+    //var post_id = button.querySelector(".fav_post");//favoriteServletの例外
+	//let post_id =document.getElementById(post_id).value;   //初期化のエラー
+	//let post_id = document.getAttributeById(post_id).value;
+	//let post_id =document.getElementsByName("posts_id");
+
+
+	xhr.send( 'posts_id='+post_id+'&on=true' );	//いいねがついたとき
 
 	//xhr.send( 'posts_id=1&on=false' );  //いいねをはずしたとき
 }

@@ -36,16 +36,17 @@ public class FavoriteServlet extends HttpServlet {
 		// String on = request.getParameter("on");
 		 String fav = request.getParameter("favorite");
 
-		 //onに"true"という文字が入っている
+		//onに"true"という文字が入っている
 		 //if(on.equals("true")) {
 			 //1増やす
-			 //いいねが押されたときの処理
-			FavoritesDAO fDao = new FavoritesDAO ();
-			//updateFavorite
-			 //postsを数値に変換する（posts_id)
-			 int posts_id = Integer.parseInt(posts);//postsを変換したもの
-			 //int posts_id = Integer.parseInt(request.getParameter("POSTS_ID"));
-			 //fDaoを利用していいねする updateFavorite(posts_id)
+
+		//いいねが押されたときの処理
+		  FavoritesDAO fDao = new FavoritesDAO ();
+
+	    //postsを数値に変換する（posts_id)
+	    //int posts_id = Integer.parseInt(posts);//postsを変換したもの、違ったらこれに戻す
+		  int posts_id = Integer.parseInt(request.getParameter("posts_id"));
+	    //fDaoを利用していいねする updateFavorite(posts_id)
 			 fDao.updateFavorite(posts_id);
 		// }else {
 			 //1減らす
