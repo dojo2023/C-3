@@ -44,8 +44,7 @@ public class MyAniBookServlet extends HttpServlet {
 		// DAOを使ってMyペット図鑑の情報をゲットする
 		PictureBooksDAO aDao = new PictureBooksDAO();
 		List<Pets> petsList = aDao.select(new Pets(login_users.getId()));
-
-
+		
 		// petsList1 = [ Pets(1), Pets(2), Pets(3), Pets, Pets  ]
 		// pet = Pets(1)	//１週目
 		// pet = Pets(2)	//２週目
