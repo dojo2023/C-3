@@ -74,7 +74,7 @@ body {
 }
 .header_link li {
     list-style: none;
-    width: 360px;
+    width: 300px;
     background: #fff;
     height: 50px;
     text-align: center;
@@ -96,6 +96,7 @@ body {
 }
 .header_link li ul li {
     border-top: 1px solid #eee;
+    width: 300px;
 }
 
 
