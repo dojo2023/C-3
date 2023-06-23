@@ -98,9 +98,9 @@ public class UpdateDeleteServlet extends HttpServlet {
 		String appeal =request.getParameter("APPEAL");
 		String name =request.getParameter("NAME");
 
-		//編集・削除を行う
-		PictureBooksDAO pDao = new PictureBooksDAO();
-		if (pDao.update(new Pets(user_id,name,sex,birthday,appeal,cry, picture,id))) {	// 編集成功
+		//編集を行う
+		PictureBooksDAO cDao = new PictureBooksDAO();
+		if (cDao.update(new Pets(id, user_id,name,sex,birthday,appeal,cry, picture))) {	// 編集成功
 			response.sendRedirect("/coffee_Milk/MyAniBookServlet");
 		}
 		else {												// 編集失敗
