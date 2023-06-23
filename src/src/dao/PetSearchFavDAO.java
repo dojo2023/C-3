@@ -12,7 +12,7 @@ import model.Pet;
 
 public class PetSearchFavDAO
 {
-    public List<Pet> select()
+    public List<Pet> select(String picture_books_id, String title, String genre, String free, String picture,Integer favorite)
     {
         Connection conn = null;
         List<Pet> petList = new ArrayList<Pet>();

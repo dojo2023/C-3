@@ -26,7 +26,7 @@ public class PetSearchFavDAOTest
         {
             for (Pet pet : resultList)
             {
-            	System.out.println ("PICTURE_BOOKS_ID：" + pet.getPicture_books_id());
+            	 System.out.println ("PICTURE_BOOKS_ID：" + pet.getPicture_books_id());
                  System.out.println("TITLE: " + pet.getTitle());
                  System.out.println("GENRE: " + pet.getGenre());
                  System.out.println("FREE: " + pet.getFree());
