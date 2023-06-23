@@ -12,7 +12,7 @@ public class PictureBooksDAOTest {
 
 		// editselect()のテスト
 		System.out.println("---------- editselect()のテスト ----------");
-		Pets pets = dao.editselect(1);
+		Pets pets = dao.editselect(2);
 			System.out.println("USER_ID：" + pets.getUser_id());
 			System.out.println("NAME：" + pets.getName());
 			System.out.println("SEX：" + pets.getSex());
@@ -56,7 +56,7 @@ public class PictureBooksDAOTest {
 
 		//update()のテスト
 		System.out.println("---------- update()のテスト ----------");
-		Pets upRec = new Pets ("1","LOVE DOG", "まゆかちゃん更新", "メス", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
+		Pets upRec = new Pets ("2","LOVE DOG", "まゆかちゃん更新", "メス", "0601", "かわいい更新", "", "/coffee_Milk/img/test.png");
 		if (dao.update(upRec)) {
 			System.out.println("更新成功！");
 			List<Pets> petsList4 = dao.select(upRec);

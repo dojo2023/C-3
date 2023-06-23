@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.PictureBooksDAO;
-import model.LoginUsers;
 import model.Pets;
 import model.Result;
 
@@ -36,15 +35,15 @@ public class UpdateDeleteServlet extends HttpServlet {
 		// アプデかデリトか識別するcmdを取得
 		String cmd = request.getParameter("cmd");
 
-		// どのペット図鑑のIDを取得する。これはどのペットについて編集もしくは削除するのかを識別するためのもの。
-		int id = Integer.parseInt(request.getParameter("id"));
-
 		//編集ボタンが押されたときには、myaniupdate.jspへフォワード
 		if(cmd.equals("1")) {
 
+			// 編集のためのidを取得する(int型)。
+			int id1 = Integer.parseInt(request.getParameter("id1"));
+
 			// DAOを使ってペット図鑑の情報をゲットする
 			PictureBooksDAO aDao = new PictureBooksDAO();
-			Pets pets = aDao.editselect(id);
+			Pets pets = aDao.editselect(id1);
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("pets", pets);
@@ -52,12 +51,24 @@ public class UpdateDeleteServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaniupdate.jsp");
 			dispatcher.forward(request, response);
 		}
-		//削除ボタンが押されたときには、result.jspへフォワード
+		//削除ボタンが押されたときには、DAOを使ってペット図鑑の情報を削除し、result.jspへフォワード
 		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-			dispatcher.forward(request, response);
-		}
+			// 削除のためのidを取得する。
+			String id2 = request.getParameter("id2");
 
+			PictureBooksDAO bDao = new PictureBooksDAO();
+			if(bDao.delete(id2)) {
+
+				request.setAttribute("result",
+						new Result("削除成功！", "Myペット図鑑を削除しました。", "/coffee_Milk/MyAniBookServlet"));
+			}
+			else {
+				request.setAttribute("result",
+						new Result("削除失敗！", "Myペット図鑑を削除できませんでした。", "/coffee_Milk/MyAniBookServlet"));
+			}
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+				dispatcher.forward(request, response);
+		}
 
 	}
 
@@ -70,56 +81,35 @@ public class UpdateDeleteServlet extends HttpServlet {
 		//ログインしていなかったら、ログインサーブレットに飛ばす。
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-		response.sendRedirect("/coffee_Milk/LoginServlet");
-		return;
-
+			response.sendRedirect("/coffee_Milk/LoginServlet");
+			return;
 		// ↓これでidが引っ張れます！by鈴木
 		//request.getParameter("id");
-
-	}
-
-		//  セッションスコープからIDを取得する
-			HttpSession session1 = request.getSession();
-			LoginUsers login_users = (LoginUsers) session1.getAttribute("id");
+		}
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id =request.getParameter("id");
-		String name =request.getParameter("name");
-		String sex =request.getParameter("sex");
-		String birthday =request.getParameter("birthday");
-		String appeal  =request.getParameter("appeal");
-		String cry =request.getParameter("cry");
-		String picture =request.getParameter("picture");
+		String id =request.getParameter("ID");
+		String user_id =request.getParameter("USER_ID");
+		String picture =request.getParameter("PICTURE");
+		String cry =request.getParameter("CRY");
+		String sex  =request.getParameter("SEX");
+		String birthday =request.getParameter("BIRTHDAY");
+		String appeal =request.getParameter("APPEAL");
+		String name =request.getParameter("NAME");
 
-		//更新・削除を行う
+		//編集・削除を行う
 		PictureBooksDAO pDao = new PictureBooksDAO();
-		if (request.getParameter("SUBMIT").equals("更新")) {
-			if (pDao.update(new Pets
-					(login_users.getId(),id, name, sex, birthday,appeal,cry, picture))) {	// 更新成功
-				     response.sendRedirect("/coffee_Milk/MyAniBookServlet");
-			}else {												// 更新失敗
-		        String error = "※更新失敗しました。";
-	            request.setAttribute("error", error);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaniupdate.jsp");
-				dispatcher.forward(request, response);
-			}
-		} else {
-			  if (pDao.delete(id)) { 				//削除成功
-				  request.setAttribute("result",
-							new Result("削除成功！", "Myペット図鑑を削除しました。", "/coffee_Milk/MenuServlet"));
-			  }
-			  else {								// 削除失敗
-					request.setAttribute("result",
-							new Result("削除失敗！", "Myペット図鑑を削除できませんでした。", "/coffee_Milk/MenuServlet"));
-						}
-					}
-
-//					// 結果ページにフォワードする
-//					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-//					dispatcher.forward(request, response);
-
-			  }
-
-
+		if (pDao.update(new Pets(user_id,name,sex,birthday,appeal,cry, picture,id))) {	// 編集成功
+			response.sendRedirect("/coffee_Milk/MyAniBookServlet");
+		}
+		else {												// 編集失敗
+			request.setAttribute("result",
+					new Result("編集失敗！", "Myペット図鑑を編集できませんでした。", "/coffee_Milk/MyAniBookServlet"));
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
+}
+
+

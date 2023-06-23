@@ -31,10 +31,10 @@ public class MenuServlet extends HttpServlet {
         int OFFSET = (page-1)* Page;
 		//DAOからペット投稿のデータを取得する
         MenuDAO mDAO = new MenuDAO();
-        List<Pet> petList = mDAO.select(OFFSET);
+        List<Pet> PetList = mDAO.select(OFFSET);
         // 検索結果をリクエストスコープに格納する
-		request.setAttribute("petList", petList);
-        //メニューサーブレットにフォワードする
+		request.setAttribute("PetList", PetList);
+        //メニューjspにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 		dispatcher.forward(request, response);
     }
