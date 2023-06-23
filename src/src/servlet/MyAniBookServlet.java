@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.PetPostsDAO;
 import dao.PictureBooksDAO;
 import model.LoginUsers;
+import model.Pet;
 import model.Pets;
 /**
  * Servlet implementation class MyAniBookServlet
@@ -42,6 +44,19 @@ public class MyAniBookServlet extends HttpServlet {
 		// DAOを使ってMyペット図鑑の情報をゲットする
 		PictureBooksDAO aDao = new PictureBooksDAO();
 		List<Pets> petsList = aDao.select(new Pets(login_users.getId()));
+
+
+		// petsList1 = [ Pets(1), Pets(2), Pets(3), Pets, Pets  ]
+		// pet = Pets(1)	//１週目
+		// pet = Pets(2)	//２週目
+		// petsListのIDを使って、IDに合う投稿リストをゲットする
+		for( Pets pet: petsList) {
+			PetPostsDAO bDao = new PetPostsDAO();
+			List<Pet> postList = bDao.select(Integer.parseInt(pet.getId()));
+
+			// modelのPetsにPostのリストを格納する
+			pet.setPost(postList);
+		}
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("petsList", petsList);
