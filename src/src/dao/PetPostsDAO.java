@@ -12,9 +12,9 @@ import model.Pet;
 
 public class PetPostsDAO {
 	// 引数paramでペット図鑑データを指定し、検索結果のリストを返す
-	public List<Pet> select() {
+	public List<Pet> select(int picture_books_id) {
 		Connection conn = null; // Connectionはもともとあるもの、connは自分で作ったもの
-		List<Pet> petList = new ArrayList<Pet>();
+		List<Pet> postLists = new ArrayList<Pet>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -23,9 +23,12 @@ public class PetPostsDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/coffee", "milk", "");
 
-			// ペット投稿をTIMEで並び替えるSQL文を準備する
-			String sql = "SELECT * FROM POSTS ORDER BY TIME DESC";
+			// ペット投稿を図鑑IDのみに限定したTIMEで並び替えるSQL文を準備する
+			String sql = "SELECT * FROM POSTS WHERE PICTURE_BOOKS_ID = ? ORDER BY TIME DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1,picture_books_id);
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -40,16 +43,16 @@ public class PetPostsDAO {
 						rs.getString("PICTURE"),
 						rs.getTimestamp("TIME")
 								);
-						petList.add(inf);
+						postLists.add(inf);
 				}
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			petList = null;
+			postLists = null;
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			petList = null;
+			postLists = null;
 		}
 		finally {
 			// データベースを切断
@@ -59,11 +62,11 @@ public class PetPostsDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					petList = null;
+					postLists = null;
 				}
 			}
 		}
-		return petList;
+		return postLists;
 	}
 
 	// 引数postaddで指定されたペット投稿を登録し、成功したらtrueを返す
