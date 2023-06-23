@@ -35,16 +35,18 @@
           <input type="submit" name="weekly" value="週別">
          </span>
       </div>-->
-        <div class="menu_outer01">
+      </div>
+    </form>
+    <form id="favorite_id" method="POST" action="/coffee_Milk/PetFavRankServlet">
+    <div class="menu_outer01">
           <ul class="list">
             <li class="title">いいねランキング</li>
             <li><input type="submit" name="total" value="総合"></li>
             <li><input type="submit" name="weekly" value="週別"></li>
           </ul>
         </div>
-      </div>
     </form>
- <c:if test="${empty PetList}">
+<c:if test="${empty PetList}">
     <p>一致するデータはありません。</p>
 </c:if>
 <c:forEach var="e" items="${PetList}" >
