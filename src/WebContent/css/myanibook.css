@@ -16,12 +16,10 @@
 
 /* タブ内の中身に適用 */
 .panel-group{
-	border:solid 1px #ccc;
 	border-top:none;
-	background:#FFCC33;
 	font-size:20px;
 	text-align: center;
-	line-height:80px;
+	line-height:30px;
 }
 
 /* panelクラスを非表示にしている */
@@ -49,4 +47,30 @@
 /* bottonの中のis-expressに対して適用 */
 .botton.is-express{
 	display:block;
+}
+
+/*table*/
+table{
+	margin: 0 auto 0 auto;
+}
+
+/*title*/
+.title{
+	font-size:30px;
+	font-weight: bold;
+}
+
+/*sub*/
+.sub{
+	font-size:25px;
+}
+
+.flex{
+	display: flex;
+}
+
+.item{
+	margin: 0 auto 0 auto;
+	width:200px;
+	height:100px;
 }
