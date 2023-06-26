@@ -91,11 +91,6 @@
       </tr>
       <tr>
         <td>
-          <p1>回数</p1> <!-- いいねの回数表示ができなかったら削除する -->
-        </td>
-      </tr>
-      <tr>
-        <td>
           <a href ="/coffee_Milk/MyAniBookServlet?pbi=<c:out value="${e.picture_books_id}"></c:out>">図鑑を見る
           </a>
         </td>
