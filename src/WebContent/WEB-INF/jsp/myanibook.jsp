@@ -46,28 +46,28 @@
 		<!-- ペット追加ボタンを表示 -->
 		<c:choose>
 			<c:when test="${!empty id}">
-				<c:when test="${empty pbi}">
-					<div>
+<!--  				<c:when test="${empty pbi}"> -->
+					<div class="addpet">
 				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
 				    	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
 				    	<span id="error_message"></span>
 				    </div>
-				</c:when>
+<!--  				</c:when>
 				<c:when test="${!empty pbi}">
 					<c:when test="${id eq pbi_id}">
-						<div>
+						<div class="addpet">
 				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
-				    	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
+				    	このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成
 				    	<span id="error_message"></span>
 				    	</div>
 					</c:when>
-				</c:when>
+				</c:when> -->
 			</c:when>
 		</c:choose>
 
 		<!-- ログイン状態 && 登録データなし の場合 -->
 		<!-- 空の5つのタブ表示をする -->
-		<c:if test="${empty pbi}">
+<!--  	<c:if test="${empty pbi}"> -->
 			<c:if test="${!empty id}">
 				<!-- タブ表示 -->
 				<c:if test="${empty petsList}">
@@ -98,7 +98,7 @@
 					</div>
 				</c:if>
 			</c:if>
-		</c:if>
+<!--  	</c:if> -->
 
 		<!-- ログイン状態 && 登録データあり の場合 -->
 		<!-- Myペットの数に応じたタブ及びコンテンツを表示 -->
@@ -137,15 +137,15 @@
 
 						<!-- ログイン状態 && 非閲覧状態 の場合 -->
 						<!-- 編集、削除、更新ボタンを表示 -->
-						<c:if test="${empty pbi}">
+<!--  					<c:if test="${empty pbi}"> -->
 							<!-- ここではペット図鑑のIDとアプデとデリトの識別変数cmdを渡すようにしている。 -->
 							<h2><a href="/coffee_Milk/UpdateDeleteServlet?id1=<c:out value="${e.id}"></c:out>&cmd=1&id2=<c:out value="${e.id}"></c:out>"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
 							<h2><a href="/coffee_Milk/UpdateDeleteServlet?id2=<c:out value="${e.id}"></c:out>&cmd=2"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
 							<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
-						</c:if>
+<!--					</c:if> -->
 
-						<!-- 非閲覧状態でも所有者の場合 -->
-						<!-- 編集、削除、更新ボタンを表示 -->
+						<!-- 非閲覧状態でも所有者の場合
+						<!-- 編集、削除、更新ボタンを表示
 						<c:if test="${!empty pbi}">
 							<c:if test="${id eq pbi_id}">
 								<h2><a href="/coffee_Milk/UpdateDeleteServlet?id1=<c:out value="${e.id}"></c:out>&cmd=1&id2=<c:out value="${e.id}"></c:out>"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
@@ -153,7 +153,7 @@
 							<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
 							</c:if>
 
-						</c:if>
+						</c:if> -->
 
 						<!-- 投稿一覧表示 -->
 						<c:if test="${empty e.post}">
