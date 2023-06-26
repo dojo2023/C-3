@@ -16,7 +16,10 @@ function changeColor(button)
 
 	//posts_idを取得
 	//いいねをつけたらtrue、外したらfalseをonに指定して送る
-	xhr.send( 'posts_id=1&on=true' );	//いいねがついたとき
+
+	//idごとにいいねをカウントする処理
+	let post_id =button.firstElementChild.value;
+	xhr.send( 'posts_id='+post_id+'&on=true' );	//いいねがついたとき
 
 	//xhr.send( 'posts_id=1&on=false' );  //いいねをはずしたとき
 }
@@ -27,12 +30,12 @@ function changeColor(button)
 
    //var img = new Image();
    //img.onload = function() {
-  //var width = 200;
-  //var height = 180;
-  //canvas.width = width;
-  //canvas.height = height;
-  //ctx.drawImage(img,0,0,width,height);
-  //}
-  //img.src = "coffee_Milk/img/dog.jpeg"
+   //var width = 200;
+   //var height = 180;
+   //canvas.width = width;
+   //canvas.height = height;
+   //ctx.drawImage(img,0,0,width,height);
+   //}
+   //img.src = "coffee_Milk/img/dog.jpeg"
 
 
