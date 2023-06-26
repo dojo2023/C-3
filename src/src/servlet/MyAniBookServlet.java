@@ -33,11 +33,11 @@ public class MyAniBookServlet extends HttpServlet {
 		// リクエストパラメーターを取得する
 		request.setCharacterEncoding("UTF-8");
 
-/*		// 閲覧者かどうか識別するcmdを取得
+		// 閲覧者かどうか識別するpbiを取得
 		String pbi = request.getParameter("pbi");
 
 		// 閲覧者でない場合
-		if( pbi == "" ) {*/
+		if( pbi == "" ) {
 			// もしもログインしていなかったらそのままjspにフォワードする。
 			HttpSession session = request.getSession();
 			if (session.getAttribute("id") == null) {
@@ -72,18 +72,70 @@ public class MyAniBookServlet extends HttpServlet {
 			// Myペット図鑑にフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
 			dispatcher.forward(request, response);
+			return;
 		}
 
-/*		// 閲覧者の場合
+		// 閲覧者の場合
 		else {
 
 			// 非ログイン者の場合はpetlistを得る
 			HttpSession session = request.getSession();
 			if (session.getAttribute("id") == null) {
 
+				// pbiをint型に変換する
+				int pbi1 = Integer.parseInt(pbi);
+
+				// pbiからUSER_IDを得る
+				PictureBooksDAO aDao = new PictureBooksDAO();
+				Pets pets = aDao.editselect(pbi1);
+
+				// USER_IDからMyペット図鑑の情報をゲットする
+				PictureBooksDAO bDao = new PictureBooksDAO();
+				List<Pets> petsList = bDao.select(new Pets(pets.getUser_id()));
+
+				// petsListのIDを使って、IDに合う投稿リストをゲットする
+				for( Pets pet: petsList) {
+					PetPostsDAO cDao = new PetPostsDAO();
+					List<Pet> postList = cDao.select(Integer.parseInt(pet.getId()));
+
+					// modelのPetsにPostのリストを格納する
+					pet.setPost(postList);
+				}
+				// 検索結果をリクエストスコープに格納する
+				request.setAttribute("petsList", petsList);
+
+				// Myペット図鑑にフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
+				dispatcher.forward(request, response);
+				return;
+			}
+			else {
+
+				// ログイン者の場合はセッションスコープからIDを取得する
+				HttpSession session1 = request.getSession();
+				LoginUsers login_users = (LoginUsers) session1.getAttribute("id");
+
+				// DAOを使ってMyペット図鑑の情報をゲットする
+				PictureBooksDAO aDao = new PictureBooksDAO();
+				List<Pets> petsList = aDao.select(new Pets(login_users.getId()));
+
+				// petsListのIDを使って、IDに合う投稿リストをゲットする
+				for( Pets pet: petsList) {
+					PetPostsDAO bDao = new PetPostsDAO();
+					List<Pet> postList = bDao.select(Integer.parseInt(pet.getId()));
+
+					// modelのPetsにPostのリストを格納する
+					pet.setPost(postList);
+				}
+				// 検索結果をリクエストスコープに格納する
+				request.setAttribute("petsList", petsList);
+
+				// Myペット図鑑にフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myanibook.jsp");
+				dispatcher.forward(request, response);
 			}
 		}
-	}*/
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
