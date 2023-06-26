@@ -14,7 +14,6 @@
 	<h1>ログインページです。</h1>
 	<main>
 
-<<<<<<< Updated upstream
 	<div class="wrapper"> <!--ログインページのメニューを管理するクラス名-->
     <!--メイン-->
 <!--  <img src="/coffee_Milk/img/logo.png" width="160" height="70"  alt="名刺管理">-->
@@ -65,10 +64,6 @@
 	</div>
 	<!--footer ここまで-->
 </div>
-=======
-
-<img src="/coffee_Milk/img/logo (1).png" width="160" height="70"  alt="名刺管理">
->>>>>>> Stashed changes
 </body>
 </html>
 
