@@ -44,32 +44,36 @@
 
 		<!-- ログイン状態 && 所有者 の場合 -->
 		<!-- ペット追加ボタンを表示 -->
-<!--  	<c:choose>
-			<c:when test="${!empty id}"> -->
- 				<c:if test="{!empty id}">
+	  	<c:choose>
+	  		<!-- ログイン〇、閲覧× -->
+			<c:when test="${!empty id}">
+ 				<c:when test="${empty pbi}">
 					<div class="addpet">
 				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
 				    	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
 				    	<span id="error_message"></span>
 				    </div>
-				</c:if>
-
-<!--  				</c:when>
+				</c:when>
+				<!-- ログイン〇、閲覧〇、ログインID=ペット図鑑ID -->
 				<c:when test="${!empty pbi}">
 					<c:when test="${id eq pbi_id}">
 						<div class="addpet">
-				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
-				    	このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成
-				    	<span id="error_message"></span>
-				    	</div>
+				  			<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
+			    			このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成
+				  	 	 	<span id="error_message"></span>
+			   		 	</div>
 					</c:when>
 				</c:when>
+			</c:when>
+		</c:choose>
 
-		</c:choose>  -->
+
+<!-- ここまでやったよ -->
+
 
 		<!-- ログイン状態 && 登録データなし の場合 -->
 		<!-- 空の5つのタブ表示をする -->
-<!--  	<c:if test="${empty pbi}"> -->
+	 	<c:if test="${empty pbi}">
 			<c:if test="${!empty id}">
 				<!-- タブ表示 -->
 				<c:if test="${empty petsList}">
@@ -100,7 +104,7 @@
 					</div>
 				</c:if>
 			</c:if>
-<!--  	</c:if> -->
+	  	</c:if>
 
 		<!-- ログイン状態 && 登録データあり の場合 -->
 		<!-- Myペットの数に応じたタブ及びコンテンツを表示 -->
