@@ -125,25 +125,44 @@
 				 			</c:if>
 				 		">
 				 			<h1>Myペットプロフィール</h1><br>
-						<img src="<c:out value="${e.picture}"></c:out>">
-						ペットの名前<br>
-			    		<p><c:out value="${e.name}"></c:out></p>
-						性別<br>
-						<p><c:out value="${e.sex}"></c:out></p>
-						誕生日<br>
-						<p><c:out value="${e.birthday}"></c:out></p>
-						鳴き声<br>
-						<p><c:out value="${e.cry}"></c:out></p>
-						アピールポイント<br>
-						<p><c:out value="${e.appeal}"></c:out></p>
-
+										<img src="<c:out value="${e.picture}"></c:out>"><br>
+				 			<table>
+								<tr>
+									<td>
+										<div class="title">ペットの名前</div><br>
+			    						<div class="sub"><p><c:out value="${e.name}"></c:out></p></div>
+									</td>
+									<td>
+										<div class="title">性別</div><br>
+										<div class="sub"><p><c:out value="${e.sex}"></c:out></p></div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="title">誕生日</div><br>
+										<div class="sub"><p><c:out value="${e.birthday}"></c:out></p></div>
+									</td>
+									<td>
+										<div class="title">鳴き声</div><br>
+										<div class="sub"><p><c:out value="${e.cry}"></c:out></p></div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="title">アピールポイント</div><br>
+										<div class="sub"><p><c:out value="${e.appeal}"></c:out></p></div>
+									</td>
+								</tr>
+							</table>
 						<!-- ログイン状態 && 非閲覧状態 の場合 -->
 						<!-- 編集、削除、更新ボタンを表示 -->
 <!--  					<c:if test="${empty pbi}"> -->
 							<!-- ここではペット図鑑のIDとアプデとデリトの識別変数cmdを渡すようにしている。 -->
-							<h2><a href="/coffee_Milk/UpdateDeleteServlet?id1=<c:out value="${e.id}"></c:out>&cmd=1&id2=<c:out value="${e.id}"></c:out>"><img src="img/ペット編集ボタン.png" alt="編集"></a></h2>
-							<h2><a href="/coffee_Milk/UpdateDeleteServlet?id2=<c:out value="${e.id}"></c:out>&cmd=2"><img src="img/ペット削除ボタン.png" alt="削除"></a></h2>
-							<h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>"><img src="img/ペット投稿ボタン.png" alt="投稿"></a></h2>
+							<div class="flex">
+								<div class="item"><h2><a href="/coffee_Milk/UpdateDeleteServlet?id1=<c:out value="${e.id}"></c:out>&cmd=1&id2=<c:out value="${e.id}"></c:out>">編集</a></h2></div>
+								<div class="item"><h2><a href="/coffee_Milk/UpdateDeleteServlet?id2=<c:out value="${e.id}"></c:out>&cmd=2">削除</a></h2></div>
+								<div class="item"><h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>">投稿</a></h2></div>
+							</div>
 <!--					</c:if> -->
 
 						<!-- 非閲覧状態でも所有者の場合
