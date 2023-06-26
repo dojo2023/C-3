@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/coffee_Milk/css/header.css">
+<link rel="stylesheet" href="/coffee_Milk/js/header.js">
 </head>
 <body>
 <header>
@@ -45,7 +46,7 @@
 <c:if test="${!empty id}">
 <nav class="nav1">
 <ul>
-<li><a href ="/coffee_Milk/LogoutServlet" class="header2">ログアウト</a></li>
+<li><a href ="/coffee_Milk/LogoutServlet" onclick="return kousin()"  class="header2">ログアウト</a></li>
 </ul>
 </nav>
 </c:if>
