@@ -21,5 +21,18 @@ function changeColor(button)
 	//xhr.send( 'posts_id=1&on=false' );  //いいねをはずしたとき
 }
 
+   //画像の大きさを固定
+   //var canvas = document.getElementById("canvas");
+   //var ctx = canvas.getContext("2d");
+
+   //var img = new Image();
+   //img.onload = function() {
+  //var width = 200;
+  //var height = 180;
+  //canvas.width = width;
+  //canvas.height = height;
+  //ctx.drawImage(img,0,0,width,height);
+  //}
+  //img.src = "coffee_Milk/img/dog.jpeg"
 
 
