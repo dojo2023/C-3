@@ -1,5 +1,4 @@
 package servlet;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,14 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.UsersDAO;
 import model.LoginUser;
-
 /**
  * Servlet implementation class NewUserServlet
  */
 @WebServlet("/NewUserServlet")
 public class NewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -26,9 +23,7 @@ public class NewUserServlet extends HttpServlet {
 		//新規登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/newuser.jsp");
 		dispatcher.forward(request, response);
-
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -38,7 +33,6 @@ public class NewUserServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("ID");
 		String pw = request.getParameter("PW");
-
 		// 登録処理を行う
 		UsersDAO nuDao = new UsersDAO();
 		if (nuDao.insert(new LoginUser(id, pw))) {	// 登録成功
@@ -51,5 +45,9 @@ public class NewUserServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 	}
-
 }
+
+
+
+
+

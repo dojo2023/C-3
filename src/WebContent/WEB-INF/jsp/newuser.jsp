@@ -15,6 +15,7 @@
 <body>
 <%@ include file="header.jsp" %>
 	<div class="wrapper">
+
 	<h1>ユーザー新規登録</h1>
 	<form id="userregister_form" method="POST" action="/coffee_Milk/NewUserServlet">
 	<table>
@@ -32,7 +33,7 @@
 	</tr>
 	<tr id="bottan">
 		<td colspan="2">
-			<input type="submit" name="REGIST" value="登録" class="regist">
+			<input type="submit" name="REGIST" value="登録"  class="regist">
         	<input type="reset" name="reset" value="リセット" class="reset">
 			<p id="output"></p>
         	<span id="error_message"></span>
@@ -49,6 +50,6 @@
 
 	<!-- Javascriptの挿入 -->
 	<script src="/coffee_Milk/js/newuser.js"></script>
-<footer>d</footer>
+<footer> </footer>
 </body>
 </html>

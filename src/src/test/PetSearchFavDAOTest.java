@@ -19,7 +19,7 @@ public class PetSearchFavDAOTest
         System.out.println("---------- select()のテスト ----------");
 
         // selectメソッドを呼び出して検索を実行
-        List<Pet> resultList = dao.select(null, null, null, null, null, null);
+        List<Pet> resultList = dao.select();
 
         // 検索結果の処理
         if (!resultList.isEmpty())

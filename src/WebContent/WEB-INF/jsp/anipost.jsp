@@ -6,12 +6,9 @@
 <%@ include file="header.jsp" %>
 <meta charset="UTF-8">
 <title>Myペット投稿</title>
-
 <!-- スタイルシートの挿入 -->
 <link rel="stylesheet" href="/coffee_Milk/css/anipost.css">
-
 </head>
-
 <body>
 <div class="wrapper">
 <h1>ペット投稿フォーム</h1>
