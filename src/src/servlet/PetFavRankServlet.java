@@ -13,38 +13,55 @@ import javax.servlet.http.HttpServletResponse;
 import dao.PetSearchFavDAO;
 import model.Pet;
 
+/**
+ * Servlet implementation class PetFavRankServlet
+ */
 @WebServlet("/PetFavRankServlet")
 public class PetFavRankServlet extends HttpServlet
 {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public PetFavRankServlet()
     {
-        // GETリクエストの処理
-        // 必要に応じて実装してください
+        super();
+        // TODO Auto-generated constructor stub
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
-        // リクエストパラメータを取得する
-        request.setCharacterEncoding("UTF-8");
-        String picture_books_id = request.getParameter("PICTURE_BOOK_ID");
-        String title = request.getParameter("TITLE");
-        String genre = request.getParameter("GENRE");
-        String free = request.getParameter("FREE");
-        String picture = request.getParameter("PICTURE");
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 
-        // 検索処理を行う
-        PetSearchFavDAO dao = new PetSearchFavDAO();
-        List<Pet> PetList = dao.select(picture_books_id, title, genre, free, picture, null);
+	}
 
-        // 検索結果をリクエストスコープに格納する
-        request.setAttribute("PetList", PetList);
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 
-        // 結果ページにフォワードする
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
-        dispatcher.forward(request, response);
-    }
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String picture_books_id = request.getParameter("PICTURE_BOOK_ID");
+		String title = request.getParameter("TITLE");
+		String genre = request.getParameter("GENRE");
+		String free = request.getParameter("FREE");
+		String picture = request.getParameter("PICTURE");
+		Integer favorite = Integer.parseInt(request.getParameter("FAVORITE"));
+		// 検索処理を行う
+		PetSearchFavDAO fDao = new PetSearchFavDAO();
+		List<Pet> PetList = fDao.select(picture_books_id, title, genre, free, picture, favorite);
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("PetList", PetList);
+
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+		dispatcher.forward(request, response);
+	}
+
 }

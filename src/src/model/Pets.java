@@ -1,6 +1,5 @@
 package model;
 import java.io.Serializable;
-import java.util.List;
 
 public class Pets implements Serializable {
 	private String id; // ID
@@ -11,7 +10,6 @@ public class Pets implements Serializable {
 	private String appeal;   // APPEAL
 	private String cry;      // CRY
 	private String picture;  // PICTURE
-	private List<Pet> post;		//ペットごとの投稿をコレクションで格納する。
 
 	public Pets(String id, String user_id, String name, String sex, String birthday, String appeal,String cry,String picture) {
 		this.id = id;
@@ -84,12 +82,6 @@ public class Pets implements Serializable {
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public List<Pet> getPost() {
-		return post;
-	}
-	public void setPost(List<Pet> post) {
-		this.post = post;
 	}
 
 }

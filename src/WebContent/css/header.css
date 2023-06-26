@@ -37,6 +37,7 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration:none;
 }
 
 
@@ -83,10 +84,14 @@ body {
     border: 1px solid #333399; /*ナビの周りの枠色*/
     box-sizing: border-box;
     background-color:#CCFF99; /*ヘッダーのナビの後ろの色*/
+    cursor: pointer;
+  pointer-events: auto;
+
 }
 .header_link li a {
-    /*text-decoration: none;*/
+    text-decoration: none;
     color: #000;
+     pointer-events: auto;
 }
 
 .header_link li ul {

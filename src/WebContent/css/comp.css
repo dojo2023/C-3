@@ -5,4 +5,15 @@
   margin: 0 auto 0 auto;
   max-width: 600px;
   line-height:50px;
+  color:#3E260C;
+}
+
+/*h1*/
+h1 {
+	margin-left:150px;
+}
+
+/*send*/
+.send {
+	font-size:30px;
 }

@@ -95,7 +95,7 @@
         </td>
       </tr>
       <tr>
-        <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td>
+        <td><a href ="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></td><!--   -->
       </tr>
   </table>
 </c:forEach>
