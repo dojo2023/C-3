@@ -7,9 +7,10 @@ html,body {
 
 /*h1*/
 h1 {
-	 margin: 30px auto 30px 100px;
+	margin: 30px auto 30px 100px;
 	color:#3E260C;
 	font-family: "うずらフォント";
+	font-size:30px;
 }
 
 /*label*/
@@ -51,19 +52,6 @@ label{
 }
 
 /*regist*/
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
-
 .regist{
 	font-size:20px;
     width: 100px;

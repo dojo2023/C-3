@@ -13,23 +13,53 @@ body {
 
 /* footer*/
 #footer {
-		background-color: #FFFFC9;
-  background-image: url(/coffee_Milk/img/足跡.png);
-  background-repeat: repeat-x;
+	background-color: #FFFFC9;
+	background-image: url(/coffee_Milk/img/足跡.png);
+	background-repeat: repeat-x;
 
   margin: 30px auto 0 auto;
   padding: 5px 5px 5px 5px;
   background-position: bottom;
-  max-width: 600px;
 }
 
 /* wrapper */
 .wrapper {
   margin: 0 auto 0 auto;
-  max-width: 600px;
 }
 
 /*button*/
 #button {
-  margin: 0 auto 0 auto;
+	margin: 0 auto 0 auto;
+    text-align: center;
+	font-size:30px;
+	line-height:80px;
+}
+
+/* login */
+.login {
+	font-size:20px;
+    width: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #68779A;
+    background: #FFFF8D;
+    cursor: pointer;
+	font-family: "うずらフォント";
+}
+
+/* reset */
+.reset {
+	font-size:20px;
+    width: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #68779A;
+    background: #FFFF8D;
+    cursor: pointer;
+	font-family: "うずらフォント";
+}
+
+/*menu*/
+.menu {
+	margin-left: 350px;
 }
