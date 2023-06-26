@@ -46,7 +46,7 @@
 <c:if test="${!empty id}">
 <nav class="nav1">
 <ul>
-<li><a href ="/coffee_Milk/LogoutServlet" onclick="return kousin()"  class="header2">ログアウト</a></li>
+<li><a href ="/coffee_Milk/LogoutServlet" onclick="return logout()"  class="header2">ログアウト</a></li>
 </ul>
 </nav>
 </c:if>

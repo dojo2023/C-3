@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded',function() {
     });
 });
 
-    function kousin()
+    function logout()
     {
     	const v = window.confirm("本当にログアウトしてよろしいですか？");
     	if(v == true)
