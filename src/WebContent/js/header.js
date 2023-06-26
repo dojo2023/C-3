@@ -9,3 +9,15 @@ window.addEventListener('DOMContentLoaded',function() {
     });
 });
 
+    function logout()
+    {
+    	const v = window.confirm("本当にログアウトしてよろしいですか？");
+    	if(v == true)
+    		{
+    			return true;
+    		}
+    	else
+    		{
+    			return false;
+    		}
+    }
