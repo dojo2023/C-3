@@ -51,10 +51,10 @@ public class PetFavRankServlet extends HttpServlet
 		String genre = request.getParameter("GENRE");
 		String free = request.getParameter("FREE");
 		String picture = request.getParameter("PICTURE");
-		Integer favorite = Integer.parseInt(request.getParameter("FAVORITE"));
+		//Integer favorite = Integer.parseInt(request.getParameter("FAVORITE"));
 		// 検索処理を行う
 		PetSearchFavDAO fDao = new PetSearchFavDAO();
-		List<Pet> PetList = fDao.select(picture_books_id, title, genre, free, picture, favorite);
+		List<Pet> PetList = fDao.select(picture_books_id, title, genre, free, picture, null);
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("PetList", PetList);
