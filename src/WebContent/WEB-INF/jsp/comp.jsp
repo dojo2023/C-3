@@ -13,9 +13,11 @@
 <body>
 <%@ include file="header.jsp" %>
 	<div class="wrapper">
-		<h1>新規登録完了</h1>
+		<h1>🙌新規登録完了🙌</h1>
+			<div class="send">
 			<a href="/coffee_Milk/MenuServlet">メインメニューへ戻る</a>
 			<a href="/coffee_Milk/MyAniBooksServlet">Myペット図鑑へ戻る</a>
+			</div>
 	</div>
 </body>
 </html>
