@@ -18,7 +18,10 @@
 .panel-group{
 	border:solid 1px #ccc;
 	border-top:none;
-	background:#eee;
+	background:#FFCC33;
+	font-size:20px;
+	text-align: center;
+	line-height:80px;
 }
 
 /* panelクラスを非表示にしている */

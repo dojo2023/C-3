@@ -11,22 +11,16 @@
 <body>
 <div class="wrapper">
 	<%@ include file="header.jsp" %>
-	<h1>ログインページです。</h1>
 	<main>
-
 	<div class="wrapper"> <!--ログインページのメニューを管理するクラス名-->
-    <!--メイン-->
-<!--  <img src="/coffee_Milk/img/logo.png" width="160" height="70"  alt="名刺管理">-->
-
-    <h2>ログイン</h2>
-
+    <h1>ログイン</h>
   <form id="login_form" method="POST" action="/coffee_Milk/LoginServlet">
     <table id ="button">
         <tr>
             <td>
                 <label>
                     ユーザーID:
-                        <input type="text" name="USER_ID" required="required"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
+                        <input type="text" name="USER_ID" required="required" style="width: 200px; height: 30px; background:#FFFFEF"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
                 </label>
             </td>
         </tr>
@@ -34,22 +28,26 @@
             <td>
                 <label>
                     パスワード:
-                        <input type="password" name="USER_PW" required="required"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
+                        <input type="password" name="USER_PW" required="required" style="width: 200px; height: 30px; background:#FFFFEF"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
                 </label>
             </td>
         </tr>
 
         <tr>
             <td>
-                <input type="submit" name="LOGIN" value="ログイン" class ="button">
-                <input type="reset" name="reset" value="リセット" class ="button">
+            	<div class ="button">
+                <input type="submit" name="LOGIN" value="ログイン" class ="login">
+                <input type="reset" name="reset" value="リセット" class ="reset">
+				</div>
             </td>
         </tr>
     </table>
  </form>
-<div>アカウントを持っていない方は<a href = "/coffee_Milk/NewUserServlet">こちら</a></div>
+<div class="menu">
+アカウントを持っていない方は<a href = "/coffee_Milk/NewUserServlet">こちら</a><br>
 
 	<a href="/coffee_Milk/MenuServlet">メニューへ戻る</a>
+</div>
 
  <%-- エラーメッセージの表示 --%>
  <c:if test="${not empty error}">

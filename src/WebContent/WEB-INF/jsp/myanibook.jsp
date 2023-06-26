@@ -44,14 +44,16 @@
 
 		<!-- ログイン状態 && 所有者 の場合 -->
 		<!-- ペット追加ボタンを表示 -->
-		<c:choose>
-			<c:when test="${!empty id}">
-<!--  				<c:when test="${empty pbi}"> -->
+<!--  	<c:choose>
+			<c:when test="${!empty id}"> -->
+ 				<c:if test="{!empty id}">
 					<div class="addpet">
 				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
 				    	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
 				    	<span id="error_message"></span>
 				    </div>
+				</c:if>
+
 <!--  				</c:when>
 				<c:when test="${!empty pbi}">
 					<c:when test="${id eq pbi_id}">
@@ -61,9 +63,9 @@
 				    	<span id="error_message"></span>
 				    	</div>
 					</c:when>
-				</c:when> -->
-			</c:when>
-		</c:choose>
+				</c:when>
+
+		</c:choose>  -->
 
 		<!-- ログイン状態 && 登録データなし の場合 -->
 		<!-- 空の5つのタブ表示をする -->
