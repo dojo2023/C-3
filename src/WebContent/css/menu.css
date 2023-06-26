@@ -116,3 +116,17 @@ body{
      .heart{
         margin:0px 0px 0px 83px;
      }
+     /*img {
+       object-fit:cover;
+       width :200px;
+       height: 200px;
+     }*/
+     /*#heartphoto{
+       width : 30px;
+       height: 25px;
+     }*/
+     .photo{
+       object-fit:cover;
+       width :200px;
+       height: 200px;
+     }

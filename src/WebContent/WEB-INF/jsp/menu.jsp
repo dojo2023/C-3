@@ -18,45 +18,51 @@
     <form method="POST" action="/coffee_Milk/SearchServlet">
       <p>キーワード検索</p>
         <input type="text" size="30" name="keyWord">
-  <div class= "serch">
-    <input type="submit" name="REGIST" value="検索"><br>
-  </div>
+          <div class= "serch">
+            <input type="submit" name="REGIST" value="検索"><br>
+          </div>
     </form>
 <h1>ペット投稿一覧</h1>
   <p>並べ替え</p>
     <form id="posts_list" method="POST" action="/coffee_Milk/SearchServlet" onsubmit="return checkPostList();">
       <div class= "botan"><!--データをservletにとばすならtypeはsubmit、JavaScriptならbutton -->
         <input type="submit" name="post" value="投稿順" >
-        <input type="submit" name="shuffle" value="シャッフル">
-      <!--  <div class="mouse">
-       <input type="submit" name="favorite" value="いいね順">
-         <span class="word">
-          <input type="submit" name="total" value="総合">
-          <input type="submit" name="weekly" value="週別">
-         </span>
-      </div>-->
       </div>
     </form>
+       <form id="posts_list" method="POST" action="/coffee_Milk/PetListShufffleServlet">
+          <input type="submit" name="shuffle" value="シャッフル">
+       </form>
+      <!--  <div class="mouse">
+            <input type="submit" name="favorite" value="いいね順">
+            <span class="word">
+            <input type="submit" name="total" value="総合">
+            <input type="submit" name="weekly" value="週別">
+            </span>
+            </div>-->
+   <p>いいねランキング</p>
     <form id="favorite_id" method="POST" action="/coffee_Milk/PetFavRankServlet">
-    <div class="menu_outer01">
-          <ul class="list">
+      <input type="submit" name="favorite" value="総合">
+    </form>
+    <form id="favorite_id" method="POST" action="/coffee_Milk/PetWeeklyFavRankServlet">
+    <input type="submit" name="weekly" value="週別">
+    </form>
+
+
+      <!--<div class="menu_outer01">
+            <form id="favorite_id" method="POST" action="/coffee_Milk/PetFavRankServlet">
+            <ul class="list">
             <li class="title">いいねランキング</li>
             <li><input type="submit" name="total" value="総合"></li>
             <li><input type="submit" name="weekly" value="週別"></li>
-          </ul>
-        </div>
-    </form>
+            </ul>
+            </form>
+            </div>-->
+
 <c:if test="${empty PetList}">
-    <p>一致するデータはありません。</p>
+   <p>一致するデータはありません。</p>
 </c:if>
 <c:forEach var="e" items="${PetList}" >
   <table class = petpost>
-     <!-- <tr>
-        <td>
-        	 <img src="/coffee_Milk/img/dog.jpeg" width="200px" height="180px" >
-            <c:out value="${e.picture_books_id}"></c:out>
-        </td>
-      </tr>-->
       <tr>
         <td><c:out value="${e.title}"></c:out></td>
       </tr>
@@ -67,23 +73,25 @@
         <td><c:out value="${e.free}"></c:out></td>
       </tr>
       <tr>
-        <td><img src="<c:out value="${e.picture}"></c:out>"></td>
+         <td class= "photo">
+         	<img src="<c:out value="${e.picture}"></c:out>">
+         </td>
       </tr>
-       <tr>
-        <td>
-          <form method="POST" id="favorite" action="/coffee_Milk/FavoriteServlet">
+      <tr>
+         <td>
+           <form method="POST" id="favorite" action="/coffee_Milk/FavoriteServlet">
           <!-- changeColor呼び出し hiddenにより最初は赤ハートが非表示になる-->
-          <div class="heart" onclick="changeColor(this)">
-          	<input type="hidden" name="posts_id" value="${e.picture_books_id}" >
-            <img src="/coffee_Milk/img/heart.png" alt="いいね！" width="30" height="25" class="white-heart" name="favorite">
-            <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden">
-          </div>
-          </form>
-        </td>
+             <div class="heart" onclick="changeColor(this)">
+          	   <input type="hidden" name="posts_id" value="${e.picture_books_id}">
+                   <img src="/coffee_Milk/img/heart.png" alt="いいね！"  width="30" height="25"class="white-heart" name="favorite">
+                   <img src="/coffee_Milk/img/redheart.png" alt="いいね！" width="30" height="25" class="red-heart hidden">
+             </div>
+           </form>
+         </td>
       </tr>
       <tr>
         <td>
-          <p1>回数</p1>
+          <p1>回数</p1> <!-- いいねの回数表示ができなかったら削除する -->
         </td>
       </tr>
       <tr>
@@ -105,7 +113,6 @@
     <a href="/coffee_Milk/PageServlet?page=4">4</a>
   </div>
 </div>
-  <!--投稿画像をクリックするとポップアップウインドウが表示-->
   <!--図鑑を見るをクリックするとMyaniBookServletにとぶ
 <p><a href="/coffee_Milk/MyAniBookServlet">図鑑を見る</a></p>-->
 </body>
