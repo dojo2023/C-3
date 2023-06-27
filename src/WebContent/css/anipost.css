@@ -3,14 +3,34 @@
 /* wrapper */
 .wrapper {
   margin: 0 auto 0 auto;
-  max-width: 600px;
+  max-width: 400px;
+}
+
+/*h1*/
+h1 {
+	font-size:40px;
+	color:#3E260C;
 }
 
 /* post */
 .post {
 	line-height:50px;
+	font-size:30px;
 }
 
 .secret {
 	display:none;
+}
+
+/*button*/
+.button {
+	font-size:20px;
+    width: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #68779a;
+    background: #FFFF8D;
+    cursor: pointer;
+	font-family: "うずらフォント";
+	margin-left: 150px;
 }

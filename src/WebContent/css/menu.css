@@ -2,14 +2,21 @@
 
 /*文字全体を下に下げる*/
 body{
-	margin:50px;
+	margin:5px;
 }
+
 /*文字を中心に配置*/
 .wrapper {
-  text-align: center;
+  text-align: right;
   margin: 0 auto 0 auto;	/*中央揃え */
   width: 700px;	          /* 幅を固定 */
   justify-content: center;
+}
+.sub{
+	position: absolute;
+  left: 1%;
+  top: 200px;
+  text-align: center;
 }
 
 /*いいね順を押すと総合週別が出る*/
@@ -37,19 +44,23 @@ body{
 
 /*投稿一覧の写真の設定*/
 .petpost {
-	padding: 10px;
-	margin :10px;
+	margin :5px 3px 5px 3px;
     border: 1px solid #333333;
 	float:left;
 	box-sizing: border-box;
 	width: 50px;
 	padding:0px;
 	/*justify-content: center;*/
+
+}
+section{
+	padding: 0 0 1px;
+    position: relative;
 }
 /*ページ番号の設定*/
 .page{
 	display: block;
-    margin-block-start: 100em;
+    margin-block-start: 95em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -114,19 +125,20 @@ body{
      }
      /*ハートの位置設定*/
      .heart{
-        margin:0px 0px 0px 83px;
+        margin:0px 0px 10px 180px;
      }
-     /*img {
-       object-fit:cover;
-       width :200px;
-       height: 200px;
-     }*/
-     /*#heartphoto{
-       width : 30px;
-       height: 25px;
-     }*/
+     /*検索ボタンの設定*/
+     .key{
+       display: flex;
+       justify-content: center;
+     }
+
      .photo{
        object-fit:cover;
        width :200px;
        height: 200px;
+     }
+     .beside{
+       display: flex;
+       justify-content: center;
      }
