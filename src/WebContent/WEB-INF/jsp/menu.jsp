@@ -17,14 +17,17 @@
   <div class="wrapper">
     <form method="POST" action="/coffee_Milk/SearchServlet">
       <p>キーワード検索</p>
+        <div class="key">
         <input type="text" size="30" name="keyWord">
-          <div class= "serch">
+          <div class= "search">
             <input type="submit" name="REGIST" value="検索"><br>
           </div>
+        </div>
     </form>
 <h1>ペット投稿一覧</h1>
+ <div class="line">
   <p>並べ替え</p>
-    <form id="posts_list" method="POST" action="/coffee_Milk/SearchServlet" onsubmit="return checkPostList();">
+    <form id="posts_list" method="POST" action="/coffee_Milk/PetMenuTimeServlet" onsubmit="return checkPostList();">
       <div class= "botan"><!--データをservletにとばすならtypeはsubmit、JavaScriptならbutton -->
         <input type="submit" name="post" value="投稿順" >
       </div>
@@ -32,6 +35,7 @@
        <form id="posts_list" method="POST" action="/coffee_Milk/PetListShufffleServlet">
           <input type="submit" name="shuffle" value="シャッフル">
        </form>
+  </div>
       <!--  <div class="mouse">
             <input type="submit" name="favorite" value="いいね順">
             <span class="word">
