@@ -4,12 +4,19 @@
 body{
 	margin:5px;
 }
+
 /*文字を中心に配置*/
 .wrapper {
-  text-align: center;
+  text-align: right;
   margin: 0 auto 0 auto;	/*中央揃え */
   width: 700px;	          /* 幅を固定 */
   justify-content: center;
+}
+.sub{
+	position: absolute;
+  left: 1%;
+  top: 200px;
+  text-align: center;
 }
 
 /*いいね順を押すと総合週別が出る*/
@@ -118,7 +125,7 @@ section{
      }
      /*ハートの位置設定*/
      .heart{
-        margin:0px 0px 10px 130px;
+        margin:0px 0px 10px 180px;
      }
      /*検索ボタンの設定*/
      .key{
@@ -130,4 +137,8 @@ section{
        object-fit:cover;
        width :200px;
        height: 200px;
+     }
+     .beside{
+       display: flex;
+       justify-content: center;
      }

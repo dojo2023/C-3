@@ -14,19 +14,21 @@
 <body>
 <!-- ヘッダー挿入 -->
 <%@ include file="header.jsp" %>
+ <h1 style="text-align:center;">ペット投稿一覧</h1>
   <div class="wrapper">
+   <div class="sub">
     <form method="POST" action="/coffee_Milk/SearchServlet">
       <p>キーワード検索</p>
         <div class="key">
-        <input type="text" size="30" name="keyWord">
+        <input type="text" size="25" name="keyWord">
           <div class= "search">
             <input type="submit" name="REGIST" value="検索"><br>
           </div>
         </div>
     </form>
-<h1>ペット投稿一覧</h1>
  <div class="line">
   <p>並べ替え</p>
+   <div class= "beside">
     <form id="posts_list" method="POST" action="/coffee_Milk/PetMenuTimeServlet" onsubmit="return checkPostList();">
       <div class= "botan"><!--データをservletにとばすならtypeはsubmit、JavaScriptならbutton -->
         <input type="submit" name="post" value="投稿順" >
@@ -35,7 +37,7 @@
        <form id="posts_list" method="POST" action="/coffee_Milk/PetListShufffleServlet">
           <input type="submit" name="shuffle" value="シャッフル">
        </form>
-  </div>
+    </div>
       <!--  <div class="mouse">
             <input type="submit" name="favorite" value="いいね順">
             <span class="word">
@@ -44,14 +46,16 @@
             </span>
             </div>-->
    <p>いいねランキング</p>
+    <div class ="beside">
     <form id="favorite_id" method="POST" action="/coffee_Milk/PetFavRankServlet">
       <input type="submit" name="favorite" value="総合">
     </form>
     <form id="favorite_id" method="POST" action="/coffee_Milk/PetWeeklyFavRankServlet">
     <input type="submit" name="weekly" value="週別">
     </form>
-
-
+    </div>
+    </div>
+    </div>
       <!--<div class="menu_outer01">
             <form id="favorite_id" method="POST" action="/coffee_Milk/PetFavRankServlet">
             <ul class="list">
@@ -68,7 +72,7 @@
 <c:forEach var="e" items="${PetList}" >
   <table class = petpost>
       <tr>
-        <td><c:out value="${e.title}"></c:out></td>
+        <td style="font-size:20px; border-bottom: solid darkgreen thin; " ><c:out value="${e.title}"></c:out></td>
       </tr>
       <tr>
 	    <td><c:out value="${e.genre}"></c:out></td>
