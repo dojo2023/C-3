@@ -37,7 +37,7 @@ body{
 
 /*投稿一覧の写真の設定*/
 .petpost {
-	margin :3px;
+	margin :5px 3px 5px 3px;
     border: 1px solid #333333;
 	float:left;
 	box-sizing: border-box;
@@ -53,7 +53,7 @@ section{
 /*ページ番号の設定*/
 .page{
 	display: block;
-    margin-block-start: 100em;
+    margin-block-start: 95em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
