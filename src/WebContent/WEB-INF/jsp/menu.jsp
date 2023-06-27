@@ -57,7 +57,7 @@
             </ul>
             </form>
             </div>-->
-
+<section>
 <c:if test="${empty PetList}">
    <p>一致するデータはありません。</p>
 </c:if>
@@ -97,6 +97,7 @@
       </tr>
   </table>
 </c:forEach>
+</section>
 </div>
   <!-- マウスカーソルを合わせると文字が出てくる -->
   <span class="word">
