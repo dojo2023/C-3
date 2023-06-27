@@ -44,8 +44,7 @@ body{
 	width: 50px;
 	padding:0px;
 	/*justify-content: center;*/
-	border-collapse: collapse;
-	table-layout: fixed;
+
 }
 section{
 	padding: 0 0 1px;
@@ -122,19 +121,11 @@ section{
         margin:0px 0px 10px 130px;
      }
      /*検索ボタンの設定*/
-     .serch{
-       margin:0px 0px 0px 280px;
-       width: 30px;
+     .key{
+       display: flex;
+       justify-content: center;
      }
-     /*img {
-       object-fit:cover;
-       width :220px;
-       height: 200px;
-     }*/
-     /*#heartphoto{
-       width : 30px;
-       height: 25px;
-     }*/
+
      .photo{
        object-fit:cover;
        width :200px;
