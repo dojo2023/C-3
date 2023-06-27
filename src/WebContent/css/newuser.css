@@ -47,7 +47,7 @@ label{
 /* newpw */
 #newpw {
 	font-size:30px;
-	line-height:50px;
+	line-height:80px;
 	color:#805C39;
 }
 
@@ -79,6 +79,8 @@ label{
 #menu{
 	margin-left: 150px;
 	font-family: "うずらフォント";
+	line-height:5px;
+	font-size:20px;
 }
 /* footer*/
 footer {

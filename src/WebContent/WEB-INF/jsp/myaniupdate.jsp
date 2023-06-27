@@ -8,7 +8,7 @@
 <title>Myペット図鑑編集</title>
 
 <!-- スタイルシートの挿入 -->
-<link rel="stylesheet" href="/coffee_Milk/css/myaniadd.css">
+<link rel="stylesheet" href="/coffee_Milk/css/myaniupdate.css">
 
 </head>
 <body>
