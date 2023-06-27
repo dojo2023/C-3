@@ -19,16 +19,18 @@
         <tr>
             <td>
                 <label>
-                    ユーザーID:
+                    <div class="ID">ID
                         <input type="text" name="USER_ID" required="required" style="width: 200px; height: 30px; background:#FFFFEF"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
+					</div>
                 </label>
             </td>
         </tr>
         <tr>
             <td>
                 <label>
-                    パスワード:
+                    <div class="PASS">パスワード
                         <input type="password" name="USER_PW" required="required" style="width: 200px; height: 30px; background:#FFFFEF"> <!--requiredを入れることで入力すべきフィールドが空であれば警告を表示させる。-->
+					</div>
                 </label>
             </td>
         </tr>
