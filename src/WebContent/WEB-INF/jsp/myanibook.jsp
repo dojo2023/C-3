@@ -44,31 +44,37 @@
 
 		<!-- ログイン状態 && 所有者 の場合 -->
 		<!-- ペット追加ボタンを表示 -->
-	  	<c:choose>
-	  		<!-- ログイン〇、閲覧× -->
-			<c:when test="${!empty id}">
+		<!-- ログイン〇、閲覧× と ログイン〇、閲覧〇、ログインID=ペット図鑑ID -->
+		<c:if test="${pet_button}">
+			<!-- add_pet_buttonの変数がtrueなら -->
+			<div class="addpet">
+						1
+				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
+				    	<span id="error_message"></span>
+				    </div>
+		</c:if>
+
+<!--  		<c:if test="${!empty id}">
+				<c:choose>
  				<c:when test="${empty pbi}">
 					<div class="addpet">
+						1
 				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
-				    	<!-- このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成 -->
 				    	<span id="error_message"></span>
 				    </div>
 				</c:when>
-				<!-- ログイン〇、閲覧〇、ログインID=ペット図鑑ID -->
-				<c:when test="${!empty pbi}">
-					<c:when test="${id eq pbi_id}">
+				<c:when test="${empty pbi}">
+					<c:if test="${id eq pbi_id}">
 						<div class="addpet">
-				  			<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
-			    			このボタンは5匹ペットが登録されていた場合javascriptで阻止される。下にエラーメッセージ表示用のspanタグを作成
-				  	 	 	<span id="error_message"></span>
-			   		 	</div>
-					</c:when>
+							2
+			  				<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
+			  		 	 	<span id="error_message"></span>
+		   			 	</div>
+					</c:if>
 				</c:when>
-			</c:when>
-		</c:choose>
-
-
-<!-- ここまでやったよ -->
+			</c:choose>
+		</c:if>
+-->
 
 
 		<!-- ログイン状態 && 登録データなし の場合 -->
@@ -160,14 +166,14 @@
 							</table>
 						<!-- ログイン状態 && 非閲覧状態 の場合 -->
 						<!-- 編集、削除、更新ボタンを表示 -->
-<!--  					<c:if test="${empty pbi}"> -->
+	  					<c:if test="${pet_button}">
 							<!-- ここではペット図鑑のIDとアプデとデリトの識別変数cmdを渡すようにしている。 -->
 							<div class="flex">
 								<div class="item"><h2><a href="/coffee_Milk/UpdateDeleteServlet?id1=<c:out value="${e.id}"></c:out>&cmd=1&id2=<c:out value="${e.id}"></c:out>">編集</a></h2></div>
 								<div class="item"><h2><a href="/coffee_Milk/UpdateDeleteServlet?id2=<c:out value="${e.id}"></c:out>&cmd=2">削除</a></h2></div>
 								<div class="item"><h2><a href="/coffee_Milk/AniPostServlet?id=<c:out value="${e.id}"></c:out>">投稿</a></h2></div>
 							</div>
-<!--					</c:if> -->
+						</c:if>
 
 						<!-- 非閲覧状態でも所有者の場合
 						<!-- 編集、削除、更新ボタンを表示
