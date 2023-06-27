@@ -29,7 +29,7 @@ VALUES('1','花を咥えた愛犬','犬','#ゴールデンレトリバー','/cof
 ,('11','ｸﾞﾃﾞｰ','猫','#人懐っこい','/coffee_Milk/img/neko5.jpg',CURRENT_TIMESTAMP)
 
 
-,('12','金魚','水生生物','','/coffee_Milk/img/suisei1.jpg',CURRENT_TIMESTAMP)
+,('12','金魚','水生生物','#金魚','/coffee_Milk/img/suisei1.jpg',CURRENT_TIMESTAMP)
 
 
 ,('13','水草と出目金','水生生物','#黒出目金','/coffee_Milk/img/suisei2.jpg',CURRENT_TIMESTAMP)
