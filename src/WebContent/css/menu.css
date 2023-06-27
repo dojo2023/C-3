@@ -2,7 +2,7 @@
 
 /*文字全体を下に下げる*/
 body{
-	margin:50px;
+	margin:5px;
 }
 /*文字を中心に配置*/
 .wrapper {
@@ -37,14 +37,19 @@ body{
 
 /*投稿一覧の写真の設定*/
 .petpost {
-	padding: 10px;
-	margin :10px;
+	margin :3px;
     border: 1px solid #333333;
 	float:left;
 	box-sizing: border-box;
 	width: 50px;
 	padding:0px;
 	/*justify-content: center;*/
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+section{
+	padding: 0 0 1px;
+    position: relative;
 }
 /*ページ番号の設定*/
 .page{
@@ -114,11 +119,16 @@ body{
      }
      /*ハートの位置設定*/
      .heart{
-        margin:0px 0px 0px 83px;
+        margin:0px 0px 10px 130px;
+     }
+     /*検索ボタンの設定*/
+     .serch{
+       margin:0px 0px 0px 280px;
+       width: 30px;
      }
      /*img {
        object-fit:cover;
-       width :200px;
+       width :220px;
        height: 200px;
      }*/
      /*#heartphoto{
