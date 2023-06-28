@@ -48,8 +48,7 @@
 		<c:if test="${pet_button}">
 			<!-- add_pet_buttonの変数がtrueなら -->
 			<div class="addpet">
-						1
-				  		<h2><a href="/coffee_Milk/MyAniAddServlet"><img src="img/ペット追加ボタン.png" alt="ペット追加"></a></h2>
+				  		<h2><a href="/coffee_Milk/MyAniAddServlet">ペット追加</a></h2>
 				    	<span id="error_message"></span>
 				    </div>
 		</c:if>
